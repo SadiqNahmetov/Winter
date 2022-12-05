@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 #navbar-area {
@@ -60,6 +61,22 @@
   color: #65A3F2 !important;
 }
 #navbar-area .container .basket i sup {
+  font-size: small;
+  top: -20px;
+  right: 5px;
+}
+#navbar-area .container .heart {
+  margin-left: 5px;
+}
+#navbar-area .container .heart i {
+  font-size: 25px;
+  color: black;
+  margin-top: 13px;
+}
+#navbar-area .container .heart i:hover {
+  color: #65A3F2 !important;
+}
+#navbar-area .container .heart i sup {
   font-size: small;
   top: -20px;
   right: 5px;
@@ -133,184 +150,116 @@
     margin-top: 15px;
     margin-left: 20px;
   }
+  #navbar-area .heart i {
+    margin-left: 14px;
+  }
 }
-#product-mapp {
-  margin-top: 30px;
+#login {
+  padding-top: 6%;
+  padding-bottom: 6%;
 }
-#product-mapp iframe {
-  filter: brightness(0.5);
-}
-
-#aa-contact .aa-contact-area {
-  display: inline;
-  float: left;
-  padding: 50px 0;
+#login .login-area {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#aa-contact .aa-contact-area .aa-contact-top {
-  background-color: #FFF;
-  display: inline;
-  float: left;
-  padding: 50px 100px;
-  text-align: center;
+#login .login-area .login {
+  position: relative;
+  right: 50px;
+  top: 15%;
+  background: white;
+  width: 50%;
+  height: 345px;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+#login .login-area .login label {
+  margin: 20px 0;
+  height: 30px;
+  position: relative;
+  display: inline-block;
+}
+#login .login-area .login label span {
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.2s;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity: 0.5;
+}
+#login .login-area .login label input {
+  padding: 10px;
   width: 100%;
+  border: none;
+  border-bottom: 0.5px solid;
+  outline: none;
 }
-#aa-contact .aa-contact-area .aa-contact-top h2 {
-  color: #555;
-  padding-bottom: 0px;
+#login .login-area .login label input:focus {
+  border-bottom: 2px solid #283593;
 }
-#aa-contact .aa-contact-area .aa-contact-top p {
-  color: #555;
+#login .login-area .login label input:focus + span {
+  opacity: 1;
+  transform: scale(0.75) translateY(-100%) translateX(-16px);
+  color: #283593;
 }
-#aa-contact .aa-contact-area .aa-contact-map {
-  display: inline;
-  float: left;
-  width: 100%;
+#login .login-area .login label input:not(:-moz-placeholder-shown) + span {
+  opacity: 1;
+  transform: scale(0.75) translateY(-100%) translateX(-30px);
 }
-#aa-contact .aa-contact-area .aa-contact-map iframe {
-  margin-bottom: -6px;
+#login .login-area .login label input:not(:-ms-input-placeholder) + span {
+  opacity: 1;
+  transform: scale(0.75) translateY(-100%) translateX(-30px);
 }
-#aa-contact .aa-contact-area .aa-contact-address {
-  background-color: #FFF;
-  display: inline;
-  float: left;
-  padding: 50px;
-  width: 100%;
+#login .login-area .login label input:not(:placeholder-shown) + span {
+  opacity: 1;
+  transform: scale(0.75) translateY(-100%) translateX(-30px);
 }
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left {
-  display: inline;
-  float: left;
-  width: 100%;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left a {
+#login .login-area .login #sign-in {
   background-color: #2F7DFC;
-  padding: 12px 25px;
+  padding: 7px 20px;
   border-radius: 50px;
   text-transform: uppercase;
   transition: 0.5s;
+  position: absolute;
   text-decoration: none;
-  color: #fff;
+  color: white;
+  transition: 0.3s;
 }
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left a:hover {
-  background-color: red;
-  color: #fff;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left .comments-form {
-  margin-top: 10px;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left .comments-form input {
-  height: 40px;
-  font-size: 16px;
-  border-radius: 0;
-  transition: all 0.5s;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left .comments-form textarea {
-  border-radius: 0;
-  font-size: 16px;
-  height: 200px;
-  padding: 10px;
-  width: 70%;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left .comments-form .form-control:focus {
-  box-shadow: none;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left .comments-form .form-group {
-  margin-bottom: 20px;
-  float: left;
-  width: 100% !important;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left .comments-form button {
-  width: 100px;
-  transition: all 0.5s;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-right {
-  display: inline;
-  float: left;
-  width: 100%;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-right address h4 {
-  font-size: 22px;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-right address span {
-  margin-right: 10px;
-  color: #000000;
-}
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-right address a {
-  text-decoration: none;
+#login .login-area .login #sign-in:hover {
+  background-color: rgb(218, 10, 10);
   color: black;
 }
-#aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-right address a:hover {
-  color: #2F7DFC;
+#login .login-area .login .forgot {
+  margin-top: 15px;
+  font-size: 18px;
+}
+#login .login-area .login .forgot input {
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+#login .login-area .login .forgot a {
+  color: #283593;
+  text-decoration: none;
+  float: right;
+}
+#login .login-area .login .forgot a:hover {
+  color: rgb(218, 10, 10);
+}
+#login .login-area .login .sign-in-hov {
+  color: #283593;
+  text-decoration: none;
+}
+#login .login-area .login .sign-in-hov:hover {
+  color: rgb(218, 10, 10);
 }
 
-@media (max-width: 992px) {
-  #aa-contact .container .aa-contact-address-right address p {
-    font-size: 13px;
-  }
-  #aa-contact .container .aa-contact-address-right address a {
-    font-size: 13px;
-  }
-}
-@media (max-width: 768px) {
-  #aa-contact .container .aa-contact-address-right address {
-    margin-top: 15px;
-  }
-}
-#instagram-photo {
-  margin-top: 50px;
-}
-#instagram-photo .container .img-opacity {
-  width: 100%;
-  display: flex;
-  position: relative;
-  cursor: pointer;
-}
-#instagram-photo .container .img-opacity .social {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  display: none;
-}
-#instagram-photo .container .img-opacity .social a i {
-  font-size: 50px;
-  color: #fff;
-}
-#instagram-photo .container .img-opacity .owerlay {
-  visibility: hidden;
-  width: 306px;
-  height: 306px;
-  position: absolute;
-  background-color: #007bff;
-  opacity: 0.6;
-}
-#instagram-photo .container .img-opacity a i {
-  margin-top: 150px;
-}
-#instagram-photo .container .img-opacity:hover .owerlay {
-  visibility: visible;
-  opacity: 0.4s;
-  z-index: 2;
-  transition: 0.7s;
-}
-#instagram-photo .container .img-opacity:hover .social {
-  display: block;
-  z-index: 3;
-  transition: 0.7s;
-}
-#instagram-photo .container .img-opacity img {
-  width: 100%;
-}
-
-@media (max-width: 992px) {
-  #instagram-photo .container .img-opacity img {
-    margin-top: 15px;
-    border-radius: 10px;
-    margin-right: 0px;
-  }
-}
 #footer-area {
   background-color: #000000;
   margin-top: 50px;
@@ -392,4 +341,4 @@
     width: 100%;
     background-color: #000000;
   }
-}/*# sourceMappingURL=contact.css.map */
+}/*# sourceMappingURL=login.css.map */

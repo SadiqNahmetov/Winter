@@ -64,6 +64,22 @@
   top: -20px;
   right: 5px;
 }
+#navbar-area .container .heart {
+  margin-left: 5px;
+}
+#navbar-area .container .heart i {
+  font-size: 25px;
+  color: black;
+  margin-top: 13px;
+}
+#navbar-area .container .heart i:hover {
+  color: #65A3F2 !important;
+}
+#navbar-area .container .heart i sup {
+  font-size: small;
+  top: -20px;
+  right: 5px;
+}
 #navbar-area .container .dropdown {
   position: relative;
   display: inline-block;
@@ -104,10 +120,10 @@
 }
 
 @media (max-width: 1200px) {
-  #navbar-area .input input {
+  #navbar-area .search-icon input {
     width: 100px !important;
   }
-  #navbar-area .input i {
+  #navbar-area .search-icon i {
     font-size: small;
     margin-right: -10px;
   }
@@ -119,11 +135,11 @@
   #navbar-area {
     position: relative;
   }
-  #navbar-area .input-icon {
+  #navbar-area .search-icon {
     float: left;
     margin-left: 120px;
   }
-  #navbar-area .input-icon input {
+  #navbar-area .search-icon input {
     width: 100px !important;
   }
   #navbar-area .dropdown {
@@ -132,6 +148,9 @@
   #navbar-area .basket {
     margin-top: 15px;
     margin-left: 20px;
+  }
+  #navbar-area .heart i {
+    margin-left: 14px;
   }
 }
 #slider-img {
@@ -290,6 +309,7 @@
 }
 #feature-part .container .card .img img {
   width: 100%;
+  transition: 0.7s;
 }
 #feature-part .container .card .text {
   width: 100%;
@@ -434,8 +454,164 @@
     font-size: 15px;
   }
 }
+#slider-area {
+  margin-top: 40px;
+}
+#slider-area .container .ourPr {
+  width: 100%;
+  text-align: center;
+}
+#slider-area .container .ourPr h3 {
+  margin-top: 25px;
+}
+#slider-area .container .swiper {
+  width: 100%;
+  height: 100%;
+}
+#slider-area .container .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#slider-area .container .swiper-slide .card-pr {
+  width: 100%;
+  background-color: #fff;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.7s ease-in-out;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 5%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop a {
+  text-decoration: none;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop a li {
+  list-style: none;
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  margin-left: 80%;
+  border-radius: 7px;
+  transition: 0.9s;
+  transition: transform 0.5s;
+  transform: translateX(60px);
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop a li i {
+  font-size: 28px;
+  color: black;
+  transition: 0.5s;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop a li span {
+  position: absolute;
+  right: 66px;
+  margin-top: 28px;
+  transform: translateY(-50%) translateX(-20px);
+  white-space: nowrap;
+  padding: 4px 6px;
+  background-color: #fff;
+  color: #000000;
+  font-weight: 200;
+  font-size: 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.5s;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop a li:hover {
+  transition: 0.8s;
+  background-color: #ff2020;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop a li:hover i {
+  transition: 0.5s;
+  color: #fff;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop a li:hover span {
+  transform: translateY(-50%) translateX(0px);
+  opacity: 1;
+}
+#slider-area .container .swiper-slide .card-pr .imagesBx .icon-shop a li:hover span ::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  transform: rotateY(-50%) rotate(45deg);
+}
+#slider-area .container .swiper-slide .card-pr .content {
+  padding: 10px;
+}
+#slider-area .container .swiper-slide .card-pr .content .productName {
+  width: 100%;
+  text-align: center;
+}
+#slider-area .container .swiper-slide .card-pr .content .productName a {
+  text-decoration: none;
+  font-size: 22px;
+  color: #000000;
+  margin: 5px 0;
+  font-weight: 400;
+}
+#slider-area .container .swiper-slide .card-pr .content .productName a:hover {
+  color: #2F7DFC;
+}
+#slider-area .container .swiper-slide .card-pr .content .price {
+  display: flex;
+  margin-left: 30%;
+  gap: 5px;
+}
+#slider-area .container .swiper-slide .card-pr .content .price span {
+  font-size: 18px;
+  color: #171700;
+  font-weight: 400;
+  margin-left: 2px;
+  opacity: 0.5;
+}
+#slider-area .container .swiper-slide .card-pr:hover .icon-shop a li {
+  transform: translateX(0px);
+}
+#slider-area .container .swiper-slide .card-pr:hover .imagesBx img {
+  transition: 0.7s;
+  transform: scale(1.2);
+}
+#slider-area .container .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 #service {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 #service .container .cards h3 {
   margin-top: 35px;
@@ -538,6 +714,9 @@
 #footer-area .container .footer-side .footer-info .footer-logo p {
   margin-top: 25px;
   color: white;
+}
+#footer-area .container .footer-side .footer-info .footer-logo p:hover {
+  color: #007bff;
 }
 #footer-area .container .footer-side .footer-info .social ul {
   display: flex;
