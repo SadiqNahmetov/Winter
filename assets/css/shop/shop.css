@@ -165,7 +165,6 @@
   margin-top: 50px;
   color: #171700;
   padding: 15px;
-  background-color: #F4F4F4;
   border-radius: 5px;
 }
 #product-area .category {
@@ -208,17 +207,147 @@
   align-items: center;
   justify-content: center;
   background-color: #E8F0F2;
+  padding-top: 10px;
 }
 #product-area .filter-main .filter-text h3 {
   font-size: 21px;
 }
-#product-area .filter {
+#product-area .filter-main .filter {
   background-color: #FFFFFF;
   border-radius: 5px;
+  line-height: 30px;
 }
-#product-area .filter h5 {
+#product-area .filter-main .filter h5 {
   text-align: center;
   padding: 10px;
+}
+#product-area .filter-main .filter form input {
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+}
+#product-area .filter-main .filter form label {
+  margin-left: 8px;
+}
+#product-area .main-range {
+  width: 100%;
+  height: 230px;
+  border-radius: 3px;
+  color: black;
+  border: 0.2px solid whitesmoke;
+  background-color: white;
+  margin-top: 30px;
+  position: relative;
+}
+#product-area .main-range .range-text {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E8F0F2;
+  padding-top: 10px;
+}
+#product-area .main-range .range-text h3 {
+  font-size: 21px;
+}
+#product-area .main-range .range-value {
+  background-color: red;
+  width: 44%;
+  position: relative;
+  margin: auto;
+  padding: 10px 0;
+  border-radius: 5px;
+  font-size: 25px;
+  color: #fff;
+  margin-top: 25px;
+  text-align: center;
+}
+#product-area .main-range .range-value ::before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  margin: auto;
+  bottom: -14px;
+  left: 0;
+  right: 0;
+  border-top: 15px solid red;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+#product-area .main-range .range-slider-main {
+  width: 100%;
+  margin-top: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#product-area .main-range .range-slider-main .slider-track {
+  background-color: #FF3368;
+  width: 85%;
+  height: 10px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+}
+#product-area .main-range .range-slider-main input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 85%;
+  outline: none;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  pointer-events: none;
+}
+#product-area .main-range .range-slider-main input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 10px;
+}
+#product-area .main-range .range-slider-main input[type=range]::-moz-range-track {
+  -moz-appearance: none;
+  height: 10px;
+}
+#product-area .main-range .range-slider-main input[type=range]::-ms-track {
+  appearance: none;
+  height: 10px;
+}
+#product-area .main-range .range-slider-main input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.1em;
+  width: 1.1em;
+  background-color: #FF3368;
+  cursor: pointer;
+  pointer-events: auto;
+  border-radius: 50%;
+}
+#product-area .main-range .range-slider-main input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 1.1em;
+  width: 1.1em;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  background-color: #FF3368;
+}
+#product-area .main-range .range-slider-main input[type=range]::-ms-thumb {
+  appearance: none;
+  height: 1.1em;
+  width: 1.1em;
+  border-radius: 50%;
+  background-color: #FF3368;
+  pointer-events: auto;
+}
+#product-area .main-range .range-slider-main input[type=range]:active::-webkit-slider-thumb {
+  background-color: #fff;
+  border: 1px solid #FF3368;
 }
 #product-area .card {
   width: 100%;
@@ -345,6 +474,21 @@
   transition: 0.7s;
   transform: scale(1.2);
 }
+#product-area .show-more {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+#product-area .show-more .my-button {
+  width: 110px;
+  height: 40px;
+  border: none;
+  border-radius: 50px;
+  background-color: #2F7DFC;
+  color: white;
+}
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
   .card .contentBox .name {
@@ -448,6 +592,7 @@
   margin-top: 15px;
 }
 #footer-area .container .footer-side .footer-info h1 {
+  font-size: 30px;
   color: white;
 }
 #footer-area .container .footer-side .footer-info ul {

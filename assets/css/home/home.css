@@ -159,6 +159,7 @@
 #slider-img .swiper {
   width: 100%;
   height: 600px;
+  border-radius: 10px;
 }
 #slider-img .swiper .swiper-slide {
   width: 100%;
@@ -172,7 +173,6 @@
 #slider-img .swiper .swiper-slide .img img {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
   filter: brightness(0.5);
   z-index: -1;
   -o-object-fit: cover;
@@ -288,6 +288,21 @@
     padding: 4px 10px;
     border-radius: 50px;
     font-size: 16px;
+  }
+}
+#service {
+  margin-top: 70px;
+}
+#service .container .cards h3 {
+  margin-top: 35px;
+}
+
+@media (max-width: 768px) {
+  #service .container .cards {
+    margin-left: 35%;
+  }
+  #service .container .cards h3 {
+    margin-top: 16px;
   }
 }
 #feature-part {
@@ -480,6 +495,7 @@
 #slider-area .container .swiper-slide .card-pr {
   width: 100%;
   background-color: #fff;
+  margin-top: 50px;
 }
 #slider-area .container .swiper-slide .card-pr .imagesBx {
   position: relative;
@@ -610,21 +626,39 @@
      object-fit: cover;
 }
 
-#service {
-  margin-top: 70px;
+#brand-area {
+  margin-bottom: 80px;
 }
-#service .container .cards h3 {
-  margin-top: 35px;
+#brand-area .container h3 {
+  text-align: center;
+  margin-top: 50px;
+}
+#brand-area .container .swiper {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  overflow: hidden;
+  margin-top: 30px;
+}
+#brand-area .container .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#brand-area .container .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+#brand-area .container .swiper-slide img:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
-@media (max-width: 768px) {
-  #service .container .cards {
-    margin-left: 35%;
-  }
-  #service .container .cards h3 {
-    margin-top: 16px;
-  }
-}
 #instagram-photo {
   margin-top: 50px;
 }
@@ -691,6 +725,7 @@
   margin-top: 15px;
 }
 #footer-area .container .footer-side .footer-info h1 {
+  font-size: 30px;
   color: white;
 }
 #footer-area .container .footer-side .footer-info ul {

@@ -157,6 +157,7 @@
 #login {
   padding-top: 6%;
   padding-bottom: 6%;
+  margin-top: 6px;
 }
 #login .login-area {
   width: 100%;
@@ -164,100 +165,169 @@
   justify-content: center;
   align-items: center;
 }
-#login .login-area .login {
-  position: relative;
-  right: 50px;
-  top: 15%;
-  background: white;
-  width: 50%;
-  height: 345px;
-  display: flex;
-  flex-direction: column;
-  padding: 22px;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-#login .login-area .login label {
-  margin: 20px 0;
-  height: 30px;
-  position: relative;
-  display: inline-block;
-}
-#login .login-area .login label span {
-  padding: 10px;
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transition: 0.2s;
-  transition-timing-function: ease;
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-  opacity: 0.5;
-}
-#login .login-area .login label input {
-  padding: 10px;
+#login .login-area .circle {
   width: 100%;
-  border: none;
-  border-bottom: 0.5px solid;
-  outline: none;
-}
-#login .login-area .login label input:focus {
-  border-bottom: 2px solid #283593;
-}
-#login .login-area .login label input:focus + span {
-  opacity: 1;
-  transform: scale(0.75) translateY(-100%) translateX(-16px);
-  color: #283593;
-}
-#login .login-area .login label input:not(:-moz-placeholder-shown) + span {
-  opacity: 1;
-  transform: scale(0.75) translateY(-100%) translateX(-30px);
-}
-#login .login-area .login label input:not(:-ms-input-placeholder) + span {
-  opacity: 1;
-  transform: scale(0.75) translateY(-100%) translateX(-30px);
-}
-#login .login-area .login label input:not(:placeholder-shown) + span {
-  opacity: 1;
-  transform: scale(0.75) translateY(-100%) translateX(-30px);
-}
-#login .login-area .login #sign-in {
-  background-color: #2F7DFC;
-  padding: 7px 20px;
-  border-radius: 50px;
-  text-transform: uppercase;
-  transition: 0.5s;
+  height: 100%;
   position: absolute;
+  background: #3866f2;
+  border-radius: 0 0 100% 0;
+}
+#login .login-area .form {
+  background-color: #fff;
+  margin: auto;
+  width: 90%;
+  max-width: 400px;
+  padding: 4.5em 3em;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.877);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.2px);
+  -webkit-backdrop-filter: blur(12.2px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 1s;
+}
+#login .login-area .form:hover {
+  transform: scale(1.02);
+  transition: 1s;
+}
+#login .login-area .form p a {
   text-decoration: none;
-  color: white;
-  transition: 0.3s;
 }
-#login .login-area .login #sign-in:hover {
-  background-color: rgb(218, 10, 10);
-  color: black;
+#login .login-area .form p a:hover {
+  color: red;
 }
-#login .login-area .login .forgot {
-  margin-top: 15px;
-  font-size: 18px;
+#login .login-area .form-title {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
 }
-#login .login-area .login .forgot input {
-  transform: scale(1.5);
-  margin-right: 10px;
+#login .login-area .form-paragraph {
+  font-weight: 300;
 }
-#login .login-area .login .forgot a {
-  color: #283593;
+#login .login-area .form-link {
+  font-weight: 400;
+  color: #000;
+}
+#login .login-area .form-container {
+  margin-top: 3em;
+  display: grid;
+  gap: 2.5em;
+}
+#login .login-area .form-container .forgot {
+  text-align: right;
   text-decoration: none;
-  float: right;
+  margin-top: -25px;
 }
-#login .login-area .login .forgot a:hover {
-  color: rgb(218, 10, 10);
+#login .login-area .form-container .forgot:hover {
+  color: red;
 }
-#login .login-area .login .sign-in-hov {
-  color: #283593;
-  text-decoration: none;
+#login .login-area .form-group {
+  position: relative;
+  color: rgba(87, 87, 87, 0.4941176471);
 }
-#login .login-area .login .sign-in-hov:hover {
-  color: rgb(218, 10, 10);
+#login .login-area .form-input {
+  width: 100%;
+  background: none;
+  --color: #706c6c;
+  font-size: 1rem;
+  padding: 0.6em 0.3em;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--color);
+  font-family: "Roboto", sans-serif;
+}
+#login .login-area .form-input:not(:-moz-placeholder-shown) {
+  color: #4d4646;
+}
+#login .login-area .form-input:not(:-ms-input-placeholder) {
+  color: #4d4646;
+}
+#login .login-area .form-input:not(:placeholder-shown) {
+  color: #4d4646;
+}
+#login .login-area .form-input:not(:-moz-placeholder-shown) + .form-label {
+  transform: translateY(-12px) scale(0.7);
+  transform-origin: left top;
+  color: #3866f2;
+}
+#login .login-area .form-input:not(:-ms-input-placeholder) + .form-label {
+  transform: translateY(-12px) scale(0.7);
+  transform-origin: left top;
+  color: #3866f2;
+}
+#login .login-area .form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-12px) scale(0.7);
+  transform-origin: left top;
+  color: #3866f2;
+}
+#login .login-area .form-input:not(:-moz-placeholder-shown) ~ .form-line {
+  transform: scale(1);
+}
+#login .login-area .form-input:not(:-ms-input-placeholder) ~ .form-line {
+  transform: scale(1);
+}
+#login .login-area .form-input:not(:placeholder-shown) ~ .form-line {
+  transform: scale(1);
+}
+#login .login-area .form-input:focus + .form-label {
+  transform: translateY(-12px) scale(0.7);
+  transform-origin: left top;
+  color: #3866f2;
+}
+#login .login-area .form-input:focus ~ .form-line {
+  transform: scale(1);
+}
+#login .login-area .form-label {
+  color: var(--color);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transition: transform 0.5s, color 0.3s;
+}
+#login .login-area .form-submit {
+  background: #3866f2;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.8em 0;
+  border: none;
+  border-radius: 0.5em;
+}
+#login .login-area .form-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #3866f2;
+  transform: scale(0);
+  transform: left bottom;
+  transition: transform 0.4s;
+}
+#login .login-area .Creador {
+  position: fixed;
+  top: 10px;
+  display: flex;
+  left: 80%;
+  justify-content: center;
+  width: 70px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #3866f2;
+}
+#login .login-area .Creador a {
+  color: #fff;
+  font-size: 12px;
+}
+@media (max-width: 425px) {
+  #login .login-area .form-title {
+    font-size: 1.8rem;
+  }
 }
 
 #footer-area {
