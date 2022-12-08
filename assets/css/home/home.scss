@@ -8,12 +8,9 @@
     background-color: #F4F4F4;
 
     .container {
-
         .logo {
             margin-left: 20px;
             margin-right: 40px;
-
-
         }
 
         .nav-center {
@@ -32,7 +29,6 @@
         }
 
         .search-icon {
-
             position: relative;
             display: flex;
             align-items: center;
@@ -49,11 +45,12 @@
                 position: absolute;
                 padding-left: 10px;
                 background-color: #F4F4F4;
+                right: 12px;
             }
 
             a {
                 position: absolute;
-                right: 20px;
+                right: 30px;
                 color: black;
 
                 &:hover {
@@ -76,15 +73,16 @@
                 }
 
                 sup {
-
                     font-size: small;
                     top: -20px;
                     right: 5px;
                 }
             }
         }
-        .heart{
+
+        .heart {
             margin-left: 5px;
+
             i {
                 font-size: 25px;
                 color: black;
@@ -114,7 +112,6 @@
                     display: block;
 
                 }
-
             }
 
             .dropbtn {

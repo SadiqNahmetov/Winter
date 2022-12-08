@@ -39,10 +39,11 @@
   position: absolute;
   padding-left: 10px;
   background-color: #F4F4F4;
+  right: 12px;
 }
 #navbar-area .container .search-icon a {
   position: absolute;
-  right: 20px;
+  right: 30px;
   color: black;
 }
 #navbar-area .container .search-icon a:hover {
@@ -154,9 +155,6 @@
     margin-left: 14px;
   }
 }
-#product-area {
-  margin-bottom: 200px;
-}
 #product-area .row {
   --bs-gutter-y: 1.5rem;
 }
@@ -166,32 +164,6 @@
   color: #171700;
   padding: 15px;
   border-radius: 5px;
-}
-#product-area .category {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-#product-area .category .tab-active {
-  color: #2F7DFC !important;
-}
-#product-area .category .my-btn {
-  display: inline-block;
-  position: relative;
-  color: black;
-  border: none;
-  border-radius: 3px;
-  margin-right: 20px;
-  font-size: 20px;
-  padding: 1px 15px;
-  transition: 0.5s;
-}
-#product-area .category .my-btn:hover {
-  border-radius: 3px;
-  color: #2F7DFC;
-  transition: 0.5s;
 }
 #product-area .filter-main {
   width: 100%;
@@ -252,7 +224,7 @@
   font-size: 21px;
 }
 #product-area .main-range .range-value {
-  background-color: red;
+  background-color: #458AFD;
   width: 44%;
   position: relative;
   margin: auto;
@@ -272,7 +244,7 @@
   bottom: -14px;
   left: 0;
   right: 0;
-  border-top: 15px solid red;
+  border-top: 15px solid #458AFD;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
 }
@@ -349,6 +321,25 @@
   background-color: #fff;
   border: 1px solid #FF3368;
 }
+#product-area .category .tab-active {
+  color: #2F7DFC !important;
+}
+#product-area .category .my-btn {
+  display: inline-block;
+  position: relative;
+  color: black;
+  border: none;
+  border-radius: 3px;
+  margin-right: 20px;
+  font-size: 20px;
+  padding: 1px 15px;
+  transition: 0.5s;
+}
+#product-area .category .my-btn:hover {
+  border-radius: 3px;
+  color: #2F7DFC;
+  transition: 0.5s;
+}
 #product-area .card {
   width: 100%;
   background-color: #fff;
@@ -393,7 +384,7 @@
   border-radius: 7px;
   transition: 0.9s;
   transition: transform 0.5s;
-  transform: translateX(60px);
+  transform: translateX(70px);
 }
 #product-area .card .imagesBx .icon-shop a li i {
   font-size: 28px;
@@ -490,29 +481,42 @@
   color: white;
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-  .card .contentBox .name {
-    font-size: 15px !important;
+@media (max-width: 1400px) {
+  #product-area .container .card .imagesBx .icon-shop li {
+    transform: translateX(60px);
+  }
+  #product-area .container .card:hover .icon-shop a li {
+    transform: translateX(-10px);
   }
 }
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  .card .contentBox .name {
-    font-size: 12px !important;
+@media (max-width: 1200px) {
+  #product-area .container .card .imagesBx .icon-shop li {
+    transform: translateX(60px);
   }
-  .card .contentBox .price {
-    font-size: 14px !important;
-  }
-  .card .contentBox .buy {
-    font-size: 10px !important;
+  #product-area .container .card:hover .icon-shop a li {
+    transform: translateX(-15px);
   }
 }
 @media (max-width: 992px) {
-  .category .my-btn {
-    margin-right: 10px !important;
+  #product-area .container .category .my-btn {
+    padding: 1px 8px;
+  }
+}
+@media (max-width: 768px) {
+  #product-area .container .card .imagesBx .icon-shop li {
+    transform: translateX(105px);
+  }
+  #product-area .container .card:hover .icon-shop a li {
+    transform: translateX(35px);
+  }
+}
+@media (max-width: 517px) {
+  #product-area .container .category .my-btn {
+    padding: 1px 6px;
   }
 }
 #service {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 #service .container .cards h3 {
   margin-top: 35px;
@@ -578,7 +582,6 @@
   #instagram-photo .container .img-opacity img {
     margin-top: 15px;
     border-radius: 10px;
-    margin-left: 66px;
   }
 }
 #footer-area {

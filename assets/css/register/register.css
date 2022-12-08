@@ -39,10 +39,11 @@
   position: absolute;
   padding-left: 10px;
   background-color: #F4F4F4;
+  right: 12px;
 }
 #navbar-area .container .search-icon a {
   position: absolute;
-  right: 20px;
+  right: 30px;
   color: black;
 }
 #navbar-area .container .search-icon a:hover {
@@ -154,26 +155,25 @@
     margin-left: 14px;
   }
 }
-#login {
+#register {
   padding-top: 1%;
   padding-bottom: 6%;
 }
-#login .login-area {
+#register .register-area {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#login .login-area .circle {
+#register .register-area .circle {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #3866f2;
   border-radius: 0 0 100% 0;
   z-index: -1;
   top: 0;
 }
-#login .login-area .form {
+#register .register-area .form {
   background-color: #fff;
   margin: auto;
   width: 90%;
@@ -191,46 +191,46 @@
   transition: 1s;
   margin-top: 50px;
 }
-#login .login-area .form:hover {
+#register .register-area .form:hover {
   transform: scale(1.02);
   transition: 1s;
 }
-#login .login-area .form p a {
+#register .register-area .form p a {
   text-decoration: none;
 }
-#login .login-area .form p a:hover {
+#register .register-area .form p a:hover {
   color: red;
 }
-#login .login-area .form-title {
+#register .register-area .form-title {
   font-size: 2rem;
   margin-bottom: 0.5em;
 }
-#login .login-area .form-paragraph {
+#register .register-area .form-paragraph {
   font-weight: 300;
   margin-top: 20px;
 }
-#login .login-area .form-link {
+#register .register-area .form-link {
   font-weight: 400;
   color: #000;
 }
-#login .login-area .form-container {
+#register .register-area .form-container {
   margin-top: 3em;
   display: grid;
   gap: 2.5em;
 }
-#login .login-area .form-container .forgot {
+#register .register-area .form-container .forgot {
   text-align: right;
   text-decoration: none;
   margin-top: -25px;
 }
-#login .login-area .form-container .forgot:hover {
+#register .register-area .form-container .forgot:hover {
   color: red;
 }
-#login .login-area .form-group {
+#register .register-area .form-group {
   position: relative;
   color: rgba(87, 87, 87, 0.4941176471);
 }
-#login .login-area .form-input {
+#register .register-area .form-input {
   width: 100%;
   background: none;
   --color: #706c6c;
@@ -241,48 +241,48 @@
   border-bottom: 1px solid var(--color);
   font-family: "Roboto", sans-serif;
 }
-#login .login-area .form-input:not(:-moz-placeholder-shown) {
+#register .register-area .form-input:not(:-moz-placeholder-shown) {
   color: #4d4646;
 }
-#login .login-area .form-input:not(:-ms-input-placeholder) {
+#register .register-area .form-input:not(:-ms-input-placeholder) {
   color: #4d4646;
 }
-#login .login-area .form-input:not(:placeholder-shown) {
+#register .register-area .form-input:not(:placeholder-shown) {
   color: #4d4646;
 }
-#login .login-area .form-input:not(:-moz-placeholder-shown) + .form-label {
+#register .register-area .form-input:not(:-moz-placeholder-shown) + .form-label {
   transform: translateY(-12px) scale(0.7);
   transform-origin: left top;
   color: #3866f2;
 }
-#login .login-area .form-input:not(:-ms-input-placeholder) + .form-label {
+#register .register-area .form-input:not(:-ms-input-placeholder) + .form-label {
   transform: translateY(-12px) scale(0.7);
   transform-origin: left top;
   color: #3866f2;
 }
-#login .login-area .form-input:not(:placeholder-shown) + .form-label {
+#register .register-area .form-input:not(:placeholder-shown) + .form-label {
   transform: translateY(-12px) scale(0.7);
   transform-origin: left top;
   color: #3866f2;
 }
-#login .login-area .form-input:not(:-moz-placeholder-shown) ~ .form-line {
+#register .register-area .form-input:not(:-moz-placeholder-shown) ~ .form-line {
   transform: scale(1);
 }
-#login .login-area .form-input:not(:-ms-input-placeholder) ~ .form-line {
+#register .register-area .form-input:not(:-ms-input-placeholder) ~ .form-line {
   transform: scale(1);
 }
-#login .login-area .form-input:not(:placeholder-shown) ~ .form-line {
+#register .register-area .form-input:not(:placeholder-shown) ~ .form-line {
   transform: scale(1);
 }
-#login .login-area .form-input:focus + .form-label {
+#register .register-area .form-input:focus + .form-label {
   transform: translateY(-12px) scale(0.7);
   transform-origin: left top;
   color: #3866f2;
 }
-#login .login-area .form-input:focus ~ .form-line {
+#register .register-area .form-input:focus ~ .form-line {
   transform: scale(1);
 }
-#login .login-area .form-label {
+#register .register-area .form-label {
   color: var(--color);
   cursor: pointer;
   position: absolute;
@@ -291,7 +291,7 @@
   transform: translateY(10px);
   transition: transform 0.5s, color 0.3s;
 }
-#login .login-area .form-submit {
+#register .register-area .form-submit {
   background: #3866f2;
   color: #fff;
   font-family: "Roboto", sans-serif;
@@ -301,7 +301,7 @@
   border: none;
   border-radius: 0.5em;
 }
-#login .login-area .form-line {
+#register .register-area .form-line {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -312,7 +312,7 @@
   transform: left bottom;
   transition: transform 0.4s;
 }
-#login .login-area .Creador {
+#register .register-area .Creador {
   position: fixed;
   top: 10px;
   display: flex;
@@ -323,12 +323,12 @@
   padding: 5px;
   background-color: #3866f2;
 }
-#login .login-area .Creador a {
+#register .register-area .Creador a {
   color: #fff;
   font-size: 12px;
 }
 @media (max-width: 425px) {
-  #login .login-area .form-title {
+  #register .register-area .form-title {
     font-size: 1.8rem;
   }
 }

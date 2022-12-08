@@ -38,10 +38,11 @@
   position: absolute;
   padding-left: 10px;
   background-color: #F4F4F4;
+  right: 12px;
 }
 #navbar-area .container .search-icon a {
   position: absolute;
-  right: 20px;
+  right: 30px;
   color: black;
 }
 #navbar-area .container .search-icon a:hover {

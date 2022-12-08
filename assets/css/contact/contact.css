@@ -38,10 +38,11 @@
   position: absolute;
   padding-left: 10px;
   background-color: #F4F4F4;
+  right: 12px;
 }
 #navbar-area .container .search-icon a {
   position: absolute;
-  right: 20px;
+  right: 30px;
   color: black;
 }
 #navbar-area .container .search-icon a:hover {
@@ -60,6 +61,22 @@
   color: #65A3F2 !important;
 }
 #navbar-area .container .basket i sup {
+  font-size: small;
+  top: -20px;
+  right: 5px;
+}
+#navbar-area .container .heart {
+  margin-left: 5px;
+}
+#navbar-area .container .heart i {
+  font-size: 25px;
+  color: black;
+  margin-top: 13px;
+}
+#navbar-area .container .heart i:hover {
+  color: #65A3F2 !important;
+}
+#navbar-area .container .heart i sup {
   font-size: small;
   top: -20px;
   right: 5px;
@@ -184,7 +201,7 @@
 }
 #aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left a {
   background-color: #2F7DFC;
-  padding: 12px 25px;
+  padding: 6px 18px;
   border-radius: 50px;
   text-transform: uppercase;
   transition: 0.5s;

@@ -10,12 +10,9 @@
     background-color: #F4F4F4;
 
     .container {
-
         .logo {
             margin-left: 20px;
             margin-right: 40px;
-
-
         }
 
         .nav-center {
@@ -34,7 +31,6 @@
         }
 
         .search-icon {
-
             position: relative;
             display: flex;
             align-items: center;
@@ -51,11 +47,12 @@
                 position: absolute;
                 padding-left: 10px;
                 background-color: #F4F4F4;
+                right: 12px;
             }
 
             a {
                 position: absolute;
-                right: 20px;
+                right: 30px;
                 color: black;
 
                 &:hover {
@@ -67,6 +64,26 @@
 
         .basket {
             cursor: pointer;
+
+            i {
+                font-size: 25px;
+                color: black;
+                margin-top: 13px;
+
+                &:hover {
+                    color: #65A3F2 !important;
+                }
+
+                sup {
+                    font-size: small;
+                    top: -20px;
+                    right: 5px;
+                }
+            }
+        }
+
+        .heart {
+            margin-left: 5px;
 
             i {
                 font-size: 25px;
@@ -97,7 +114,6 @@
                     display: block;
 
                 }
-
             }
 
             .dropbtn {
@@ -246,7 +262,7 @@
 
                 a {
                     background-color: #2F7DFC;
-                    padding: 12px 25px;
+                    padding: 6px 18px;
                     border-radius: 50px;
                     text-transform: uppercase;
                     transition: 0.5s;
