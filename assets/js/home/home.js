@@ -29,13 +29,13 @@ var swiper1 = new Swiper(".mySwiper1", {
           slidesPerView:2,
       },
       800:{
-          slidesPerView:1,
+          slidesPerView:2,
       },
       1000:{
           slidesPerView:2,
       },
       1200:{
-        slidesPerView:2,
+        slidesPerView:4,
     },
     1400:{
         slidesPerView:4,

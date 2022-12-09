@@ -347,17 +347,19 @@
 }
 
 
-@media (max-width: 950px) {
+@media (max-width: 1200px) {
     #about-area2 {
         .container {
             .about-text{
+                margin-left: -50px;
+                
                 h3{
 
-                    font-size: 20px;
+                    font-size: 25px;
                 }
                 p{
-                    line-height: 22px;
-                    font-size: 17px;
+                    
+                    font-size: 30px;
 
                 }
 
@@ -365,7 +367,37 @@
             .about-image{
                 width: 380px;
                 margin-top: 10px;
-                margin-left: 0;
+                margin-left: -25px;
+            }
+        }
+
+
+    }
+}
+
+
+
+@media (max-width: 992px) {
+    #about-area2 {
+        .container {
+            .about-text{
+                margin-left: 70px;
+                
+                h3{
+
+                    font-size: 25px;
+                }
+                p{
+                    
+                    font-size: 30px;
+
+                }
+
+            }
+            .about-image{
+                width: 380px;
+                margin-top: 10px;
+                margin-left: -25px;
             }
         }
 
@@ -377,6 +409,7 @@
     #about-area2 {
         .container {
             .about-text{
+                margin-left: 70px;
                 
                 h3{
 
@@ -403,70 +436,71 @@
 
 
 
+
 #instagram-photo {
     margin-top: 50px;
 
     .container {
 
         .header-area{
-            width: 100%;
-            margin-top: 25px;
-            h1{
-                text-align: center;
-            }
+            text-align: center;
         }
         .img-opacity {
-        width: 100%;
-        display: flex;
-        position: relative;
-        cursor: pointer;
-        margin-top: 35px;
-
-        .social{
             width: 100%;
-            height: 100%;
-            text-align: center;
-            position: absolute;
-            left: 0%;
-            top: 0%;
-            display: none;
-            a{
-                i{
-                    font-size: 50px;
-                    color: #fff;
+            display: flex;
+            position: relative;
+            cursor: pointer;
+            margin-top: 45px;
+
+            .social {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                position: absolute;
+                left: 0%;
+                top: 0%;
+                display: none;
+
+                a {
+                    i {
+                        font-size: 50px;
+                        color: #fff;
+                    }
                 }
             }
-        }
-        .owerlay{
-            visibility:hidden;
-            width: 306px;
-            height: 306px;
-            position: absolute;
-            background-color: #007bff;
-            opacity: .6;
 
-        }
-
-        a{
-            i{
-                margin-top: 150px;
+            .owerlay {
+                visibility: hidden;
+                width: 306px;
+                height: 306px;
+                position: absolute;
+                background-color: #007bff;
+                opacity: .6;
 
             }
-        }
-          &:hover{
-            .owerlay{
-                visibility: visible;
-                opacity: .4s;
-                z-index: 2;
-                transition: .7s;
-            }
-            .social{
-                display: block;
-                z-index: 3;
-                transition: .7s;
 
+            a {
+                i {
+                    margin-top: 150px;
+
+                }
             }
-          }
+
+            &:hover {
+                .owerlay {
+                    visibility: visible;
+                    opacity: .4s;
+                    z-index: 2;
+                    transition: .7s;
+                }
+
+                .social {
+                    display: block;
+                    z-index: 3;
+                    transition: .7s;
+
+                }
+            }
 
             img {
                 width: 100%
@@ -477,14 +511,113 @@
 
     }
 }
-@media (max-width: 992px) {
+
+@media screen and (min-width: 1200px) and (max-width:1400px) {
     #instagram-photo {
         .container {
-            .img-opacity{
-                img{
+            .img-opacity {
+                img {
                     margin-top: 15px;
                     border-radius: 10px;
-                    margin-left: 66px;
+                    margin-left: 12px;
+                }
+
+                .owerlay {
+                    width: 260px;
+                    height: 261px;
+                    border-radius: 10px;
+                    margin-left: 13px;
+                    margin-top: 15px
+                }
+            }
+        }
+
+
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width:1200px) {
+    #instagram-photo {
+        .container {
+            .img-opacity {
+                img {
+                    margin-top: 15px;
+                    border-radius: 10px;
+                    
+                }
+
+                .owerlay {
+                    width: 217px;
+                    height: 217px;
+                    border-radius: 10px;
+                    margin-top: 15px
+                }
+
+                .social {
+                   margin-left: 4%;
+                   margin-top: -45px;
+                }
+            }
+        }
+
+
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width:992px) {
+    #instagram-photo {
+        .container {
+            .img-opacity {
+                width: 330px;
+                margin-left: 0px;
+                img {
+                    margin-top: 15px;
+                    border-radius: 10px;
+                    
+                }
+
+                .owerlay {
+                    width: 331px;
+                    height: 330px;
+                    border-radius: 10px;
+                    margin-top: 15px;
+                }
+
+                .social {
+                   margin-left: 4%;
+               
+                }
+            }
+        }
+
+
+    }
+}
+
+
+@media (max-width: 766px) {
+    #instagram-photo {
+        .container {
+            .img-opacity {
+                width: 330px;
+                margin-left: 85px;
+                img {
+                    margin-top: 15px;
+                    border-radius: 10px;
+                   
+                }
+
+                .owerlay {
+                    width: 331px;
+                    height: 330px;
+                    border-radius: 10px;
+                    margin-top: 15px;
+                  
+              
+                }
+
+                .social {
+                    margin-left: 4%;
                 }
             }
         }

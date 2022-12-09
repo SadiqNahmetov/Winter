@@ -244,21 +244,42 @@
   width: 100%;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1200px) {
+  #about-area2 .container .about-text {
+    margin-left: -50px;
+  }
   #about-area2 .container .about-text h3 {
-    font-size: 20px;
+    font-size: 25px;
   }
   #about-area2 .container .about-text p {
-    line-height: 22px;
-    font-size: 17px;
+    font-size: 30px;
   }
   #about-area2 .container .about-image {
     width: 380px;
     margin-top: 10px;
-    margin-left: 0;
+    margin-left: -25px;
+  }
+}
+@media (max-width: 992px) {
+  #about-area2 .container .about-text {
+    margin-left: 70px;
+  }
+  #about-area2 .container .about-text h3 {
+    font-size: 25px;
+  }
+  #about-area2 .container .about-text p {
+    font-size: 30px;
+  }
+  #about-area2 .container .about-image {
+    width: 380px;
+    margin-top: 10px;
+    margin-left: -25px;
   }
 }
 @media (max-width: 768px) {
+  #about-area2 .container .about-text {
+    margin-left: 70px;
+  }
   #about-area2 .container .about-text h3 {
     font-size: 15px;
   }
@@ -276,10 +297,6 @@
   margin-top: 50px;
 }
 #instagram-photo .container .header-area {
-  width: 100%;
-  margin-top: 25px;
-}
-#instagram-photo .container .header-area h1 {
   text-align: center;
 }
 #instagram-photo .container .img-opacity {
@@ -287,7 +304,7 @@
   display: flex;
   position: relative;
   cursor: pointer;
-  margin-top: 35px;
+  margin-top: 45px;
 }
 #instagram-photo .container .img-opacity .social {
   width: 100%;
@@ -328,11 +345,72 @@
   width: 100%;
 }
 
-@media (max-width: 992px) {
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
   #instagram-photo .container .img-opacity img {
     margin-top: 15px;
     border-radius: 10px;
-    margin-left: 66px;
+    margin-left: 12px;
+  }
+  #instagram-photo .container .img-opacity .owerlay {
+    width: 260px;
+    height: 261px;
+    border-radius: 10px;
+    margin-left: 13px;
+    margin-top: 15px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  #instagram-photo .container .img-opacity img {
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+  #instagram-photo .container .img-opacity .owerlay {
+    width: 217px;
+    height: 217px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  #instagram-photo .container .img-opacity .social {
+    margin-left: 4%;
+    margin-top: -45px;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 992px) {
+  #instagram-photo .container .img-opacity {
+    width: 330px;
+    margin-left: 0px;
+  }
+  #instagram-photo .container .img-opacity img {
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+  #instagram-photo .container .img-opacity .owerlay {
+    width: 331px;
+    height: 330px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  #instagram-photo .container .img-opacity .social {
+    margin-left: 4%;
+  }
+}
+@media (max-width: 766px) {
+  #instagram-photo .container .img-opacity {
+    width: 330px;
+    margin-left: 85px;
+  }
+  #instagram-photo .container .img-opacity img {
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+  #instagram-photo .container .img-opacity .owerlay {
+    width: 331px;
+    height: 330px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  #instagram-photo .container .img-opacity .social {
+    margin-left: 4%;
   }
 }
 #footer-area {

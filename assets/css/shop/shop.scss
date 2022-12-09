@@ -607,17 +607,7 @@
     }
 }
 
-// @media screen and (min-width: 1200px) and (max-width:1400px) {
 
-//     .card {
-//         .contentBox {
-//             .name {
-//                 font-size: 15px !important;
-//             }
-//         }
-//     }
-
-// }
 
 
 
@@ -752,11 +742,19 @@
     #service {
         .container {
             .cards {
-                margin-left: 35%;
+                margin-left: 5%;
+
+                img{
+                    width: 135px;
+                }
 
                 h3 {
                     margin-top: 16px;
 
+                }
+
+                p{
+                    font-size: 26px;
                 }
             }
         }
@@ -834,13 +832,112 @@
     }
 }
 
-@media (max-width: 992px) {
+@media screen and (min-width: 1200px) and (max-width:1400px) {
     #instagram-photo {
         .container {
             .img-opacity {
                 img {
                     margin-top: 15px;
                     border-radius: 10px;
+                    margin-left: 12px;
+                }
+
+                .owerlay {
+                    width: 260px;
+                    height: 261px;
+                    border-radius: 10px;
+                    margin-left: 13px;
+                    margin-top: 15px
+                }
+            }
+        }
+
+
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width:1200px) {
+    #instagram-photo {
+        .container {
+            .img-opacity {
+                img {
+                    margin-top: 15px;
+                    border-radius: 10px;
+                    
+                }
+
+                .owerlay {
+                    width: 217px;
+                    height: 217px;
+                    border-radius: 10px;
+                    margin-top: 15px
+                }
+
+                .social {
+                   margin-left: 4%;
+                   margin-top: -45px;
+                }
+            }
+        }
+
+
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width:992px) {
+    #instagram-photo {
+        .container {
+            .img-opacity {
+                width: 330px;
+                margin-left: 0px;
+                img {
+                    margin-top: 15px;
+                    border-radius: 10px;
+                    
+                }
+
+                .owerlay {
+                    width: 331px;
+                    height: 330px;
+                    border-radius: 10px;
+                    margin-top: 15px;
+                }
+
+                .social {
+                   margin-left: 4%;
+               
+                }
+            }
+        }
+
+
+    }
+}
+
+
+@media (max-width: 766px) {
+    #instagram-photo {
+        .container {
+            .img-opacity {
+                width: 330px;
+                margin-left: 25px;
+                img {
+                    margin-top: 15px;
+                    border-radius: 10px;
+                   
+                }
+
+                .owerlay {
+                    width: 331px;
+                    height: 330px;
+                    border-radius: 10px;
+                    margin-top: 15px;
+                  
+              
+                }
+
+                .social {
+                    margin-left: 4%;
                 }
             }
         }
