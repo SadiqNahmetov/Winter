@@ -169,8 +169,8 @@
 
 #scrol-navbar-area {
   background-color: #F4F4F4;
-  z-index: 2;
   position: fixed;
+  z-index: 2;
   width: 100%;
   transition: 0.7s;
 }
@@ -297,6 +297,9 @@
 }
 
 @media (max-width: 1200px) {
+  #scrol-navbar-area {
+    z-index: 2;
+  }
   #scrol-navbar-area .search-icon input {
     width: 100px !important;
   }
@@ -309,6 +312,9 @@
   }
 }
 @media (max-width: 992px) {
+  #scrol-navbar-area {
+    z-index: 2;
+  }
   #scrol-navbar-area .search-icon {
     float: left;
     margin-left: 120px;
@@ -327,263 +333,79 @@
     margin-left: 14px;
   }
 }
-#about-title {
-  margin-top: 65px;
-}
-#about-title .container .title {
-  width: 100%;
-}
-#about-title .container .title h1 {
-  text-align: center;
-  color: #007bff;
-}
-
-#about-area1 {
+#heart-area {
   margin-top: 50px;
 }
-#about-area1 .container .about-text {
-  margin-top: 30px;
-}
-#about-area1 .container .about-text h3 {
-  line-height: 35px;
-}
-#about-area1 .container .about-text p {
-  line-height: 36px;
-  font-size: 20px;
-}
-#about-area1 .container .about-image {
-  width: 450px;
-  margin-top: 30px;
-  margin-left: 18%;
-}
-#about-area1 .container .about-image img {
-  width: 100%;
-}
-
-@media (max-width: 950px) {
-  #about-area1 .container .about-text h3 {
-    font-size: 20px;
-  }
-  #about-area1 .container .about-text p {
-    line-height: 22px;
-    font-size: 17px;
-  }
-  #about-area1 .container .about-image {
-    width: 380px;
-    margin-top: 10px;
-    margin-left: 0;
-  }
-}
-@media (max-width: 768px) {
-  #about-area1 .container .about-text h3 {
-    font-size: 15px;
-  }
-  #about-area1 .container .about-text p {
-    line-height: 22px;
-    font-size: 15px;
-  }
-  #about-area1 .container .about-image {
-    width: 380px;
-    margin-top: 10px;
-    margin-left: 55px;
-  }
-}
-#about-area2 {
-  margin-top: 50px;
-}
-#about-area2 .container .title {
-  width: 100%;
-}
-#about-area2 .container .title h1 {
+#heart-area .container h1 {
+  height: 60px;
+  background-color: #E8F0F2;
   text-align: center;
-  color: #007bff;
+  padding-top: 10px;
 }
-#about-area2 .container .about-text {
-  margin-top: 30px;
-}
-#about-area2 .container .about-text h3 {
-  line-height: 35px;
-}
-#about-area2 .container .about-text p {
-  line-height: 35px;
-  font-size: 20px;
-}
-#about-area2 .container .about-image {
-  width: 450px;
-  margin-top: 30px;
-  margin-left: 18%;
-}
-#about-area2 .container .about-image img {
+#heart-area .container .table {
+  margin-top: 60px;
   width: 100%;
+  border-collapse: collapse;
 }
-
-@media (max-width: 1200px) {
-  #about-area2 .container .about-text {
-    margin-left: -50px;
-  }
-  #about-area2 .container .about-text h3 {
-    font-size: 25px;
-  }
-  #about-area2 .container .about-text p {
-    font-size: 30px;
-  }
-  #about-area2 .container .about-image {
-    width: 380px;
-    margin-top: 10px;
-    margin-left: -25px;
-  }
+#heart-area .container .table .delete-icon {
+  font-size: 25px;
 }
-@media (max-width: 992px) {
-  #about-area2 .container .about-text {
-    margin-left: 70px;
-  }
-  #about-area2 .container .about-text h3 {
-    font-size: 25px;
-  }
-  #about-area2 .container .about-text p {
-    font-size: 30px;
-  }
-  #about-area2 .container .about-image {
-    width: 380px;
-    margin-top: 10px;
-    margin-left: -25px;
-  }
+#heart-area .container .table .delete-icon:hover {
+  color: red;
 }
-@media (max-width: 768px) {
-  #about-area2 .container .about-text {
-    margin-left: 70px;
-  }
-  #about-area2 .container .about-text h3 {
-    font-size: 15px;
-  }
-  #about-area2 .container .about-text p {
-    line-height: 22px;
-    font-size: 15px;
-  }
-  #about-area2 .container .about-image {
-    width: 380px;
-    margin-top: 10px;
-    margin-left: 55px;
-  }
-}
-#instagram-photo {
-  margin-top: 50px;
-}
-#instagram-photo .container .header-area {
+#heart-area .container .table td,
+#heart-area .container .table th {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
   text-align: center;
-}
-#instagram-photo .container .img-opacity {
-  width: 100%;
-  display: flex;
-  position: relative;
+  font-size: 16px;
   cursor: pointer;
-  margin-top: 45px;
 }
-#instagram-photo .container .img-opacity .social {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  display: none;
+#heart-area .container .table th {
+  background-color: rgb(77, 83, 87);
+  color: #ffffff;
 }
-#instagram-photo .container .img-opacity .social a i {
-  font-size: 50px;
-  color: #fff;
+#heart-area .container .table tbody {
+  vertical-align: middle !important;
 }
-#instagram-photo .container .img-opacity .owerlay {
-  visibility: hidden;
-  width: 306px;
-  height: 306px;
-  position: absolute;
-  background-color: #007bff;
-  opacity: 0.6;
-}
-#instagram-photo .container .img-opacity a i {
-  margin-top: 150px;
-}
-#instagram-photo .container .img-opacity:hover .owerlay {
-  visibility: visible;
-  opacity: 0.4s;
-  z-index: 2;
-  transition: 0.7s;
-}
-#instagram-photo .container .img-opacity:hover .social {
-  display: block;
-  z-index: 3;
-  transition: 0.7s;
-}
-#instagram-photo .container .img-opacity img {
-  width: 100%;
+#heart-area .container .table tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-  #instagram-photo .container .img-opacity img {
-    margin-top: 15px;
-    border-radius: 10px;
-    margin-left: 12px;
+@media (max-width: 500px) {
+  #heart-area .table {
+    display: block;
+    width: 100%;
   }
-  #instagram-photo .container .img-opacity .owerlay {
-    width: 260px;
-    height: 261px;
-    border-radius: 10px;
-    margin-left: 13px;
-    margin-top: 15px;
+  #heart-area .table thead {
+    display: none;
   }
-}
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  #instagram-photo .container .img-opacity img {
-    margin-top: 15px;
-    border-radius: 10px;
+  #heart-area .table tbody {
+    display: block;
+    width: 100%;
   }
-  #instagram-photo .container .img-opacity .owerlay {
-    width: 217px;
-    height: 217px;
-    border-radius: 10px;
-    margin-top: 15px;
+  #heart-area .table tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
   }
-  #instagram-photo .container .img-opacity .social {
-    margin-left: 4%;
-    margin-top: -45px;
+  #heart-area .table td {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
   }
-}
-@media screen and (min-width: 767px) and (max-width: 992px) {
-  #instagram-photo .container .img-opacity {
-    width: 330px;
-    margin-left: 0px;
-  }
-  #instagram-photo .container .img-opacity img {
-    margin-top: 15px;
-    border-radius: 10px;
-  }
-  #instagram-photo .container .img-opacity .owerlay {
-    width: 331px;
-    height: 330px;
-    border-radius: 10px;
-    margin-top: 15px;
-  }
-  #instagram-photo .container .img-opacity .social {
-    margin-left: 4%;
-  }
-}
-@media (max-width: 766px) {
-  #instagram-photo .container .img-opacity {
-    width: 330px;
-    margin-left: 85px;
-  }
-  #instagram-photo .container .img-opacity img {
-    margin-top: 15px;
-    border-radius: 10px;
-  }
-  #instagram-photo .container .img-opacity .owerlay {
-    width: 331px;
-    height: 330px;
-    border-radius: 10px;
-    margin-top: 15px;
-  }
-  #instagram-photo .container .img-opacity .social {
-    margin-left: 4%;
+  #heart-area .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
   }
 }
 #footer-area {
@@ -597,6 +419,7 @@
   margin-top: 15px;
 }
 #footer-area .container .footer-side .footer-info h1 {
+  font-size: 30px;
   color: white;
 }
 #footer-area .container .footer-side .footer-info ul {
@@ -667,4 +490,4 @@
     width: 100%;
     background-color: #000000;
   }
-}/*# sourceMappingURL=about.css.map */
+}/*# sourceMappingURL=heart.css.map */
