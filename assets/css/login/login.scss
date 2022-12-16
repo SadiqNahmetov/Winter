@@ -5,7 +5,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
 #navbar-area {
     background-color: #F4F4F4;
 
@@ -61,14 +60,14 @@
                 }
             }
         }
- 
-      
+
+
         .basket {
             cursor: pointer;
 
             i {
                 font-size: 25px;
-              color: #65A3F2;
+                color: #65A3F2;
                 margin-top: 13px;
 
                 &:hover {
@@ -185,7 +184,36 @@
 
 @media (max-width: 992px) {
     #navbar-area {
-        position: relative;
+
+        .search-icon {
+            float: left;
+            margin-left: 120px;
+
+            input {
+                width: 100px !important;
+            }
+        }
+        .dropdown {
+            margin-top: 0px !important;
+        }
+
+        .basket {
+            margin-top: 4px;
+            margin-left: 16px;
+        }
+
+        .heart {
+            i {
+                margin-left:  0 !important;
+            }
+        }
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    #navbar-area {
 
         .search-icon {
             float: left;
@@ -198,21 +226,24 @@
 
 
         .dropdown {
-            margin-top: 30px !important;
+            margin-left: 10px!important;
+            margin-top: 20px !important;
         }
 
         .basket {
-            margin-top: 15px;
-            margin-left: 20px;
+            margin-top: 4px;
+            margin-left: 16px;
         }
+
         .heart {
-            i{
-                margin-left: 14px;
+            i {
+                margin-left:  0 !important;
             }
         }
     }
 
 }
+
 
 .visibl {
     visibility: hidden;
@@ -220,10 +251,13 @@
 
 #scrol-navbar-area {
     background-color: #F4F4F4;
-    z-index: 2;
     position: fixed;
+    z-index: 2;
     width: 100%;
     transition: .7s;
+
+
+
     .container {
         .scrol-logo {
             margin-left: 20px;
@@ -277,14 +311,13 @@
             }
         }
 
-      
-     
+
         .basket {
             cursor: pointer;
 
             i {
                 font-size: 25px;
-              color: #65A3F2;
+                color: #65A3F2;
                 margin-top: 13px;
 
                 &:hover {
@@ -380,6 +413,7 @@
 
 @media (max-width: 1200px) {
     #scrol-navbar-area {
+        z-index: 2;
 
         .search-icon {
             input {
@@ -401,7 +435,7 @@
 
 @media (max-width: 992px) {
     #scrol-navbar-area {
-        
+        z-index: 2;
 
         .search-icon {
             float: left;
@@ -414,15 +448,17 @@
 
 
         .dropdown {
+            margin-left: 10px !important;
             margin-top: 30px !important;
         }
 
         .basket {
-            margin-top: 15px;
+            margin-top: 20px;
             margin-left: 20px;
         }
 
         .heart {
+            margin-top: 20px;
             i {
                 margin-left: 14px;
             }
@@ -431,6 +467,74 @@
 
 }
 
+
+@media (max-width: 768px) {
+    #scrol-navbar-area {
+        z-index: 2;
+
+        .search-icon {
+            float: left;
+            margin-left: 120px;
+
+            input {
+                width: 100px !important;
+            }
+        }
+
+
+        .dropdown {
+            margin-left: 10px !important;
+            margin-top: 30px !important;
+        }
+
+        .basket {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .heart {
+            margin-top: 20px;
+            i {
+                margin-left: 14px;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    #scrol-navbar-area {
+        z-index: 2;
+
+        .search-icon {
+            float: left;
+            margin-left: 120px;
+
+            input {
+                width: 100px !important;
+            }
+        }
+
+
+        .dropdown {
+            margin-left: 10px !important;
+            margin-top: 30px !important;
+        }
+
+        .basket {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .heart {
+            margin-top: 20px;
+            i {
+                margin-left: 14px;
+            }
+        }
+    }
+
+}
 
 
 

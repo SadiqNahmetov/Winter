@@ -6,10 +6,10 @@
     window.onscroll = function () {scrollFunction()};
   
     function scrollFunction(){
-      if (document.body.scrollTop > 130 || document.documentElement.scrollTop > 130) {
+      if (document.body.scrollTop > 195 || document.documentElement.scrollTop > 195) {
         scrollSection.style.top = "0";    
      } else {
-        scrollSection.style.top = "-77px";
+        scrollSection.style.top = "-0px";
         scrollSection.classList.remove("visibl");
      }
     }
@@ -40,7 +40,7 @@ $(function () {
       wishList.classList.toggle("heart-active");
       e.preventDefault();
 
-      let productImage = this.parentNode.parentNode.previousElementSibling.firstElementChild.getAttribute("src");
+      let productImage = this.parentNode.parentNode.previousElementSibling.getAttribute("src");
       let productBrand = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.innerText;
       let productName = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.innerText;
       let productPrice = this.parentNode.parentNode.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerText;

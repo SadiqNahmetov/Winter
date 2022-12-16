@@ -1,6 +1,7 @@
 
-let swiper = new Swiper(".mySwiper",{
+let swiper = new Swiper(".mySwiperSl",{
     loop:true,
+    speed:1500,
     autoplay:true
         
     
@@ -18,6 +19,7 @@ var swiper1 = new Swiper(".mySwiper1", {
     slidesPerView: 4,
     spaceBetween: 20,
     loop: true,
+    speed:1500,
     autoplay: {
       delay: 2000,
     },
@@ -48,6 +50,7 @@ var swiper1 = new Swiper(".mySwiper1", {
 
   var swiper2 = new Swiper(".mySwiperbrand", {
     slidesPerView: 5,
+    speed:1500,
     autoplay:{
       delay:2000
     },
@@ -84,14 +87,13 @@ var swiper1 = new Swiper(".mySwiper1", {
     window.onscroll = function () {scrollFunction()};
   
     function scrollFunction(){
-      if (document.body.scrollTop > 135 || document.documentElement.scrollTop > 135) {
+      if (document.body.scrollTop > 195 || document.documentElement.scrollTop > 195) {
         scrollSection.style.top = "0";    
      } else {
-        scrollSection.style.top = "-200px";
+        scrollSection.style.top = "-0px";
         scrollSection.classList.remove("visibl");
      }
     }
-  
   
   });
 
@@ -116,7 +118,7 @@ var swiper1 = new Swiper(".mySwiper1", {
 
           e.preventDefault();
     
-       let productImage =  this.parentNode.parentNode.previousElementSibling.firstElementChild.getAttribute("src");
+       let productImage =  this.parentNode.parentNode.previousElementSibling.getAttribute("src");
        let productBrand = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.innerText;
 
        let productName = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.innerText;
