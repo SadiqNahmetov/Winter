@@ -79,7 +79,6 @@ var swiper1 = new Swiper(".mySwiper1", {
 
 
 
-
   $(function (){
   
     let scrollSection = document.getElementById("scrol-navbar-area")
@@ -96,6 +95,8 @@ var swiper1 = new Swiper(".mySwiper1", {
     }
   
   });
+
+
 
 
 
@@ -160,3 +161,8 @@ var swiper1 = new Swiper(".mySwiper1", {
   }
   
   GetCount();
+
+
+
+
+  
