@@ -724,6 +724,9 @@
             overflow: hidden;
             background-color: #fff;
             border: 0.5px solid whitesmoke;
+            width: 88%;
+
+
 
             &:hover {
                 img {
@@ -737,10 +740,14 @@
                 width: 100%;
 
                 a {
-                    img {
-                        width: 100%;
-                        transition: .7s;
+                    .blogImage {
+                        overflow: hidden;
 
+                        img {
+                            width: 100%;
+                            transition: .7s;
+
+                        }
                     }
                 }
 
@@ -792,31 +799,63 @@
 
         }
 
-        .search {
+        // .search {
+
+        //     margin-top: 50px;
+        //     width: 90%;
+        //     height: 100px;
+        //     background-color: #FBF9FF;
+        //     text-align: center;
+
+        .search-box {
+            position: absolute;
             margin-top: 50px;
-            width: 90%;
-            height: 100px;
-            background-color: #FBF9FF;
-            text-align: center;
+            left: 78%;
+            transform: translate(-50%, -50%);
+            background-color: #2f3640;
+            height: 40px;
+            border-radius: 40px;
 
+            &:hover {
+                >.search-txt {
+                    width: 240px;
+                    padding: 0 6px;
+                }
 
-            input {
-                width: 60%;
-                outline: none;
-                border-top: none;
-                border-left: none;
-                border-right: none;
-                margin-top: 30px;
-                padding-left: 10px;
-                background-color: #FBF9FF;
-
+                .search-btn {
+                    background-color: #fff;
+                }
             }
 
-            i {
-                margin-left: -30px;
+            .search-btn {
+                color: #2879FB;
+                float: right;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #2f3640;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: .4s;
+                text-decoration: none;
+            }
 
+            .search-txt {
+                border: none;
+                background: none;
+                outline: none;
+                float: left;
+                padding: 0;
+                color: white;
+                font-size: 16px;
+                transition: .4s;
+                line-height: 40px;
+                width: 0;
             }
         }
+
+        // }
 
         .category {
             margin-top: 50px;
@@ -927,6 +966,9 @@
 }
 
 
+
+
+
 @media (max-width: 1200px) {
     #blog-area {
         .container {
@@ -940,7 +982,6 @@
 
                 }
             }
-
 
         }
 
