@@ -503,8 +503,16 @@
 }
 #heart-area .container .table .delete-icon {
   font-size: 25px;
+  color: #2879FB;
 }
 #heart-area .container .table .delete-icon:hover {
+  color: red;
+}
+#heart-area .container .table .basket-heart {
+  font-size: 25px;
+  color: #2879FB;
+}
+#heart-area .container .table .basket-heart:hover {
   color: red;
 }
 #heart-area .container .table td,

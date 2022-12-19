@@ -723,6 +723,15 @@
 
             .delete-icon {
                 font-size: 25px;
+                color: #2879FB;
+                &:hover {
+                    color: red;
+                }
+            }
+            .basket-heart{
+                font-size: 25px;
+                color: #2879FB;
+
 
                 &:hover {
                     color: red;

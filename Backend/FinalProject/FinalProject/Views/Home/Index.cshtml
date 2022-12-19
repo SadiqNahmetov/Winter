@@ -1,4 +1,6 @@
-﻿@{
+﻿@model HomeVM
+
+@{
     ViewData["Title"] = "Home";
 }
 
@@ -10,39 +12,44 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="swiper mySwiperSl">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                            @foreach (var slider in Model.Sliders)
+                            {
+                                <div class="swiper-slide">
 
-                                <div class="img">
-                                    <img src="./assets/img/slider/banner_img.png.webp" alt="slider" />
-                                </div>
-                                <div class="slider-text">
-                                    <p>Winter Fasion</p>
-                                    <h1>Fashion<br>Collection 2022</h1>
-                                    <a href="">Shop Now</a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img">
-                                    <img src="./assets/img/slider/bg.jpg" alt="slider" />
-                                </div>
-                                <div class="slider-text">
-                                    <p>2022 Latest Collection</p>
-                                    <h1>Summer Time<br />Collection</h1>
-                                    <a href="">Shop Now</a>
+                                    <div class="img">
+                                        <img src="./assets/img/slider/@slider.Image" alt="slider" />
+                                    </div>
+                                    <div class="slider-text">
+                                        <p>@slider.Title</p>
+                                        <h1>@Html.Raw(slider.Descirption)</h1>
+                                        <a href="">Shop Now</a>
+                                    </div>
                                 </div>
 
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="img">
-                                    <img src="./assets/img/slider/bg_2.jpg" alt="slider" />
-                                </div>
-                                <div class="slider-text">
-                                    <p>2022 Latest Collection</p>
-                                    <h1>Men's Suiting<br />And Clothing</h1>
-                                    <a href="">Shop Now</a>
-                                </div>
+                            }
 
-                            </div>
+                            @*<div class="swiper-slide">
+            <div class="img">
+                <img src="./assets/img/slider/bg.jpg" alt="slider" />
+            </div>
+            <div class="slider-text">
+                <p>2022 Latest Collection</p>
+                <h1>Summer Time<br />Collection</h1>
+                <a href="">Shop Now</a>
+            </div>
+
+        </div>
+        <div class="swiper-slide">
+            <div class="img">
+                <img src="./assets/img/slider/bg_2.jpg" alt="slider" />
+            </div>
+            <div class="slider-text">
+                <p>2022 Latest Collection</p>
+                <h1>Men's Suiting<br />And Clothing</h1>
+                <a href="">Shop Now</a>
+            </div>
+
+        </div>*@
                         </div>
                     </div>
                 </div>
