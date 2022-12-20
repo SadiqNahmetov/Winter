@@ -799,63 +799,38 @@
 
         }
 
-        // .search {
-
-        //     margin-top: 50px;
-        //     width: 90%;
-        //     height: 100px;
-        //     background-color: #FBF9FF;
-        //     text-align: center;
-
-        .search-box {
-            position: absolute;
+        .search-area {
             margin-top: 50px;
-            left: 78%;
-            transform: translate(-50%, -50%);
-            background-color: #2f3640;
-            height: 40px;
-            border-radius: 40px;
+            .search {
+                display: flex; 
 
-            &:hover {
-                >.search-txt {
-                    width: 240px;
-                    padding: 0 6px;
+                .input {
+                    padding: 0 8px 0 25px;
+                    width: 315px;
+                    height: 45px;
+                    outline: none;
+                    border: 1px solid #e6e6e6;
+                    
+
                 }
 
-                .search-btn {
-                    background-color: #fff;
+                .my-btn {
+                    width: 55px;
+                    height: 45px;
+                    border: none;
+                    font-weight: 500;
+                    padding: 0.375em 0.625em;
+                    background: #2879FB;
+
+                    .search-icon {
+                        color: #fff;
+                        fill: currentColor;
+                        vertical-align: text-bottom;
+
+                    }
                 }
-            }
-
-            .search-btn {
-                color: #2879FB;
-                float: right;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                background-color: #2f3640;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: .4s;
-                text-decoration: none;
-            }
-
-            .search-txt {
-                border: none;
-                background: none;
-                outline: none;
-                float: left;
-                padding: 0;
-                color: white;
-                font-size: 16px;
-                transition: .4s;
-                line-height: 40px;
-                width: 0;
             }
         }
-
-        // }
 
         .category {
             margin-top: 50px;
@@ -974,6 +949,7 @@
         .container {
             .blog-card {
                 position: relative;
+                
 
                 .blog-date {
                     position: absolute;
@@ -1042,6 +1018,14 @@
                     }
                 }
             }
+            .search-area{
+                .search{
+                    input{
+                        width: 405px !important;
+                    }
+                }
+            }
+
         }
 
     }

@@ -1033,6 +1033,10 @@
 #instagram-photo {
   margin-top: 50px;
 }
+#instagram-photo .container h4 {
+  font-size: 25px;
+  text-align: center;
+}
 #instagram-photo .container .img-opacity {
   display: flex;
   position: relative;

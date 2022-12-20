@@ -503,7 +503,10 @@
   position: relative;
   overflow: hidden;
   background-color: #fff;
-  border: 0.5px solid whitesmoke;
+}
+#blog-detail-area .container .blog-card h5 {
+  color: rgb(47, 60, 72);
+  text-align: center;
 }
 #blog-detail-area .container .blog-card:hover img {
   transform: scale(1.1);
@@ -526,6 +529,8 @@
 #blog-detail-area .container .blog-card .comment-area {
   border-top: 0.2px solid #EEEEEE;
   background-color: #FBF9FF;
+  border: 0.5px solid whitesmoke;
+  margin-top: 15px;
 }
 #blog-detail-area .container .blog-card .comment-area p {
   margin-top: 5px;
@@ -549,14 +554,6 @@
 }
 #blog-detail-area .container .blog-card .comment-area .comment .name-date p {
   margin-bottom: 0.4rem !important;
-}
-#blog-detail-area .container .blog-card .comment-area .comment .reply {
-  text-transform: uppercase;
-  margin-right: 20px;
-}
-#blog-detail-area .container .blog-card .comment-area .comment .reply a {
-  text-decoration: none;
-  color: #666666;
 }
 #blog-detail-area .container .category {
   margin-top: 50px;
@@ -708,7 +705,6 @@
   height: 200px;
   width: 100% !important;
   padding: 10px;
-  width: 70%;
 }
 #blog-detail-area .container .contact-area-main .contact-address .contact-address-left .comments-form .form-control:focus {
   box-shadow: none;

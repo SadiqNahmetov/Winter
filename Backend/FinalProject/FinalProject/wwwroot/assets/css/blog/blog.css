@@ -549,46 +549,31 @@
   margin-top: 60px;
   margin-left: 12px;
 }
-#blog-area .container .search-box {
-  position: absolute;
+#blog-area .container .search-area {
   margin-top: 50px;
-  left: 78%;
-  transform: translate(-50%, -50%);
-  background-color: #2f3640;
-  height: 40px;
-  border-radius: 40px;
 }
-#blog-area .container .search-box:hover > .search-txt {
-  width: 240px;
-  padding: 0 6px;
-}
-#blog-area .container .search-box:hover .search-btn {
-  background-color: #fff;
-}
-#blog-area .container .search-box .search-btn {
-  color: #2879FB;
-  float: right;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #2f3640;
+#blog-area .container .search-area .search {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.4s;
-  text-decoration: none;
 }
-#blog-area .container .search-box .search-txt {
-  border: none;
-  background: none;
+#blog-area .container .search-area .search .input {
+  padding: 0 8px 0 25px;
+  width: 315px;
+  height: 45px;
   outline: none;
-  float: left;
-  padding: 0;
-  color: white;
-  font-size: 16px;
-  transition: 0.4s;
-  line-height: 40px;
-  width: 0;
+  border: 1px solid #e6e6e6;
+}
+#blog-area .container .search-area .search .my-btn {
+  width: 55px;
+  height: 45px;
+  border: none;
+  font-weight: 500;
+  padding: 0.375em 0.625em;
+  background: #2879FB;
+}
+#blog-area .container .search-area .search .my-btn .search-icon {
+  color: #fff;
+  fill: currentColor;
+  vertical-align: text-bottom;
 }
 #blog-area .container .category {
   margin-top: 50px;
@@ -713,6 +698,9 @@
   }
   #blog-area .container .blog-card .blog-date a p {
     margin-left: 25px;
+  }
+  #blog-area .container .search-area .search input {
+    width: 405px !important;
   }
 }
 #footer-area {

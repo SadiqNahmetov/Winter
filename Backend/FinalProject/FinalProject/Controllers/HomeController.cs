@@ -27,11 +27,24 @@ namespace FinalProject.Controllers
         {
            
             IEnumerable<Slider> sliders = await _context.Sliders.Where(m => !m.IsDeleted).ToListAsync();
+            IEnumerable<Service> services = await _context.Services.Where(m => !m.IsDeleted).ToListAsync();
+            IEnumerable<InstagramPhoto> instagramPhotos = await _context.InstagramPhotos.Where(m => !m.IsDeleted).ToListAsync();
+            IEnumerable<Brand> brands = await _context.Brands.Where(m => !m.IsDeleted).ToListAsync();
+            IEnumerable<Feature> features = await _context.Features.Where(m => !m.IsDeleted).ToListAsync();
+
+
+
 
 
             HomeVM model = new HomeVM
             {
                 Sliders = sliders,
+                Services = services,
+                InstagramPhotos = instagramPhotos,
+                Brands = brands,
+                Features = features,
+
+               
             };
 
 

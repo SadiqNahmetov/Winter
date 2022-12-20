@@ -723,7 +723,13 @@
             position: relative;
             overflow: hidden;
             background-color: #fff;
-            border: 0.5px solid whitesmoke;
+
+       
+
+            h5{
+               color: rgb(47, 60, 72);
+                text-align: center;
+            }
 
             &:hover {
                 img {
@@ -762,6 +768,9 @@
             .comment-area {
                 border-top: 0.2px solid #EEEEEE;
                 background-color: #FBF9FF;
+                border: 0.5px solid whitesmoke;
+                margin-top: 15px;
+
 
                 p {
                     margin-top: 5px;
@@ -792,17 +801,7 @@
                         }
                     }
 
-                    .reply {
-                        text-transform: uppercase;
-                        margin-right: 20px;
-
-                        a {
-                            text-decoration: none;
-                            color: #666666;
-
-
-                        }
-                    }
+                   
                 }
             }
         }
@@ -991,7 +990,7 @@
                             height: 200px;
                             width: 100% !important;
                             padding: 10px;
-                            width: 70%;
+                        
                         }
 
                         .form-control {

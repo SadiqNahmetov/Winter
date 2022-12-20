@@ -17,7 +17,7 @@
                                 <div class="swiper-slide">
 
                                     <div class="img">
-                                        <img src="./assets/img/slider/@slider.Image" alt="slider" />
+                                        <img src="~/assets/img/slider/@slider.Image" alt="slider" />
                                     </div>
                                     <div class="slider-text">
                                         <p>@slider.Title</p>
@@ -28,28 +28,6 @@
 
                             }
 
-                            @*<div class="swiper-slide">
-            <div class="img">
-                <img src="./assets/img/slider/bg.jpg" alt="slider" />
-            </div>
-            <div class="slider-text">
-                <p>2022 Latest Collection</p>
-                <h1>Summer Time<br />Collection</h1>
-                <a href="">Shop Now</a>
-            </div>
-
-        </div>
-        <div class="swiper-slide">
-            <div class="img">
-                <img src="./assets/img/slider/bg_2.jpg" alt="slider" />
-            </div>
-            <div class="slider-text">
-                <p>2022 Latest Collection</p>
-                <h1>Men's Suiting<br />And Clothing</h1>
-                <a href="">Shop Now</a>
-            </div>
-
-        </div>*@
                         </div>
                     </div>
                 </div>
@@ -60,35 +38,19 @@
     <section id="service">
         <div class="container">
             <div class="row">
+                @foreach (var service in Model.Services)
+                {
+                    <div class="col-lg-3 col-md-6 col-sm-12">
 
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="cards">
-                        <img src="./assets/img/service/icon_1.png.webp" alt="icon">
-                        <h3>Free shipping</h3>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
+                        <div class="cards">
+                            <img src="~/assets/img/service/@service.Image" alt="icon">
+                            <h3>@service.Title</h3>
+                            <p>@service.Description</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="cards">
-                        <img src="./assets/img/service/icon_2.png.webp" alt="icon">
-                        <h3>Money return</h3>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="cards">
-                        <img src="./assets/img/service/icon_3.png.webp" alt="icon">
-                        <h3>Free shipping</h3>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="cards">
-                        <img src="./assets/img/service/icon_4.png.webp" alt="icon">
-                        <h3>Online support</h3>
-                        <p>Online support 24 hours a day</p>
-                    </div>
-                </div>
+
+                }
+
 
             </div>
         </div>
@@ -97,38 +59,20 @@
     <section id="feature-part">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="card">
-                        <div class="img">
-                            <img src="./assets/img/product/feature_1.png.webp" alt="images">
-                        </div>
+                @foreach (var feature in Model.Features)
+                {
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="img">
+                                <img src="~/assets/img/product/@feature.Image" alt="images">
+                            </div>
 
-                        <div class="text">
-                            <a href="">Buy Now</a>
+                            <div class="text">
+                                <a href="">Buy Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="card">
-                        <div class="img">
-                            <img src="./assets/img/product/feature_2.png.webp" alt="images">
-                        </div>
-                        <div class="text">
-                            <a href="">Buy Now</a>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12  col-sm-12">
-                    <div class="card">
-                        <div class="img">
-                            <img src="./assets/img/product/feature_3.png.webp" alt="images">
-                        </div>
-                        <div class="text">
-                            <a href="">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
+                }
 
             </div>
         </div>
@@ -146,10 +90,11 @@
                 <div class="swiper mySwiper1">
                     <div class="swiper-wrapper">
 
+
                         <div class="swiper-slide">
                             <div class="card-pr" cart-id="1">
                                 <div class="imagesBx">
-                                    <img src="./assets/img/product/women/14_org_zoom.webp" alt="images">
+                                    <img src="~/assets/img/product/women/14_org_zoom.webp" alt="images">
 
                                     <ul class="icon-shop">
                                         <li>
@@ -177,7 +122,7 @@
                                     <a href="">Rayon a-line Dres</a>
                                 </div>
                                 <div class="price">
-                                    <span>25.₼</span>
+                                    <span>25₼</span>
                                     <span><del>35₼</del></span>
                                 </div>
 
@@ -187,7 +132,7 @@
                         <div class="swiper-slide">
                             <div class="card-pr" cart-id="2">
                                 <div class="imagesBx">
-                                    <img src="./assets/img/product/men/11_org_zoom.webp" alt="images">
+                                    <img src="~/assets/img/product/men/11_org_zoom.webp" alt="images">
                                     <ul class="icon-shop">
                                         <li>
                                             <i class="fa fa-heart wishList"></i>
@@ -210,7 +155,7 @@
                                 </div>
                                 <div class="productName">
                                     <h4>Puma</h4>
-                                    <a href="">Rayon a-line Dres</a>
+                                    <a href="">MARSHALL Men's Basic Tracksuit With Stripe Embroidery Detail</a>
                                 </div>
                                 <div class="price">
                                     <span>52.99₼</span>
@@ -222,7 +167,7 @@
                         <div class="swiper-slide">
                             <div class="card-pr" cart-id="3">
                                 <div class="imagesBx">
-                                    <img src="./assets/img/product/accessories/13_org_zoom.webp" alt="images">
+                                    <img src="~/assets/img/product/accessories/13_org_zoom.webp" alt="images">
                                     <ul class="icon-shop">
 
                                         <li>
@@ -259,7 +204,7 @@
                         <div class="swiper-slide">
                             <div class="card-pr" cart-id="4">
                                 <div class="imagesBx">
-                                    <img src="./assets/img/product/men/7_org_zoom.webp" alt="images">
+                                    <img src="~/assets/img/product/men/7_org_zoom.webp" alt="images">
                                     <ul class="icon-shop">
                                         <li>
                                             <i class="fa fa-heart wishList"></i>
@@ -295,7 +240,7 @@
                         <div class="swiper-slide">
                             <div class="card-pr" cart-id="5">
                                 <div class="imagesBx">
-                                    <img src="./assets/img/product/shoes/19_org_zoom.webp" alt="images">
+                                    <img src="~/assets/img/product/shoes/19_org_zoom.webp" alt="images">
                                     <ul class="icon-shop">
                                         <li>
                                             <i class="fa fa-heart wishList"></i>
@@ -332,7 +277,7 @@
                         <div class="swiper-slide">
                             <div class="card-pr" cart-id="6">
                                 <div class="imagesBx">
-                                    <img src="./assets/img/product/men/5_org_zoom.webp" alt="images">
+                                    <img src="~/assets/img/product/men/5_org_zoom.webp" alt="images">
                                     <ul class="icon-shop">
                                         <li>
                                             <i class="fa fa-heart wishList"></i>
@@ -381,61 +326,29 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="img-opacity">
-                        <img src="./assets/img/instagramphoto/inst_1.png.webp" alt="">
+                <h4 style="text-align:center !important">Instagram-photo</h4>
 
-                        <div class="social">
-                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
+                @foreach (var instagramPhoto in Model.InstagramPhotos)
+                {
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="img-opacity">
+                            <img src="~/assets/img/instagramphoto/@instagramPhoto.Image" alt="">
 
-                        <div class="owerlay">
+                            <div class="social">
+                                <a href="https://www.instagram.com/thewinterbrand/?hl=en">
+                                    @Html.Raw(instagramPhoto.Social)
+                                </a>
+                            </div>
+
+                            <div class="owerlay">
+                            </div>
+
                         </div>
 
                     </div>
 
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="img-opacity">
-                        <img src="./assets/img/instagramphoto/inst_2.png.webp" alt="">
-                        <div class="social">
-                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
-
-                        <div class="owerlay">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="img-opacity">
-                        <img src="./assets/img/instagramphoto/inst_3.png.webp" alt="">
-                        <div class="social">
-                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
-
-                        <div class="owerlay">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="img-opacity">
-                        <img src="./assets/img/instagramphoto/inst_5.png.webp" alt="">
-                        <div class="social">
-                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
-
-                        <div class="owerlay">
-                        </div>
-                    </div>
-                </div>
+                }
+               
             </div>
     </section>
 
@@ -445,16 +358,14 @@
             <h3>OUR BRANDS</h3>
             <div class="swiper mySwiperbrand">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="assets/img/brand/20210425_15521619355152_Mango.webp"
-                             alt="brand-image">
-                    </div>
-                    <div class="swiper-slide"><img src="assets/img/brand/logo.png" alt="brand-image"></div>
-                    <div class="swiper-slide"><img src="assets/img/brand/nike.webp" alt="brand-image"></div>
-                    <div class="swiper-slide"><img src="assets/img/brand/puma.webp" alt="brand-image"></div>
-                    <div class="swiper-slide">
-                        <img src="assets/img/brand/Zara-logо-768x432.png" alt="brand-image">
-                    </div>
+                    @foreach (var barnd in Model.Brands)
+                    {
+                        <div class="swiper-slide">
+                            <img src="~/assets/img/brand/@barnd.Image" alt="brand-image">
+                        </div>
+                    }
+
+                
 
                 </div>
             </div>
