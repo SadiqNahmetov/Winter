@@ -111,9 +111,12 @@ wishlistBtns.forEach(wishlistBtn => {
         if (!wishlistBtn.classList.contains("heart-active")) {
         
         wishlistBtn.classList.add("heart-active")
-     
+       
+
+    
 
 
+        
         let productImage = this.parentNode.parentNode.previousElementSibling.getAttribute("src");
         let productBrand = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.innerText;
         let productName = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.innerText;

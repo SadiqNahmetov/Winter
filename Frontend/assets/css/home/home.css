@@ -1030,6 +1030,9 @@
   #slider-product-area .container .swiper-slide .card-pr:hover .icon-shop .detail {
     transform: translateX(-6px);
   }
+  #slider-product-area .container .swiper-slide .card-pr .productName a {
+    font-size: 18px !important;
+  }
 }
 #instagram-photo {
   margin-top: 50px;

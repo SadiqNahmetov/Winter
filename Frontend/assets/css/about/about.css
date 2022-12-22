@@ -504,9 +504,6 @@
 #about-area1 .container .about-text {
   margin-top: 30px;
 }
-#about-area1 .container .about-text h3 {
-  line-height: 35px;
-}
 #about-area1 .container .about-text p {
   line-height: 36px;
   font-size: 20px;
@@ -521,9 +518,6 @@
 }
 
 @media (max-width: 992px) {
-  #about-area1 .container .about-text h3 {
-    font-size: 25px;
-  }
   #about-area1 .container .about-text p {
     line-height: 32px !important;
     font-size: 18px !important;
@@ -535,9 +529,6 @@
   }
 }
 @media (max-width: 950px) {
-  #about-area1 .container .about-text h3 {
-    font-size: 20px;
-  }
   #about-area1 .container .about-text p {
     line-height: 22px;
     font-size: 17px;
@@ -549,9 +540,6 @@
   }
 }
 @media (max-width: 768px) {
-  #about-area1 .container .about-text h3 {
-    font-size: 15px;
-  }
   #about-area1 .container .about-text p {
     line-height: 22px;
     font-size: 15px;
@@ -595,9 +583,6 @@
   #about-area2 .container .about-text {
     margin-left: 30px !important;
   }
-  #about-area2 .container .about-text h3 {
-    font-size: 25px;
-  }
   #about-area2 .container .about-text p {
     font-size: 30px;
   }
@@ -610,9 +595,6 @@
   #about-area2 .container .about-text {
     margin-left: -50px;
   }
-  #about-area2 .container .about-text h3 {
-    font-size: 25px;
-  }
   #about-area2 .container .about-text p {
     font-size: 30px;
   }
@@ -623,9 +605,6 @@
   }
 }
 @media (max-width: 992px) {
-  #about-area2 .container .about-text h3 {
-    font-size: 25px;
-  }
   #about-area2 .container .about-text p {
     font-size: 20px;
   }
@@ -639,9 +618,6 @@
   #about-area2 .container .about-text {
     margin-left: 15px !important;
   }
-  #about-area2 .container .about-text h3 {
-    font-size: 25px;
-  }
   #about-area2 .container .about-text p {
     font-size: 20px;
   }
@@ -654,9 +630,6 @@
 @media (max-width: 768px) {
   #about-area2 .container .about-text {
     margin-left: 70px;
-  }
-  #about-area2 .container .about-text h3 {
-    font-size: 15px;
   }
   #about-area2 .container .about-text p {
     line-height: 22px;

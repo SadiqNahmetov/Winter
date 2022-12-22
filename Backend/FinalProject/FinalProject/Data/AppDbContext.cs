@@ -25,6 +25,10 @@ namespace FinalProject.Data
         public DbSet<Size> Sizes { get; set; }
         public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<AboutMission> AboutMissions { get; set; }
+        public DbSet<AboutVision> AboutVisions { get; set; }
+
+
 
 
 

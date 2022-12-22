@@ -17,27 +17,27 @@ $(function () {
 });
 
 
-let products = [];
+    let products = [];
 
-if (localStorage.getItem("products") != undefined) {
-  products = JSON.parse(localStorage.getItem("products"))
-}
-let tableBody = document.querySelector(".table .tb-body");
+    if (localStorage.getItem("products") != undefined) {
+           products = JSON.parse(localStorage.getItem("products"))
+   }
+  let tableBody = document.querySelector(".table .tb-body");
 
-addDatasToTable(products);
-showIconBasketCount();
+   addDatasToTable(products);
+   showIconBasketCount();
 
 let deleteBtns = document.querySelectorAll(".delete-icon");
 
-deleteBtns.forEach(btn => {
-  btn.addEventListener("click", function () {
-    deleteProducts(this);
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Product deleted',
-      showConfirmButton: false,
-      timer: 1000
+   deleteBtns.forEach(btn => {
+         btn.addEventListener("click", function () {
+        deleteProducts(this);
+       Swal.fire({
+       position: 'top-end',
+       icon: 'success',
+       title: 'Product deleted',
+       showConfirmButton: false,
+       timer: 1000
     })
 
   })
