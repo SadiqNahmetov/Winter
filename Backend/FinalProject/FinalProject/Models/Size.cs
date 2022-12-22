@@ -10,7 +10,7 @@ namespace FinalProject.Models
     {
         public string SizeType { get; set; }
 
-        public ICollection<ProductSize> ProductSizes { get; set; }
+        public  ICollection<ProductSize> ProductSizes { get; set; }
 
         [NotMapped]
         public bool IsSelected { get; set; }

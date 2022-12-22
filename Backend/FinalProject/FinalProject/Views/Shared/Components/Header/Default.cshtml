@@ -1,0 +1,135 @@
+﻿@model HeaderVM
+
+ @*Start Header Area*@ 
+<header>
+    <section id="navbar-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <nav class="navbar navbar-expand-lg navbar-light nav-color">
+                        <div class="logo">
+                            <a asp-controller="Home" asp-action="Index"><img src="~/assets/img/navbar/@Model.Settings["HeaderLogo"]" alt="logo"></a>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-center">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="shop.html">Shop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="about.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                            <form action="">
+                                <div class="search-box">
+                                    <input class="search-txt" type="search" name="" placeholder="Type to search">
+                                    <a href="#" class="search-btn">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+
+
+                            </form>
+                            <div class="dropdown">
+                                <button class="dropbtn">My Account</button>
+                                <div class="dropdown-content">
+                                    <a href="#">Username</a>
+                                    <a href="login.html">Login</a>
+                                    <a href="register.html">Register</a>
+                                    <a href="#">Logout</a>
+                                </div>
+                            </div>
+                            <div class="basket">
+                                <a href=""><i class="fa-sharp fa-solid fa-bag-shopping"><sup>0</sup></i></a>
+                            </div>
+                            <div class="heart">
+                                <a href="heart.html"><i class="fa-solid fa-heart"><sup>0</sup></i></a>
+                            </div>
+                        </div>
+
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="scrol-navbar-area" class="visibl">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <nav class="navbar navbar-expand-lg navbar-light nav-color">
+                        <div class="scrol-logo">
+                            <a asp-controller="Home"><img src="~/assets/img/navbar/@Model.Settings["HeaderLogo"]" alt="logo"></a>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-center">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="shop.html">Shop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="about.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                            <form action="">
+                                <div class="search-box">
+                                    <input class="search-txt" type="search" name="" placeholder="Type to search">
+                                    <a href="#" class="search-btn">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </form>
+                            <div class="dropdown">
+                                <button class="dropbtn">My Account</button>
+                                <div class="dropdown-content">
+                                    <a href="#">Username</a>
+                                    <a href="login.html">Login</a>
+                                    <a href="register.html">Register</a>
+                                    <a href="#">Logout</a>
+                                </div>
+                            </div>
+                            <div class="basket">
+                                <a href=""><i class="fa-sharp fa-solid fa-bag-shopping"><sup>0</sup></i></a>
+                            </div>
+                            <div class="heart">
+                                <a href="heart.html"><i class="fa-solid fa-heart"><sup>0</sup></i></a>
+                            </div>
+                        </div>
+
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</header>
+
+ @*end Header Area*@ 

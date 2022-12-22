@@ -19,11 +19,11 @@ $(function () {
 
 let products = [];
 
- if (localStorage.getItem("products") != undefined) {
+if (localStorage.getItem("products") != undefined) {
   products = JSON.parse(localStorage.getItem("products"))
- }
+}
 let tableBody = document.querySelector(".table .tb-body");
-     
+
 addDatasToTable(products);
 showIconBasketCount();
 

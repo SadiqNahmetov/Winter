@@ -31,6 +31,17 @@ namespace FinalProject.Controllers
             IEnumerable<InstagramPhoto> instagramPhotos = await _context.InstagramPhotos.Where(m => !m.IsDeleted).ToListAsync();
             IEnumerable<Brand> brands = await _context.Brands.Where(m => !m.IsDeleted).ToListAsync();
             IEnumerable<Feature> features = await _context.Features.Where(m => !m.IsDeleted).ToListAsync();
+            
+            IEnumerable<Product> products = await _context.Products.Where(m => !m.IsDeleted)
+                .Include(m => m.ProductImages)
+                .Include(m => m.Brand)
+                .Include(m => m.Category)
+                .Include(m => m.ProductSizes)
+                .ToListAsync(); 
+               
+               
+
+
 
 
 
@@ -43,6 +54,7 @@ namespace FinalProject.Controllers
                 InstagramPhotos = instagramPhotos,
                 Brands = brands,
                 Features = features,
+                Products = products,
 
                
             };

@@ -836,6 +836,7 @@
 #slider-product-area .container .swiper-slide .card-pr .imagesBx {
   position: relative;
   width: 100%;
+  border-radius: 15px;
   overflow: hidden;
 }
 #slider-product-area .container .swiper-slide .card-pr .imagesBx img {

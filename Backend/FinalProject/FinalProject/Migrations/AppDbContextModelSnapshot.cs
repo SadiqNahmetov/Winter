@@ -209,6 +209,27 @@ namespace FinalProject.Migrations
                     b.ToTable("Services");
                 });
 
+            modelBuilder.Entity("FinalProject.Models.Setting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Key")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Settings");
+                });
+
             modelBuilder.Entity("FinalProject.Models.Size", b =>
                 {
                     b.Property<int>("Id")
@@ -269,7 +290,7 @@ namespace FinalProject.Migrations
             modelBuilder.Entity("FinalProject.Models.ProductImage", b =>
                 {
                     b.HasOne("FinalProject.Models.Product", "Product")
-                        .WithMany("ProductImage")
+                        .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -278,7 +299,7 @@ namespace FinalProject.Migrations
             modelBuilder.Entity("FinalProject.Models.ProductSize", b =>
                 {
                     b.HasOne("FinalProject.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("ProductSizes")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

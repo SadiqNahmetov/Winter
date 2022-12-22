@@ -100,69 +100,91 @@ var swiper1 = new Swiper(".mySwiper1", {
 
 
 
+let wishlistBtns = document.querySelectorAll("#slider-product-area .card-pr .icon-shop .wishList")
 
-  if(localStorage.getItem('products') === null) {
-    localStorage.setItem('products',JSON.stringify([]))
-  }
+let products = [];
 
-    $(function (){
-      let wishLists =  document.querySelectorAll("#slider-product-area .card-pr .icon-shop .wishList");
-      let products = [];
-        
-      if(localStorage.getItem("products") != null){
-        products = JSON.parse(localStorage.getItem("products"))
-      }
-          wishLists.forEach(wishList => {
-          wishList.addEventListener("click", function(e){
-        
-          wishList.classList.toggle("heart-active");
+if (localStorage.getItem("products")) {
+    products = JSON.parse(localStorage.getItem("products"))
+}
 
-          e.preventDefault();
+document.querySelector(".heart sup").innerText = getProductsCount(products);
+document.querySelector("#scrol-navbar-area .heart sup").innerHTML = getProductsCount(products);
+
+wishlistBtns.forEach(wishlistBtn => {
+   
+    let productId = parseInt(wishlistBtn.parentNode.parentNode.parentNode.parentNode.getAttribute("cart-id"));
     
-       let productImage =  this.parentNode.parentNode.previousElementSibling.getAttribute("src");
-       let productBrand = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.innerText;
-
-       let productName = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.innerText;
-       let productPrice = this.parentNode.parentNode.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerText;
-       let productDisCountPrice = this.parentNode.parentNode.parentNode.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.innerText;
+    let existProduct = products.find(m=>m.id ==productId);
+    if (existProduct&&products.includes(existProduct)) {
+        wishlistBtn.classList.add('heart-active')
+    }
+    wishlistBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        if (!wishlistBtn.classList.contains("heart-active")) {
+        
+        wishlistBtn.classList.add("heart-active")
        
 
+    
+
+
+        
+      let productImage =  this.parentNode.parentNode.previousElementSibling.getAttribute("src");
+      let productBrand = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.innerText;
+
+      let productName = this.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.innerText;
+      let productPrice = this.parentNode.parentNode.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerText;
+       let productDisCountPrice = this.parentNode.parentNode.parentNode.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.innerText;
        let productId = parseInt(this.parentNode.parentNode.parentNode.parentNode.getAttribute("cart-id"));
        
-       let existProduct = products.find(m => m.id == productId);
-
-       if(existProduct != undefined){
-          existProduct.count +=0;
-       }
-          else{
+        let existProduct = products.find(m=>m.id ==productId);
+        if (existProduct != undefined) {
+            existProduct.count += 0;
+        }
+        else{
             products.push({
-              id:productId,
-              name:productName,
-              brand:productBrand,
-              price:productPrice,
-              image:productImage,
-              disCountPrice:productDisCountPrice,
-              count:1
-             })
-       }
 
-             localStorage.setItem("products", JSON.stringify(products));
-             GetCount();
-             
-          })
-        })
-    });
+                id:productId,
+                brand:productBrand,
+                image:productImage,
+                name:productName,
+                price:productPrice,
+                discountprice:productDisCountPrice,
+                count:1
+            })
+            document.querySelector(".heart sup").innerText = getProductsCount(products);
+            document.querySelector("#scrol-navbar-area .heart sup").innerHTML = getProductsCount(products);
+            
+        }
+       
 
-  function GetCount() {
-    let heart = JSON.parse(localStorage.getItem('products'))
-    document.querySelector('.heart sup').innerHTML = heart.length;
-    document.querySelector("#scrol-navbar-area .heart sup").innerHTML = heart.length;
-    console.log(heart.length);
-  }
+        localStorage.setItem("products", JSON.stringify(products));
+        document.querySelector(".heart sup").innerText = getProductsCount(products);
+        document.querySelector("#scrol-navbar-area .heart sup").innerHTML = getProductsCount(products);
+        }
+        else{
+            
+            wishlistBtn.classList.remove("heart-active");
+            
+            let productId = parseInt(this.parentNode.parentNode.parentNode.parentNode.getAttribute("cart-id"));
+
+            let existProduct = products.find(m=>m.id ==productId);
+             if (existProduct) {
+                
+                const newProducts=products.filter(m=>m!==existProduct);
+                localStorage.setItem('products',JSON.stringify(newProducts));
+                document.querySelector(".heart sup").innerText = getProductsCount(newProducts);
+                document.querySelector("#scrol-navbar-area .heart sup").innerHTML = getProductsCount(newProducts);
+                window.location.reload()
+            }
+            
+        }
+        
+
+    })
+});
   
-  GetCount();
-
-
-
-
-  
+function getProductsCount(items){
+  return items.length;
+}

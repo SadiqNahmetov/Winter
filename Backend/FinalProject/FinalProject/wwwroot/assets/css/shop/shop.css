@@ -662,10 +662,13 @@
 #product-area .card {
   width: 100%;
   background-color: #fff;
+  border-radius: 15px;
 }
 #product-area .card .imagesBx {
   position: relative;
   width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   overflow: hidden;
 }
 #product-area .card .imagesBx img {

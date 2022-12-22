@@ -1212,10 +1212,14 @@
                 width: 100%;
                 background-color: #fff;
                 margin-top: 50px;
+                
+
 
                 .imagesBx {
                     position: relative;
                     width: 100%;
+                    border-radius: 15px;
+
                     overflow: hidden;
 
                     img {
@@ -1569,10 +1573,11 @@
 
     .container {
 
-        h4{
+        h4 {
             font-size: 25px;
-            text-align: center !important;
+            text-align: center;
         }
+
         .img-opacity {
 
             display: flex;

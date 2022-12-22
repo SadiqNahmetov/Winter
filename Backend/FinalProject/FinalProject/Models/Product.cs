@@ -25,7 +25,12 @@ namespace FinalProject.Models
         public int BrandId { get; set; }
         public Brand Brand { get; set; }
 
-        public ICollection<ProductImage> ProductImage { get; set; }
+        public ICollection<ProductImage> ProductImages { get; set; }
+
+
+        public ICollection<ProductSize> ProductSizes { get; set; }
+
+
 
     }
 }

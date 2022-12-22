@@ -6,6 +6,7 @@
 
 <!-- Start Main Area -->
 <main>
+
     <section id="slider-img">
         <div class="container">
             <div class="row">
@@ -89,228 +90,49 @@
                 </div>
                 <div class="swiper mySwiper1">
                     <div class="swiper-wrapper">
+                        @foreach (var product in Model.Products)
+                        {
+                            <div class="swiper-slide">
+                                <div class="card-pr" cart-id="@product.Id">
+                                    <div class="imagesBx">
 
+                                        <img src="~/assets/img/product/@product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image" alt="images">
 
-                        <div class="swiper-slide">
-                            <div class="card-pr" cart-id="1">
-                                <div class="imagesBx">
-                                    <img src="~/assets/img/product/women/14_org_zoom.webp" alt="images">
+                                        <ul class="icon-shop">
+                                            <li>
+                                                <i class="fa fa-heart wishList"></i>
+                                                <span>Add to WishList</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa-sharp fa-solid fa-bag-shopping"></i>
+                                                <span>Add to Cart</span>
 
-                                    <ul class="icon-shop">
-                                        <li>
-                                            <i class="fa fa-heart wishList"></i>
-                                            <span>Add to WishList</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-bag-shopping"></i>
-                                            <span>Add to Cart</span>
+                                            </li>
 
-                                        </li>
+                                            <a class="detail" href="product-detail.html">
+                                            <li>
+                                                <i class="fa fa-eye"></i>
+                                                <span>View Details</span>
+                                            </li>
+                                            </a>
 
-                                        <a class="detail" href="product-detail.html">
-                                        <li>
-                                            <i class="fa fa-eye"></i>
-                                            <span>View Details</span>
-                                        </li>
-                                        </a>
+                                        </ul>
+                                    </div>
 
-                                    </ul>
-                                </div>
+                                    <div class="productName">
+                                        <h4>@product.Brand.Name</h4>
+                                        <a href="">@product.Name</a>
+                                    </div>
+                                    <div class="price">
+                                        <span>@((product.Price-((product.Price*product.DiscountPrice)/100)).ToString("##.00"))₼</span>
+                                        <span><del>@product.Price.ToString("##.00")₼</del></span>
+                                    </div>
 
-                                <div class="productName">
-                                    <h4>Defacto</h4>
-                                    <a href="">Rayon a-line Dres</a>
-                                </div>
-                                <div class="price">
-                                    <span>25₼</span>
-                                    <span><del>35₼</del></span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="card-pr" cart-id="2">
-                                <div class="imagesBx">
-                                    <img src="~/assets/img/product/men/11_org_zoom.webp" alt="images">
-                                    <ul class="icon-shop">
-                                        <li>
-                                            <i class="fa fa-heart wishList"></i>
-                                            <span>Add to WishList</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-bag-shopping"></i>
-                                            <span>Add to Cart</span>
-
-                                        </li>
-
-                                        <a class="detail" href="product-detail.html">
-                                        <li>
-                                            <i class="fa fa-eye"></i>
-                                            <span>View Details</span>
-                                        </li>
-                                        </a>
-
-                                    </ul>
-                                </div>
-                                <div class="productName">
-                                    <h4>Puma</h4>
-                                    <a href="">MARSHALL Men's Basic Tracksuit With Stripe Embroidery Detail</a>
-                                </div>
-                                <div class="price">
-                                    <span>52.99₼</span>
-                                    <span><del>52.99₼</del></span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="card-pr" cart-id="3">
-                                <div class="imagesBx">
-                                    <img src="~/assets/img/product/accessories/13_org_zoom.webp" alt="images">
-                                    <ul class="icon-shop">
-
-                                        <li>
-                                            <i class="fa fa-heart wishList"></i>
-                                            <span>Add to WishList</span>
-                                        </li>
+                        }
 
 
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-bag-shopping"></i>
-                                            <span>Add to Cart</span>
-
-                                        </li>
-
-                                        <a class="detail" href="product-detail.html">
-                                        <li>
-                                            <i class="fa fa-eye"></i>
-                                            <span>View Details</span>
-                                        </li>
-                                        </a>
-
-                                    </ul>
-                                </div>
-                                <div class="productName">
-                                    <h4>Defacto</h4>
-                                    <a href="">Analog Black men Watch</a>
-                                </div>
-                                <div class="price">
-                                    <span>40.99₼</span>
-                                    <span><del>52.99₼</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card-pr" cart-id="4">
-                                <div class="imagesBx">
-                                    <img src="~/assets/img/product/men/7_org_zoom.webp" alt="images">
-                                    <ul class="icon-shop">
-                                        <li>
-                                            <i class="fa fa-heart wishList"></i>
-                                            <span>Add to WishList</span>
-                                        </li>
-
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-bag-shopping"></i>
-                                            <span>Add to Cart</span>
-
-                                        </li>
-
-                                        <a class="detail" href="product-detail.html">
-                                        <li>
-                                            <i class="fa fa-eye"></i>
-                                            <span>View Details</span>
-                                        </li>
-                                        </a>
-
-                                    </ul>
-                                </div>
-
-                                <div class="productName">
-                                    <h4>Zara</h4>
-                                    <a href="">Men's Regular Fit Shirts</a>
-                                </div>
-                                <div class="price">
-                                    <span>22.99₼</span>
-                                    <span><del>32₼</del></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card-pr" cart-id="5">
-                                <div class="imagesBx">
-                                    <img src="~/assets/img/product/shoes/19_org_zoom.webp" alt="images">
-                                    <ul class="icon-shop">
-                                        <li>
-                                            <i class="fa fa-heart wishList"></i>
-                                            <span>Add to WishList</span>
-                                        </li>
-
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-bag-shopping"></i>
-                                            <span>Add to Cart</span>
-
-                                        </li>
-
-                                        <a class="detail" href="">
-                                        <li>
-                                            <i class="fa fa-eye"></i>
-                                            <span>View Details</span>
-                                        </li>
-                                        </a>
-
-                                    </ul>
-                                </div>
-
-                                <div class="productName">
-                                    <h4>Defacto</h4>
-                                    <a href="">Women's Handbag</a>
-                                </div>
-                                <div class="price">
-                                    <span>33.99₼</span>
-                                    <span><del>42₼</del></span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card-pr" cart-id="6">
-                                <div class="imagesBx">
-                                    <img src="~/assets/img/product/men/5_org_zoom.webp" alt="images">
-                                    <ul class="icon-shop">
-                                        <li>
-                                            <i class="fa fa-heart wishList"></i>
-                                            <span>Add to WishList</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa-sharp fa-solid fa-bag-shopping"></i>
-                                            <span>Add to Cart</span>
-
-                                        </li>
-
-                                        <a class="detail" href="">
-                                        <li>
-                                            <i class="fa fa-eye"></i>
-                                            <span>View Details</span>
-                                        </li>
-                                        </a>
-
-                                    </ul>
-                                </div>
-
-                                <div class="productName">
-                                    <h4>Nike</h4>
-                                    <a href="">Women's Relaxed Fit Jeans</a>
-                                </div>
-                                <div class="price">
-                                    <span>52.99₼</span>
-                                    <span><del>60.99₼</del></span>
-
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -318,8 +140,6 @@
         </div>
 
     </section>
-
-
 
 
     <section id="instagram-photo">
@@ -348,7 +168,7 @@
                     </div>
 
                 }
-               
+
             </div>
     </section>
 
@@ -365,7 +185,7 @@
                         </div>
                     }
 
-                
+
 
                 </div>
             </div>

@@ -24,6 +24,8 @@ namespace FinalProject.Data
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<ProductSize> ProductSizes { get; set; }
+        public DbSet<Setting> Settings { get; set; }
+
 
 
 

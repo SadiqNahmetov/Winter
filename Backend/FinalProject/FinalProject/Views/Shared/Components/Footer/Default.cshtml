@@ -1,0 +1,103 @@
+﻿@model FooterVM
+
+@*Start Footer Area*@
+<footer>
+    <section id="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="footer-side">
+                        <div class="footer-info">
+                            <h1>Category</h1>
+                            <ul>
+                                <li><a href="">Male</a></li>
+                                <li><a href="">Female</a></li>
+                                <li><a href="">Shoes</a></li>
+                                <li><a href="">Fashion</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="footer-side">
+                        <div class="footer-info">
+                            <h1>Company</h1>
+                            <ul>
+                                <li><a href="">About</a></li>
+                                <li><a href="">News</a></li>
+                                <li><a href="">FAQ</a></li>
+                                <li><a href="">Contact</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="footer-side">
+                        <div class="footer-info">
+                            <h1>Address</h1>
+                            <ul>
+                                <li><a href="">200, Green block, NewYork</a></li>
+                                <li><a href="">+994 50 000 00 00</a></li>
+                                <li><a href="">contact@winter.com</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="footer-side">
+                        <div class="footer-info">
+                            <div class="footer-logo">
+                                <img src="~/assets/img/navbar/@Model.Settings["FooterLogo"]" alt="logo">
+
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's.
+                                </p>
+                            </div>
+                            <div class="social">
+                                <ul>
+                                    <div class="social-icon">
+                                    <li>
+                                        <a href="https://www.facebook.com/">
+                                            @Html.Raw(Model.Settings["Facebook"])
+                                            
+                                        </a>
+                                    </li>
+                            </div>
+                            <div class="social-icon">
+                                <li>
+                                    <a href="https://twitter.com/i/flow/login">
+                                        @Html.Raw(Model.Settings["Tiwitter"])
+
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="social-icon">
+                                <li>
+                                    <a href="https://www.instagram.com/">
+                                        @Html.Raw(Model.Settings["Instagram"])
+                                    </a>
+                                </li>
+                            </div>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="line"></div>
+            <div class="copyright">
+                Copyright ©2022 All rights reserved | This site is made with by Sadiq Nahmetov
+            </div>
+        </div>
+        </div>
+
+    </section>
+</footer>
+@*end Footer Area*@
