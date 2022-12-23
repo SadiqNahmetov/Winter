@@ -154,39 +154,47 @@
     <!-- Start Main Area -->
     <main>
 
-        <section id="login">
-            <div class="container">
-                <div class="login-area">
-                    <div class="circle"></div>
-                    <form class="form">
-                        <h2 class="form-title">Login</h2>
-                        <p style="margin-top: 24px">
-                            Don't have an account? 
-                            <a href="">Click here to create one</a>
-                          </p>
-                        <div class="form-container">
-                            <div class="form-group">
-                                <input type="text" id="name" class="form-input" placeholder=" ">
-                                <label for="name" class="form-label">Email or Username:</label>
-                                <span class="form__line"></span>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="user" class="form-input" placeholder=" ">
-                                <label for="user" class="form-label">Password:</label>
-                                <span class="form-line"></span>
-                            </div>
-                           
-                                <a class="forgot" href="">Forgot password?</a>
-                        
-                            <input type="submit" class="form-submit" value="Login">
-                        </div>
-                    </form>
-                 
+   
 
+<section id="login-area">
+    <div class="container">
+        <div class="image-wapper" style="background-image: url(https://images.unsplash.com/photo-1578932750294-f5075e85f44a?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80)">
+          <h1>Welcome Back</h1>
+        </div>
+        <div class="form-wapper">
+          <div class="form-header">
+            <h2>Sign In</h2>
+            <p>Welcome back! Please login to your account and continue growing your store.</p>
+          </div>
+          <div class="form-body">
+            <form>
+              <div class="input-wrapper">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="john@example.com"/>
+              </div>
+              <div class="input-wrapper">
+                <label for="password">Password</label>
+                <input id="password" type="password" name="password" placeholder="**********"/><span class="icon show-pass"><i class="fa-solid fa-eye"></i></span>
+              </div>
+              <div class="input-wrapper more-action">
+                <label>
+                </label><a class="form-link" href="#">Forgot Password?</a>
+              </div>
+              <div class="signIn">
+                <a href="">Sign In</a> 
+              </div>
+            </form>
+          </div>
+          <div class="form-footer">
+            <p>Don't have an account yet?<a class="form-link" href="register.html">Sign Up</a></p>
+          </div>
+        </div>
+      </div>
 
-                </div>
-            </div>
-        </section>
+</section>
+       
+
+       
     </main>
     <!-- end Main Area -->
 

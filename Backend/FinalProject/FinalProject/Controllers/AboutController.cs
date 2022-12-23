@@ -22,12 +22,14 @@ namespace FinalProject.Controllers
         {
             AboutMission aboutMission = await _context.AboutMissions.Where(m => !m.IsDeleted).FirstOrDefaultAsync();
             AboutVision aboutVision = await _context.AboutVisions.Where(m => !m.IsDeleted).FirstOrDefaultAsync();
+            IEnumerable<InstagramPhoto> instagramPhotos = await _context.InstagramPhotos.Where(m => !m.IsDeleted).ToListAsync();
 
 
             AboutVM aboutVM = new AboutVM()
             {
                 AbourMission = aboutMission,
-                AboutVision = aboutVision
+                AboutVision = aboutVision,
+                InstagramPhotos = instagramPhotos,
                
 
             };

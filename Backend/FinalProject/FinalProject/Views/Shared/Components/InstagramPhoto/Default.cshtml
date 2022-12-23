@@ -1,0 +1,31 @@
+﻿
+@model InstagramPhotoVM
+<section id="instagram-photo">
+    <div class="container">
+        <div class="row">
+
+            <h4 style="text-align:center !important">Instagram-photo</h4>
+
+            @foreach (var instagramPhoto in Model.InstagramPhotos)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="img-opacity">
+                        <img src="~/assets/img/instagramphoto/@instagramPhoto.Image" alt="">
+
+                        <div class="social">
+                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
+                                @Html.Raw(instagramPhoto.Social)
+                            </a>
+                        </div>
+
+                        <div class="owerlay">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+</section>
