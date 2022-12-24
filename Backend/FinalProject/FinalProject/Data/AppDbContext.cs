@@ -27,6 +27,13 @@ namespace FinalProject.Data
         public DbSet<Setting> Settings { get; set; }
         public DbSet<AboutMission> AboutMissions { get; set; }
         public DbSet<AboutVision> AboutVisions { get; set; }
+        public DbSet<Map> Maps { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<SendMessage> SendMessages { get; set; }
+
+
+
+
 
 
 
