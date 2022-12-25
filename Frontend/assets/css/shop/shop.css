@@ -27,7 +27,6 @@
   top: 50%;
   left: 70%;
   transform: translate(-50%, -50%);
-  background-color: #2f3640;
   height: 40px;
   border-radius: 40px;
 }
@@ -35,7 +34,7 @@
   width: 240px;
   padding: 0 6px;
 }
-#navbar-area .container .search-box:hover > .search-btn {
+#navbar-area .container .search-box:hover .search-btn {
   background-color: #fff;
 }
 #navbar-area .container .search-box .search-btn {
@@ -44,7 +43,6 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #2f3640;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +55,7 @@
   outline: none;
   float: left;
   padding: 0;
-  color: white;
+  color: black;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
@@ -68,14 +66,14 @@
 }
 #navbar-area .container .basket i {
   font-size: 25px;
-  color: #65A3F2;
+  color: #171700;
   margin-top: 13px;
 }
 #navbar-area .container .basket i:hover {
   color: #ff2020 !important;
 }
 #navbar-area .container .basket i sup {
-  background-color: #F93A35;
+  background-color: #65A3F2;
   color: rgb(49, 75, 99) !important;
   padding: 5px;
   border-radius: 50%;
@@ -88,14 +86,17 @@
 }
 #navbar-area .container .heart i {
   font-size: 25px;
-  color: #65A3F2;
+  color: #171700;
   margin-top: 13px;
 }
 #navbar-area .container .heart i:hover {
   color: #ff2020 !important;
 }
+#navbar-area .container .heart i:hover sup {
+  background-color: #65A3F2;
+}
 #navbar-area .container .heart i sup {
-  background-color: #F93A35;
+  background-color: #65A3F2;
   color: rgb(49, 75, 99) !important;
   padding: 5px;
   margin-left: 5%;
@@ -118,7 +119,6 @@
   height: 39px;
   border: none;
   cursor: pointer;
-  border-bottom: 2px solid #65A3F2;
   background-color: #F4F4F4;
 }
 #navbar-area .container .dropdown .dropdown-content {
@@ -129,6 +129,7 @@
   border-radius: 7px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 2;
+  margin-left: 5px;
 }
 #navbar-area .container .dropdown .dropdown-content a {
   color: black;
@@ -272,15 +273,14 @@
   top: 50%;
   left: 70%;
   transform: translate(-50%, -50%);
-  background-color: #2f3640;
   height: 40px;
   border-radius: 40px;
 }
-#scrol-navbar-area .container .search-box:hover > .search-txt {
+#scrol-navbar-area .container .search-box:hover .search-txt {
   width: 240px;
   padding: 0 6px;
 }
-#scrol-navbar-area .container .search-box:hover > .search-btn {
+#scrol-navbar-area .container .search-box:hover .search-btn {
   background-color: #fff;
 }
 #scrol-navbar-area .container .search-box .search-btn {
@@ -289,7 +289,6 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #2f3640;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -302,7 +301,7 @@
   outline: none;
   float: left;
   padding: 0;
-  color: white;
+  color: black;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
@@ -313,14 +312,14 @@
 }
 #scrol-navbar-area .container .basket i {
   font-size: 25px;
-  color: #65A3F2;
+  color: #171700;
   margin-top: 13px;
 }
 #scrol-navbar-area .container .basket i:hover {
   color: #ff2020 !important;
 }
 #scrol-navbar-area .container .basket i sup {
-  background-color: #F93A35;
+  background-color: #65A3F2;
   color: rgb(49, 75, 99) !important;
   padding: 5px;
   border-radius: 50%;
@@ -333,14 +332,14 @@
 }
 #scrol-navbar-area .container .heart i {
   font-size: 25px;
-  color: #65A3F2;
+  color: #171700;
   margin-top: 13px;
 }
 #scrol-navbar-area .container .heart i:hover {
   color: #ff2020 !important;
 }
 #scrol-navbar-area .container .heart i sup {
-  background-color: #F93A35;
+  background-color: #65A3F2;
   color: rgb(49, 75, 99) !important;
   padding: 5px;
   margin-left: 5%;
@@ -363,7 +362,6 @@
   height: 39px;
   border: none;
   cursor: pointer;
-  border-bottom: 2px solid #65A3F2;
   background-color: #F4F4F4;
 }
 #scrol-navbar-area .container .dropdown .dropdown-content {
@@ -374,6 +372,7 @@
   border-radius: 7px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 2;
+  margin-left: 5px;
 }
 #scrol-navbar-area .container .dropdown .dropdown-content a {
   color: black;
