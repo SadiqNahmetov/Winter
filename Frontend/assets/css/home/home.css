@@ -626,6 +626,9 @@
 #service {
   margin-top: 70px;
 }
+#service .container .cards img {
+  margin-left: 50px;
+}
 #service .container .cards h3 {
   margin-top: 35px;
 }
@@ -810,7 +813,6 @@
 }
 #slider-product-area .container .title-ourPr {
   width: 100%;
-  text-align: center;
 }
 #slider-product-area .container .title-ourPr h3 {
   margin-top: 25px;
@@ -1038,7 +1040,6 @@
 }
 #instagram-photo .container h4 {
   font-size: 25px;
-  text-align: center;
 }
 #instagram-photo .container .img-opacity {
   display: flex;
@@ -1154,7 +1155,6 @@
   margin-bottom: 80px;
 }
 #brand-area .container h3 {
-  text-align: center;
   margin-top: 50px;
 }
 #brand-area .container .swiper {

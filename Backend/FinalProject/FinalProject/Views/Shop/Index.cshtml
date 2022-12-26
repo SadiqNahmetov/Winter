@@ -1,0 +1,309 @@
+﻿@model ShopVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@section Css
+{
+    <link rel="shortcut icon" href="https://img.icons8.com/office/512/online-store.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+          integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="~/assets/css/shop/shop.css">
+
+}
+
+
+<!-- Start Main Area -->
+<main>
+    <section id="product-area">
+        <div class="container">
+            <div class="row">
+                <div class="header-pr">
+                    <h3>
+                        All PRODUCTS
+                    </h3>
+                </div>
+
+
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="filter-main">
+                        <div class="filter-text">
+                            <h3>PRODUCT FILTERS</h3>
+                        </div>
+                        <div class="filter">
+                            <h5>Brands</h5>
+                            <form action="/action_page">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="#">
+                                <label for="vehicle1">Defacto</label><br>
+                                <input type="checkbox" id="vehicle2" name="vehicle2" value="#">
+                                <label for="vehicle2">Zara</label><br>
+                                <input type="checkbox" id="vehicle3" name="vehicle3" value="#">
+                                <label for="vehicle3">Mango</label><br>
+                                <input type="checkbox" id="vehicle4" name="vehicle4" value="#">
+                                <label for="vehicle4">Nike</label><br>
+                                <input type="checkbox" id="vehicle5" name="vehicle5" value="#">
+                                <label for="vehicle5">Puma</label><br>
+                                <input type="checkbox" id="vehicle5" name="vehicle5" value="#">
+                                <label for="vehicle5">Casio</label><br>
+
+                                <h5>Size</h5>
+
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="#">
+                                <label for="vehicle1">XS</label><br>
+                                <input type="checkbox" id="vehicle2" name="vehicle2" value="#">
+                                <label for="vehicle2">XXS</label><br>
+                                <input type="checkbox" id="vehicle3" name="vehicle3" value="#">
+                                <label for="vehicle3">S</label><br>
+                                <input type="checkbox" id="vehicle4" name="vehicle4" value="#">
+                                <label for="vehicle4">M</label><br>
+                                <input type="checkbox" id="vehicle5" name="vehicle5" value="#">
+                                <label for="vehicle5">L</label><br>
+                                <input type="checkbox" id="vehicle6" name="vehicle6" value="#">
+                                <label for="vehicle6">XL</label><br>
+
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                    <div class="main-range">
+                        <div class="range-text">
+                            <h3>PRICE FILTER</h3>
+                        </div>
+
+                        <div class="input-price">
+                            <div class="input-area">
+                                <span>Min</span>
+                                <input type="number" class="input-min" value="20" />
+                            </div>
+                            <div class="separator">-</div>
+                            <div class="input-area">
+                                <span>Max</span>
+                                <input type="number" class="input-max" max="800" value="770" />
+                            </div>
+                        </div>
+                        <div class="range">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="range-input">
+                            <input type="range" class="range-min" min="10" max="800" value="20" step="10" />
+                            <input type="range" class="range-max" min="10" max="800" value="770" step="10" />
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="category">
+                                <button class="my-btn tab-active" data-id="0">All</button>
+                                @foreach (var category in Model.Categories)
+                                {
+                                    <button class="my-btn" data-id="@category.Id">@category.Name</button>
+                                }
+
+
+                            </div>
+                        </div>
+
+                        @foreach (var product in Model.Product)
+                        {
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card" data-id="@product.CategoryId" cart-id="@product.Id">
+                                    <div class="imagesBx">
+                                        <img src="~/assets/img/product/@product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image" alt="images">
+                                        <ul class="icon-shop">
+                                            <li>
+                                                <i class="fa fa-heart wishList" aria-hidden="true"></i>
+                                                <span>Add to WishList</span>
+                                            </li>
+
+                                            <li>
+                                                <i class="fa-sharp fa-solid fa-bag-shopping"></i>
+                                                <span>Add to Cart</span>
+
+                                            </li>
+
+                                            <a class="detail" href="product-detail.html">
+                                            <li>
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                <span>View Details</span>
+                                            </li>
+                                            </a>
+
+                                        </ul>
+                                    </div>
+                                    <div class="productName">
+                                        <h4>@product.Brand.Name</h4>
+                                        <a href="product-detail.html">@product.Name</a>
+                                    </div>
+                                    <div class="price">
+                                        <span>@((product.Price-((product.Price*product.DiscountPrice)/100)).ToString("##.00"))₼</span>
+                                        <span><del>@product.Price.ToString("##.00")₼</del></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+
+                       
+
+                        <div class="show-more">
+                            <button type="submit" class="my-button">Show-More</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="service">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="cards">
+                        <img src="~/assets/img/service/icon_1.png.webp" alt="icon">
+                        <h3>Free shipping</h3>
+                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="cards">
+                        <img src="~/assets/img/service/icon_2.png.webp" alt="icon">
+                        <h3>Free shipping</h3>
+                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="cards">
+                        <img src="~/assets/img/service/icon_3.png.webp" alt="icon">
+                        <h3>Free shipping</h3>
+                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="cards">
+                        <img src="~/assets/img/service/icon_4.png.webp" alt="icon">
+                        <h3>Free shipping</h3>
+                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="instagram-photo">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="img-opacity">
+                        <img src="~/assets/img/instagramphoto/inst_1.png.webp" alt="">
+
+                        <div class="social">
+                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+
+                        <div class="owerlay">
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="img-opacity">
+                        <img src="~/assets/img/instagramphoto/inst_2.png.webp" alt="">
+                        <div class="social">
+                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+
+                        <div class="owerlay">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="img-opacity">
+                        <img src="~/assets/img/instagramphoto/inst_3.png.webp" alt="">
+                        <div class="social">
+                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+
+                        <div class="owerlay">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="img-opacity">
+                        <img src="~/assets/img/instagramphoto/inst_5.png.webp" alt="">
+                        <div class="social">
+                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+
+                        <div class="owerlay">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+</main>
+<!-- end Main Area -->
+
+@section Scripts
+{
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/0622708fc2.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+    <script src="~/assets/js/shop/shop.js"></script>
+
+
+}

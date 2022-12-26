@@ -927,6 +927,9 @@
 
     .container {
         .cards {
+            img{
+                margin-left: 50px;
+            }
             h3 {
                 margin-top: 35px;
             }
@@ -1187,7 +1190,7 @@
 
         .title-ourPr {
             width: 100%;
-            text-align: center;
+            
 
             h3 {
                 margin-top: 25px;
@@ -1588,7 +1591,7 @@
 
         h4 {
             font-size: 25px;
-            text-align: center;
+            
         }
 
         .img-opacity {
@@ -1787,7 +1790,7 @@
 
     .container {
         h3 {
-            text-align: center;
+          
             margin-top: 50px;
 
         }
