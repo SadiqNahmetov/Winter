@@ -874,6 +874,8 @@
           background-position: center;
           background-repeat: no-repeat;
           position: relative;
+          height: 625px;
+          margin-top: 61px;
           &::before {
             content: "";
             display: block;
@@ -917,13 +919,13 @@
             .input-wrapper {
               margin-bottom: 20px;
               position: relative;
-              > label {
+               label {
                 display: block;
                 margin-bottom: 10px;
                 font-size: 14px;
               }
       
-              > input {
+               input {
                 display: block;
                 width: 100%;
                 height: 39px;
@@ -936,7 +938,7 @@
       
               .icon {
                 position: absolute;
-                bottom: 10px;
+                margin-top: -30px;
                 right: 10px;
                 font-size: 18px;
                 line-height: 0.8;
@@ -963,21 +965,11 @@
               }
             }
       
-            button {
-              width: 100%;
-              padding: 10px 1rem;
-              background-color: var(--main-color);
-              border: unset;
-              border-radius: 5px;
-              color: #fff;
-              font-size: 1rem;
-              cursor: pointer;
-              &:hover {
-                background-color: var(--main-color-hover);
-              }
-            }
+           
           }
           .form-footer {
+            width: 100%;
+            text-align: center;
             p {
               font-size: 12px;
               margin: 0;
@@ -995,7 +987,11 @@
                 text-transform: uppercase;
                 transition: 0.5s;
                 text-decoration: none;
-                color: #fff;
+                 button{
+                    color:  white;
+                    font-size: 20px;
+                 }
+                
 
                 &:hover {
                     background-color: gray;

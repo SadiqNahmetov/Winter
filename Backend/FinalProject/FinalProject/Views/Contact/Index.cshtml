@@ -39,7 +39,7 @@
 
                                 <div class="col-md-8">
                                     <div class="aa-contact-address-left">
-                                        <form class="comments-form contact-form" asp-controller="Contact" asp-action="Index" method="post" >
+                                        <form class="comments-form contact-form" asp-controller="Contact" asp-action="Index" method="post">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -87,7 +87,7 @@
                                         <address>
                                             <h4>@Model.Contact.Title</h4>
                                             <p>
-                                               @Model.Contact.Description
+                                                @Model.Contact.Description
                                             </p>
                                             <p>@Html.Raw(Model.Contact.Address)</p>
                                             <p>@Html.Raw(Model.Contact.Phone)</p>
@@ -104,16 +104,16 @@
     </section>
 
     @await Component.InvokeAsync("InstagramPhoto")
-  
 
 
-  
+
+
 </main>
 
 @section Scripts
 {
+    <partial name="_ValidationPartial" />
 
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
             integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>

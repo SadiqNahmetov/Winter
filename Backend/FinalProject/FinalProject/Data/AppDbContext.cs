@@ -31,6 +31,18 @@ namespace FinalProject.Data
         public DbSet<Map> Maps { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<SendMessage> SendMessages { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<BlogTag> BlogTags { get; set; }
+
+        public DbSet<BlogCategory> BlogCategories { get; set; }
+
+
+
+
+
+
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

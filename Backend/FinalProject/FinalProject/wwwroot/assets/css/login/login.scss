@@ -900,6 +900,8 @@
             margin-bottom: 50px;
 
           .signIn{
+            width: 100%;
+            text-align: center;
             a {
                 background-color: #2F7DFC;
                 padding: 12px 25px;
@@ -907,7 +909,10 @@
                 text-transform: uppercase;
                 transition: 0.5s;
                 text-decoration: none;
-                color: #fff;
+                button{
+                    color:  white;
+                    font-size: 20px;
+                 }
 
                 &:hover {
                     background-color: gray;
@@ -915,7 +920,7 @@
                 }
             }
           }
-          }
+      }
       
           .form-header {
             h2 {
@@ -939,7 +944,7 @@
                 font-size: 14px;
               }
       
-              > input {
+               input {
                 display: block;
                 width: 100%;
                 height: 39px;
@@ -952,7 +957,7 @@
       
               .icon {
                 position: absolute;
-                bottom: 10px;
+                margin-top: -30px;
                 right: 10px;
                 font-size: 18px;
                 line-height: 0.8;
@@ -978,19 +983,7 @@
               }
             }
       
-            button {
-              width: 100%;
-              padding: 10px 1rem;
-              background-color: var(--main-color);
-              border: unset;
-              border-radius: 5px;
-              color: #fff;
-              font-size: 1rem;
-              cursor: pointer;
-              &:hover {
-                background-color: var(--main-color-hover);
-              }
-            }
+           
           }
           .form-footer {
             p {

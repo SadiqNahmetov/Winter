@@ -62,8 +62,8 @@ function addDatasToTable(products) {
               <td heart-id="${product.id}"><img src="${product.image}" style="width:170px; height:170px" alt=""></td>
               <td>${product.name}</td>
               <td>${product.brand}</td>
+              <td>${product.discountprice}</td>
               <td>${product.price}</td>
-              <td>${product.disCountPrice}</td>
              
               <td class="basket-delete"><i class="fa-solid fa-cart-plus basket-heart"></i>
               <i class="fa-solid fa-trash delete-icon"></i>
