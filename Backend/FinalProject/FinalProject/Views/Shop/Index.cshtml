@@ -1,6 +1,6 @@
 ﻿@model ShopVM
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Shop";
 }
 
 
@@ -48,33 +48,20 @@
                         <div class="filter">
                             <h5>Brands</h5>
                             <form action="/action_page">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="#">
-                                <label for="vehicle1">Defacto</label><br>
-                                <input type="checkbox" id="vehicle2" name="vehicle2" value="#">
-                                <label for="vehicle2">Zara</label><br>
-                                <input type="checkbox" id="vehicle3" name="vehicle3" value="#">
-                                <label for="vehicle3">Mango</label><br>
-                                <input type="checkbox" id="vehicle4" name="vehicle4" value="#">
-                                <label for="vehicle4">Nike</label><br>
-                                <input type="checkbox" id="vehicle5" name="vehicle5" value="#">
-                                <label for="vehicle5">Puma</label><br>
-                                <input type="checkbox" id="vehicle5" name="vehicle5" value="#">
-                                <label for="vehicle5">Casio</label><br>
+                                @foreach (var brand in Model.Brands)
+                                {
+                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="#">
+                                    <label for="vehicle1">@brand.Name</label><br>
+                                }
 
                                 <h5>Size</h5>
+                                @foreach (var size in Model.Sizes)
+                                {
+                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="#">
+                                    <label for="vehicle1">@size.SizeType</label><br>
+                                }
 
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="#">
-                                <label for="vehicle1">XS</label><br>
-                                <input type="checkbox" id="vehicle2" name="vehicle2" value="#">
-                                <label for="vehicle2">XXS</label><br>
-                                <input type="checkbox" id="vehicle3" name="vehicle3" value="#">
-                                <label for="vehicle3">S</label><br>
-                                <input type="checkbox" id="vehicle4" name="vehicle4" value="#">
-                                <label for="vehicle4">M</label><br>
-                                <input type="checkbox" id="vehicle5" name="vehicle5" value="#">
-                                <label for="vehicle5">L</label><br>
-                                <input type="checkbox" id="vehicle6" name="vehicle6" value="#">
-                                <label for="vehicle6">XL</label><br>
+
 
                             </form>
 
@@ -114,9 +101,10 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="category">
-                                <button class="my-btn tab-active" data-id="0">All</button>
+                                <button class="my-btn tab-active">All</button>
                                 @foreach (var category in Model.Categories)
                                 {
+
                                     <button class="my-btn" data-id="@category.Id">@category.Name</button>
                                 }
 
@@ -165,7 +153,7 @@
                         }
 
 
-                       
+
 
                         <div class="show-more">
                             <button type="submit" class="my-button">Show-More</button>
@@ -184,104 +172,9 @@
 
 
 
-    <section id="service">
-        <div class="container">
-            <div class="row">
 
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="cards">
-                        <img src="~/assets/img/service/icon_1.png.webp" alt="icon">
-                        <h3>Free shipping</h3>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="cards">
-                        <img src="~/assets/img/service/icon_2.png.webp" alt="icon">
-                        <h3>Free shipping</h3>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="cards">
-                        <img src="~/assets/img/service/icon_3.png.webp" alt="icon">
-                        <h3>Free shipping</h3>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="cards">
-                        <img src="~/assets/img/service/icon_4.png.webp" alt="icon">
-                        <h3>Free shipping</h3>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
-                </div>
+    @await Component.InvokeAsync("InstagramPhoto")
 
-            </div>
-        </div>
-    </section>
-
-    <section id="instagram-photo">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="img-opacity">
-                        <img src="~/assets/img/instagramphoto/inst_1.png.webp" alt="">
-
-                        <div class="social">
-                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
-
-                        <div class="owerlay">
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="img-opacity">
-                        <img src="~/assets/img/instagramphoto/inst_2.png.webp" alt="">
-                        <div class="social">
-                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
-
-                        <div class="owerlay">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="img-opacity">
-                        <img src="~/assets/img/instagramphoto/inst_3.png.webp" alt="">
-                        <div class="social">
-                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
-
-                        <div class="owerlay">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="img-opacity">
-                        <img src="~/assets/img/instagramphoto/inst_5.png.webp" alt="">
-                        <div class="social">
-                            <a href="https://www.instagram.com/thewinterbrand/?hl=en">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                        </div>
-
-                        <div class="owerlay">
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
 
 </main>
 <!-- end Main Area -->

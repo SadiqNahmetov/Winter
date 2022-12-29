@@ -498,7 +498,7 @@
   background-color: #E8F0F2;
 }
 #blog-detail-area .container .blog-card {
-  margin-top: 50px;
+  margin-top: 53px;
   position: relative;
   overflow: hidden;
   background-color: #fff;
@@ -506,6 +506,7 @@
 #blog-detail-area .container .blog-card h5 {
   color: rgb(47, 60, 72);
   text-align: center;
+  margin-top: 10%;
 }
 #blog-detail-area .container .blog-card:hover img {
   transform: scale(1.1);
@@ -514,16 +515,57 @@
 #blog-detail-area .container .blog-card .blog-img {
   width: 100%;
 }
-#blog-detail-area .container .blog-card .blog-img a img {
+#blog-detail-area .container .blog-card .blog-img a .blogD-image {
+  overflow: hidden;
+}
+#blog-detail-area .container .blog-card .blog-img a .blogD-image img {
   width: 100%;
   transition: 0.7s;
 }
 #blog-detail-area .container .blog-card .blog-text-main .blog-text {
-  margin-top: 30px;
+  margin-top: 24px;
   margin-left: 12px;
+  margin-bottom: 4px;
 }
 #blog-detail-area .container .blog-card .blog-text-main .blog-text h3 {
   font-size: 30px;
+}
+#blog-detail-area .container .blog-card .blog-text-main .blog-text p {
+  line-height: 35px;
+}
+#blog-detail-area .container .blog-card .blog-text-main .blog-text .tag {
+  align-items: flex-start;
+  display: flex;
+}
+#blog-detail-area .container .blog-card .blog-text-main .blog-text .tag .head {
+  width: 55px;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #505668;
+  margin-bottom: 5px;
+}
+#blog-detail-area .container .blog-card .blog-text-main .blog-text .tag .tag-name {
+  flex-wrap: wrap;
+  width: calc(100% - 55px);
+}
+#blog-detail-area .container .blog-card .blog-text-main .blog-text .tag .tag-name a {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  min-height: 30px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #888;
+  text-decoration: none;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px 15px 5px 15px;
+  font-family: font1;
+  transition: 0.5s;
+}
+#blog-detail-area .container .blog-card .blog-text-main .blog-text .tag .tag-name a:hover {
+  color: #2F7DFC;
+  border-color: #2F7DFC;
+  transition: 0.5s;
 }
 #blog-detail-area .container .blog-card .comment-area {
   border-top: 0.2px solid #EEEEEE;
@@ -552,6 +594,41 @@
   color: #666666;
 }
 #blog-detail-area .container .blog-card .comment-area .comment .name-date p {
+  margin-bottom: 0.4rem !important;
+}
+#blog-detail-area .container .blog-card-coment {
+  margin-top: 100px;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+#blog-detail-area .container .blog-card-coment .comment-area {
+  border-top: 0.2px solid #EEEEEE;
+  background-color: #FBF9FF;
+  border: 0.5px solid whitesmoke;
+  margin-top: 15px;
+}
+#blog-detail-area .container .blog-card-coment .comment-area p {
+  margin-top: 5px;
+  line-height: 30px;
+  margin-left: 15px;
+  font-size: 17px;
+}
+#blog-detail-area .container .blog-card-coment .comment-area .comment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#blog-detail-area .container .blog-card-coment .comment-area .comment .name-date {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+#blog-detail-area .container .blog-card-coment .comment-area .comment .name-date h4 a {
+  text-decoration: none;
+  color: #666666;
+}
+#blog-detail-area .container .blog-card-coment .comment-area .comment .name-date p {
   margin-bottom: 0.4rem !important;
 }
 #blog-detail-area .container .category {
@@ -600,40 +677,6 @@
 }
 #blog-detail-area .container .recent-post .recent-card .img-name .name-blog {
   margin-left: 10px;
-}
-#blog-detail-area .container .tag-area {
-  margin-top: 100px;
-  width: 90%;
-  background-color: #FBF9FF;
-}
-#blog-detail-area .container .tag-area h3 {
-  margin-left: 20px;
-  padding-top: 20px;
-  border-bottom: 1px solid #F0E9FF;
-  width: 88%;
-}
-#blog-detail-area .container .tag-area .tag ul {
-  display: flex;
-}
-#blog-detail-area .container .tag-area .tag ul li {
-  width: 100%;
-  height: 32px;
-  list-style: none;
-  margin: 10px;
-  background-color: #fff;
-  border: 0.7px solid whitesmoke;
-}
-#blog-detail-area .container .tag-area .tag ul li a {
-  text-align: center;
-  text-decoration: none;
-  color: #000000;
-  margin-left: 5px;
-}
-#blog-detail-area .container .tag-area .tag ul li:hover {
-  background-color: #2F7DFC;
-}
-#blog-detail-area .container .tag-area .tag ul li:hover a {
-  color: #fff;
 }
 #blog-detail-area .container .contact-area-main {
   display: inline;

@@ -158,7 +158,7 @@ wishlistBtns.forEach(wishlistBtn => {
 
             let existProduct = products.find(m=>m.id ==productId);
              if (existProduct) {
-                
+            
                 const newProducts=products.filter(m=>m!==existProduct);
                 localStorage.setItem('products',JSON.stringify(newProducts));
                 document.querySelector(".heart sup").innerText = getProductsCount(newProducts);

@@ -838,27 +838,6 @@
     padding: 1px 6px;
   }
 }
-#service {
-  margin-top: 70px;
-}
-#service .container .cards h3 {
-  margin-top: 35px;
-}
-
-@media (max-width: 768px) {
-  #service .container .cards {
-    margin-left: 5%;
-  }
-  #service .container .cards img {
-    width: 135px;
-  }
-  #service .container .cards h3 {
-    margin-top: 16px;
-  }
-  #service .container .cards p {
-    font-size: 26px;
-  }
-}
 #instagram-photo {
   margin-top: 50px;
 }

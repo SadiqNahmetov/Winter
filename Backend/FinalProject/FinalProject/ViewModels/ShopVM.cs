@@ -10,5 +10,8 @@ namespace FinalProject.ViewModels
     {
         public List<Product> Product { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        public IEnumerable<Brand> Brands { get; set; }
+        public IEnumerable<Size> Sizes { get; set; }
+        public IEnumerable<InstagramPhoto> InstagramPhotos { get; set; }
     }
 }

@@ -33,12 +33,17 @@ namespace FinalProject.Controllers
                .Where(m => !m.IsDeleted)
                .ToListAsync();
 
+            IEnumerable<Brand> brands = await _context.Brands.Where(m => !m.IsDeleted).ToListAsync();
+            IEnumerable<Size> sizes = await _context.Sizes.Where(m => !m.IsDeleted).ToListAsync();
+
 
 
             ShopVM shopVM = new ShopVM 
             { 
                 Product = products,
                 Categories = categories,
+                Brands = brands,
+                Sizes = sizes,
             };
 
             return View(shopVM);

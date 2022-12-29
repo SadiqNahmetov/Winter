@@ -1241,41 +1241,7 @@
 }
 
 
-#service {
-    margin-top: 70px;
 
-    .container {
-        .cards {
-            h3 {
-                margin-top: 35px;
-            }
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    #service {
-        .container {
-            .cards {
-                margin-left: 5%;
-
-                img {
-                    width: 135px;
-                }
-
-                h3 {
-                    margin-top: 16px;
-
-                }
-
-                p {
-                    font-size: 26px;
-                }
-            }
-        }
-
-    }
-}
 
 #instagram-photo {
     margin-top: 50px;
