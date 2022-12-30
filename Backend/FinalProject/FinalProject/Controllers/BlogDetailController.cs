@@ -30,12 +30,21 @@ namespace FinalProject.Controllers
 
             IEnumerable<BlogCategory> blogCategories = await _context.BlogCategories.Where(m => !m.IsDeleted).ToListAsync();
 
+            List<BlogTag> blogTags = await _context.BlogTags.Where(m => !m.IsDeleted && m.BlogId == id).ToListAsync();
+
+            List<Tag> tags = new List<Tag>();
+            foreach (var tag in blogTags)
+            {
+                Tag dbTag = await _context.Tags.Where(m => m.Id == tag.TagId).FirstOrDefaultAsync();
+                tags.Add(dbTag);
+            }
 
             BlogDetailVM blogDetailVM = new BlogDetailVM
                   {
                       Blog = blog,
                       RecentPosts = recentPosts,
                       BlogCategories = blogCategories,
+                      Tags = tags
                     
                   };
             return View(blogDetailVM);

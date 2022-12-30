@@ -43,8 +43,12 @@
                                 <div class="tag">
                                     <span class="head">Tags :</span>
                                     <div class="tag-name">
-                                        <a href="">Streetstyle</a>
-                                        <a href="">Crafts</a>
+                                        @foreach (var tag in Model.Tags)
+                                        {
+                                            <a href="">@tag.Name</a>
+
+                                        }
+                                      
                                     </div>
                                 </div>
                             </div>

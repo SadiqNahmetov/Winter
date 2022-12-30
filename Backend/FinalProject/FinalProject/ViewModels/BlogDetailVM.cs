@@ -12,6 +12,7 @@ namespace FinalProject.ViewModels
         public IEnumerable<Blog> RecentPosts { get; set; }
 
         public IEnumerable<BlogCategory> BlogCategories { get; set; }
+        public List<Tag> Tags { get; set; }
 
 
     }
