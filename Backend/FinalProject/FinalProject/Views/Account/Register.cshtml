@@ -25,21 +25,22 @@
                     <h2>Sign Up</h2>
                     <p>Welcome to our site! Please sign up and join to us.</p>
                 </div>
+                <div class="text-danger" asp-validation-summary="All"></div>
                 <div class="form-body">
                     <form asp-controller="Account" asp-action="Register" method="post" enctype="multipart/form-data">
                         <div class="input-wrapper">
                             <div class="input-wrapper">
                                 <label asp-for="Fullname">Fullname</label>
-                                <input id="email" asp-for="Fullname" placeholder="John Musk" required />
+                                <input id="email" asp-for="Fullname" autocomplete="off" placeholder="John Musk" required />
                                 <span class="text-danger my-2" asp-validation-for="Fullname"> </span>
                             </div>
                             <label asp-for="Email">Email</label>
-                            <input id="email" asp-for="Email" placeholder="john@example.com" required />
+                            <input id="email" asp-for="Email" autocomplete="off" placeholder="john@example.com" required />
                             <span class="text-danger my-2" asp-validation-for="Email"> </span>
                         </div>
                         <div class="input-wrapper">
                             <label asp-for="Username">Username</label>
-                            <input id="email" asp-for="Username"  placeholder="John444"  required/>
+                            <input id="email" asp-for="Username" autocomplete="off"  placeholder="John444"  required/>
                             <span class="text-danger my-2" asp-validation-for="Username"> </span>
                         </div>
                         <div class="input-wrapper">

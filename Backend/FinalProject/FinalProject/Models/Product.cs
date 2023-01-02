@@ -30,7 +30,7 @@ namespace FinalProject.Models
 
         public ICollection<ProductSize> ProductSizes { get; set; }
 
-
+        public ICollection<BasketProduct> BasketProducts { get; set; }
 
     }
 }

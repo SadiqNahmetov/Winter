@@ -1,6 +1,7 @@
 using FinalProject.Data;
 using FinalProject.Models;
 using FinalProject.Services;
+using FinalProject.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,11 +35,10 @@ namespace FinalProject
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddScoped<LayoutService>();
-
             services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+
 
 
             services.Configure<IdentityOptions>(opt => {
@@ -47,11 +47,16 @@ namespace FinalProject
                 opt.Password.RequireUppercase = false;
 
                 opt.User.RequireUniqueEmail = true;
+                opt.SignIn.RequireConfirmedEmail = true;
 
                 opt.Lockout.MaxFailedAccessAttempts = 3;
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 opt.Lockout.AllowedForNewUsers = true;
             });
+
+            services.AddScoped<LayoutService>();
+            //services.AddScoped<IEmailService, EmailService>();
+            //services.AddScoped<IFileService, FileService>();
         }
 
 
@@ -70,7 +75,7 @@ namespace FinalProject
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

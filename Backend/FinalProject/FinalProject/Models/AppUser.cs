@@ -8,5 +8,9 @@ namespace FinalProject.Models
 {
     public class AppUser : IdentityUser
     {
+        public string Fullname { get; set; }
+
+        public Basket Basket { get; set; }
+
     }
 }
