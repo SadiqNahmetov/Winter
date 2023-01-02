@@ -58,9 +58,31 @@ namespace FinalProject.Controllers
                 return View(registerVM);
             }
 
-            //await _signInManager.SignInAsync(user, false);
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+            string link = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, token },
+                Request.Scheme, Request.Host.ToString());
+                
+
+
+           
             return RedirectToAction(nameof(VerifyEmail));
 
+        }
+
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            if (userId == null || token == null) return BadRequest();
+
+            AppUser user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null) return NotFound();
+
+            await _userManager.ConfirmEmailAsync(user, token);
+
+            await _signInManager.SignInAsync(user, false);
+
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult VerifyEmail()
