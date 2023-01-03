@@ -1,12 +1,12 @@
-﻿using FinalProject.Helpers.Enums;
-using FinalProject.Models;
-using FinalProject.Services.Interfaces;
+﻿using FinalProject.Models;
 using FinalProject.ViewModels.AccountViewModels;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using MimeKit;
+using MimeKit.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace FinalProject.Controllers
@@ -62,10 +62,33 @@ namespace FinalProject.Controllers
 
             string link = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, token },
                 Request.Scheme, Request.Host.ToString());
-                
 
 
-           
+            // create email message
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("saidsn@code.edu.az"));
+            email.To.Add(MailboxAddress.Parse(user.Email));
+            email.Subject = "Verify email";
+            string body = string.Empty;
+
+            using (StreamReader reader = new StreamReader("wwwroot/templates/verify.html"))
+            {
+              body = reader.ReadToEnd();
+            }
+
+            body = body.Replace("{{link}}", link);
+            body = body.Replace("{{fullname}}", user.Fullname);
+
+            email.Body = new TextPart(TextFormat.Html) { Text = body };
+
+           // send email
+           using var smtp = new SmtpClient();
+           smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+           smtp.Authenticate("saidsn@code.edu.az", "26021989az");
+           smtp.Send(email);
+           smtp.Disconnect(true);
+         
+
             return RedirectToAction(nameof(VerifyEmail));
 
         }

@@ -994,7 +994,7 @@
         .reviews {
             width: 100%;
             background: #f2f2f2;
-            padding: 5vh 0;
+            padding: 20vh 0 !important;
             position: relative;
         }
 
@@ -1037,7 +1037,7 @@
             .enter_user_comment {
                 width: 40%;
                 position: absolute;
-                top: 4vh;
+                top: 12vh;
                 right: 3vh;
                 background: #fff;
                 padding: 30px;
@@ -1051,18 +1051,30 @@
                     resize: none;
                     outline: none;
                 }
+                .input-group{
+                    .comment-fullname{
+                        width: 90% !important;
+                        padding: 10px;
+                        outline: none;
+                        border-top:none ;
+                        border-left: none;
+                        border-right: none;
+                    }
+                }
+              
 
                 input {
                     outline: none;
                 }
 
                 .btn2 {
-                    padding: 10px 20px;
+                    padding: 10px 15px;
                     text-align: center;
                     color: #fff;
                     background: #f79500;
-                    width: 100%;
+                    width: 25%;
                     border: 0;
+                    border-radius: 12px;
                 }
             }
 
@@ -1081,6 +1093,7 @@
 
     }
 }
+
 
 
 @media (max-width:1180px) {
@@ -1135,7 +1148,7 @@
 
     .user_star_ratings {
         width: 95%;
-        margin: 15vh 0;
+        
     }
 
     .review_sidebar {
@@ -1160,6 +1173,28 @@
     }
 }
 
+
+@media (max-width:768px) {
+    #product-detail-description {
+     .review_container{
+            .enter_user_comment{
+                margin-top: 85px !important;
+
+                .btn2 {
+                    padding: 8px 10px;
+                    text-align: center;
+                    color: #fff;
+                    background: #f79500;
+                    width: 65% !important;
+                    border: 0;
+                    border-radius: 30px !important;
+                }
+            }
+       }
+    }
+   
+
+}
 
 
 
