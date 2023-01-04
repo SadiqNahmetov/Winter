@@ -66,8 +66,10 @@
                             <h2 class="product-title">@Model.Product.Name</h2>
 
                             <div class="product-price">
-                                <span style="color: red;">@Model.Product.Price.ToString("##.00") ₼</span>
-                                <span><del style="font-size: 14px;">52.99₼</del></span>
+                                <span><del style="font-size: 14px;">@Model.Product.Price.ToString("##.00") ₼</del></span>
+                                <span style="color: red;">@((Model.Product.Price-((Model.Product.Price*Model.Product
+                                                            .DiscountPrice)/100)).ToString("##.00")) ₼</span>
+                              
                             </div>
 
                             <div class="about-product">
@@ -89,8 +91,9 @@
                                         <label for="sizes">Choose size:</label>
                                         <select name="sizes" class="size">
                                             <option value="size">Select Size</option>
+
                                             <option value="size">XS</option>
-                                            <option value="size">XxS</option>
+                                            <option value="size">XXS</option>
                                             <option value="size">S</option>
                                             <option value="size">M</option>
                                             <option value="size">L</option>

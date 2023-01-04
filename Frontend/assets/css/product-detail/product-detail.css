@@ -497,6 +497,7 @@
 }
 #product-detail .card {
   background: whitesmoke;
+  border: 1px solid rgba(107, 151, 240, 0.125) !important;
 }
 #product-detail .product-imgs {
   display: flex;

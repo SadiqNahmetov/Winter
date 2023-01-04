@@ -1,11 +1,15 @@
-﻿using FinalProject.Models;
+﻿using FinalProject.Helpers.Enums;
+using FinalProject.Models;
+using FinalProject.Services.Interfaces;
 using FinalProject.ViewModels.AccountViewModels;
 using MailKit.Net.Smtp;
 using MailKit.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MimeKit.Text;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -15,12 +19,25 @@ namespace FinalProject.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IEmailService _emailService;
+        private readonly IFileService _fileService;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+
+        public AccountController(UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
+            IEmailService emailService,
+            IFileService fileService,
+              RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailService = emailService;
+            _fileService = fileService;
+            _roleManager = roleManager;
+
         }
+
 
 
 
@@ -58,36 +75,24 @@ namespace FinalProject.Controllers
                 return View(registerVM);
             }
 
+            await _userManager.AddToRoleAsync(user, Roles.Member.ToString());
+
             string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
             string link = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, token },
                 Request.Scheme, Request.Host.ToString());
 
-
             // create email message
-            var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("saidsn@code.edu.az"));
-            email.To.Add(MailboxAddress.Parse(user.Email));
-            email.Subject = "Verify email";
+            string path = "wwwroot/templates/verify.html";
             string body = string.Empty;
+            string subject = "Verify email";
 
-            using (StreamReader reader = new StreamReader("wwwroot/templates/verify.html"))
-            {
-              body = reader.ReadToEnd();
-            }
+            body = _fileService.ReadFile(path, body);
 
             body = body.Replace("{{link}}", link);
             body = body.Replace("{{fullname}}", user.Fullname);
 
-            email.Body = new TextPart(TextFormat.Html) { Text = body };
-
-           // send email
-           using var smtp = new SmtpClient();
-           smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-           smtp.Authenticate("saidsn@code.edu.az", "26021989az");
-           smtp.Send(email);
-           smtp.Disconnect(true);
-         
+            _emailService.Send(user.Email, subject, body);
 
             return RedirectToAction(nameof(VerifyEmail));
 
@@ -157,5 +162,80 @@ namespace FinalProject.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM forgotPasswordVM)
+        {
+            if (!ModelState.IsValid) return View();
+
+            AppUser existUser = await _userManager.FindByEmailAsync(forgotPasswordVM.Email);
+
+            if(existUser is null)
+            {
+                ModelState.AddModelError("Email", "User not found");
+                return View();
+            }
+
+            string token = await _userManager.GeneratePasswordResetTokenAsync(existUser);
+
+            string link = Url.Action(nameof(ResetPassword), "Account", new { userId = existUser.Id, token },
+                Request.Scheme, Request.Host.ToString());
+
+            string path = "wwwroot/templates/verify.html";
+            string body = string.Empty;
+            string subject = "Verify password reset email";
+
+            body = _fileService.ReadFile(path, body);
+
+            body = body.Replace("{{link}}", link);
+            body = body.Replace("{{fullname}}", existUser.Fullname);
+
+            _emailService.Send(existUser.Email, subject, body);
+
+            return RedirectToAction(nameof(VerifyEmail));
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string userId, string token) => View(new ResetPasswordVM { Token = token, UserId = userId });
+        
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM resetPasswordVM)
+        {
+            if (!ModelState.IsValid) return View(resetPasswordVM);
+
+            AppUser existUser = await _userManager.FindByIdAsync(resetPasswordVM.UserId);
+
+            if (existUser == null) return NotFound();
+
+            if(await _userManager.CheckPasswordAsync(existUser, resetPasswordVM.Password))
+            {
+                ModelState.AddModelError("", "New password cant be same with old password");
+
+                return View(resetPasswordVM);
+            }
+            await _userManager.ResetPasswordAsync(existUser, resetPasswordVM.Token, resetPasswordVM.Password);
+            
+            return RedirectToAction(nameof(Login));
+        }
+
+
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task CreateRoles()
+        {
+            foreach (var role in Enum.GetValues(typeof(Roles)))
+            {
+                if (!await _roleManager.RoleExistsAsync(role.ToString()))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+                }
+            }
+
+        }
     }
 }

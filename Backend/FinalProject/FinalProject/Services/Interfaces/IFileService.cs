@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Services.Interfaces
 {
-    //public interface IFileService
-    //{
-    //    string ReadFile(string path, string template);
-    //}
+    public interface IFileService
+    {
+        string ReadFile(string path, string template);
+    }
 }

@@ -55,8 +55,8 @@ namespace FinalProject
             });
 
             services.AddScoped<LayoutService>();
-            //services.AddScoped<IEmailService, EmailService>();
-            //services.AddScoped<IFileService, FileService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IFileService, FileService>();
         }
 
 
