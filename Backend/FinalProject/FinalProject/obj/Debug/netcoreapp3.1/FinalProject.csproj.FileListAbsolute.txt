@@ -177,3 +177,7 @@ C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\ProductDetail\Index.cshtml.g.cs
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\_ViewImports.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\_ViewStart.cshtml.g.cs

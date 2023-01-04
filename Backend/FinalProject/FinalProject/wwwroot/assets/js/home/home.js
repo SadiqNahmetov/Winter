@@ -1,11 +1,8 @@
-
 let swiper = new Swiper(".mySwiperSl", {
-  loop: true,
-  speed: 1500,
-  autoplay: true
-
-
-})
+    loop: true,
+    speed: 1500,
+    autoplay: true
+});
 
 
 var swiper1 = new Swiper(".mySwiper1", {

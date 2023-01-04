@@ -115,7 +115,8 @@
                         @foreach (var product in Model.Product)
                         {
                             <div class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card" data-id="@product.CategoryId" cart-id="@product.Id">
+                                <div class="card prbasket" data-id="@product.CategoryId" cart-id="@product.Id">
+                                    <input type="hidden" class="product-id" value="@product.Id" />
                                     <div class="imagesBx">
                                         <img src="~/assets/img/product/@product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image" alt="images">
                                         <ul class="icon-shop">
@@ -125,7 +126,7 @@
                                             </li>
 
                                             <li>
-                                                <i class="fa-sharp fa-solid fa-bag-shopping"></i>
+                                                <a href="#" id="addToCart"><i class="fa-sharp fa-solid fa-bag-shopping"></i></a>
                                                 <span>Add to Cart</span>
 
                                             </li>

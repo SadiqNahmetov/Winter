@@ -175,3 +175,5 @@ wishlistBtns.forEach(wishlistBtn => {
 function getProductsCount(items){
   return items.length;
 }
+
+
