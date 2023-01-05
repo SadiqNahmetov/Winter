@@ -78,3 +78,20 @@ function GetCount() {
 }
 
 GetCount();
+
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 200) {
+            $('.angleUp').css({
+                "opacity": "1", "pointer-events": "auto"
+            });
+        } else {
+            $('.angleUp').css({
+                "opacity": "0", "pointer-events": "none"
+            })
+        }
+    });
+    $('.angleUp').click(function () {
+        $('html').animate({ scrollTop: 0 }, 800)
+    })
+});

@@ -30,6 +30,10 @@
 
 <!-- Start Main Area -->
 <main>
+
+    <a href="" class="angleUp">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
     <section id="product-area">
         <div class="container">
             <div class="row">
@@ -115,7 +119,7 @@
                         @foreach (var product in Model.Product)
                         {
                             <div class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card prbasket" data-id="@product.CategoryId" cart-id="@product.Id">
+                                <div class="card nahmetov" data-id="@product.CategoryId" cart-id="@product.Id">
                                     <input type="hidden" class="product-id" value="@product.Id" />
                                     <div class="imagesBx">
                                         <img src="~/assets/img/product/@product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image" alt="images">
@@ -126,7 +130,7 @@
                                             </li>
 
                                             <li>
-                                                <a href="#" id="addToCart"><i class="fa-sharp fa-solid fa-bag-shopping"></i></a>
+                                                <a cart-id="@product.Id" id="addToCart"><i class="fa-sharp fa-solid fa-bag-shopping"></i></a>
                                                 <span>Add to Cart</span>
 
                                             </li>
@@ -182,7 +186,7 @@
 
 @section Scripts
 {
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.30/sweetalert2.all.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

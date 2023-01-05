@@ -14,7 +14,9 @@
 
 
 <main>
-
+    <a href="" class="angleUp">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
     <section id="blog-detail-area">
         <div class="container">
             <div class="row">
@@ -38,7 +40,7 @@
                             <div class="blog-text">
                                 <h3>@Model.Blog.Title</h3>
                                 <p>
-                                   @Model.Blog.Description
+                                    @Model.Blog.Description
                                 </p>
                                 <div class="tag">
                                     <span class="head">Tags :</span>
@@ -46,9 +48,9 @@
                                         @foreach (var tag in Model.Tags)
                                         {
                                             <a href="">@tag.Name</a>
-                                               
+
                                         }
-                                      
+
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +149,7 @@
                                             </div>
                                         </div>
                                     }
-                              
+
 
                                 </div>
                             </div>

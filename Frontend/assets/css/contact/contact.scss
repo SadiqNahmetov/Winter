@@ -711,6 +711,37 @@
 }
 
 
+.angleUp{
+    background-color: whitesmoke;
+    position: fixed;
+    bottom: 50px;
+    right: 32px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .4s;
+    z-index: 5;
+
+    &:hover{
+        background-color: #2879FB;
+        color: white;
+    }
+}
+
+.angleUp .topActive{
+    bottom: 32px;
+    pointer-events: auto;
+    opacity: 1;
+
+}
 
 
 

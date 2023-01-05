@@ -16,7 +16,9 @@
 }
 
 <main>
-
+    <a href="" class="angleUp">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
     <section id="blog-area">
         <div class="container">
             <div class="row">
@@ -56,7 +58,7 @@
 
                     }
 
-                 
+
                 </div>
 
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -97,7 +99,7 @@
                                             <img style="width:120px; height:100px;" src="~/assets/img/blog/@recentpost.Image" alt="">
                                             <div class="name-blog">
                                                 <h6>@recentpost.Title</h6>
-                                                
+
                                                 <p>@recentpost.CreateDate.ToString("dd MMMM yyyy")</p>
                                             </div>
                                         </div>
@@ -114,7 +116,7 @@
                                 <h3>Tag Clouds</h3>
 
                                 <div class="tag">
-                                  
+
                                     <ul>
                                         @foreach (var tag in Model.Tags)
                                         {

@@ -8,6 +8,6 @@ namespace FinalProject.ViewModels
 {
     public class ProductDetailVM
     {
-        public Product Product { get; set; }
+        public Models.Product Product { get; set; }
     }
 }

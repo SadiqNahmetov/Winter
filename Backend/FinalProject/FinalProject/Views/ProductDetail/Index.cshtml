@@ -30,7 +30,9 @@
 
 
 <main>
-
+    <a href="" class="angleUp">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
     <section id="product-detail">
         <div class="container">
             <div class="row">
@@ -45,7 +47,7 @@
 
                                     }
 
-                                   
+
                                 </div>
                             </div>
                             <div class="img-select">
@@ -59,7 +61,7 @@
                                     </div>
                                 }
 
-                               
+
                             </div>
                         </div>
                         <div class="product-content">
@@ -67,14 +69,16 @@
 
                             <div class="product-price">
                                 <span><del style="font-size: 14px;">@Model.Product.Price.ToString("##.00") ₼</del></span>
-                                <span style="color: red;">@((Model.Product.Price-((Model.Product.Price*Model.Product
-                                                            .DiscountPrice)/100)).ToString("##.00")) ₼</span>
-                              
+                                <span style="color: red;">
+                                    @((Model.Product.Price-((Model.Product.Price*Model.Product
+                                                            .DiscountPrice)/100)).ToString("##.00")) ₼
+                                </span>
+
                             </div>
 
                             <div class="about-product">
                                 <p>
-                                   @Model.Product.Description.Substring(0,200)
+                                    @Model.Product.Description.Substring(0, 200)
                                 </p>
 
                                 <ul>
@@ -141,9 +145,9 @@
                     <div id="Description" class="review_container tab_type">
                         <h2>Description</h2>
                         <p>
-                           @Model.Product.Description
+                            @Model.Product.Description
                         </p>
-                      
+
                     </div>
                     <div id="User_reviews" class="review_container tab_type" style="display:none">
                         <div class="user_star_ratings">

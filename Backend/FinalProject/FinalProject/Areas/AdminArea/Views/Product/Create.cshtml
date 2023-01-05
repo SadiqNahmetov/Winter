@@ -1,0 +1,81 @@
+﻿@model ProductCreateVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <span class="text-danger">@ViewBag.Message</span>
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1>Product</h1>
+                            <form asp-controller="Product" asp-action="Create" enctype="multipart/form-data" class="forms-sample" method="post">
+                                <div class="form-group">
+                                    <label asp-for="Name">Name</label>
+                                    <input class="form-control" asp-for="Name">
+                                    <span asp-validation-for="Name" class="text-danger my-1"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Description">Description</label>
+                                    <input class="form-control" asp-for="Description">
+                                    <span asp-validation-for="Description" class="text-danger my-1"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Price">Price</label>
+                                    <input type="number" class="form-control" asp-for="Price">
+                                    <span asp-validation-for="Price" class="text-danger my-1"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DiscountPrice">Discount</label>
+                                    <input type="number" class="form-control" asp-for="DiscountPrice">
+                                    <span asp-validation-for="DiscountPrice" class="text-danger my-1"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="CategoryId">Categories</label>
+                                    <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.categories"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="BrandId">Brand</label>
+                                    <select class="form-control" asp-for="BrandId" asp-items="@ViewBag.brands"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Photos">Photos</label>
+                                    <input class="form-control mybutton" asp-for="Photos">
+                                    <span asp-validation-for="Photos" class="text-danger my-1"></span>
+                                </div>
+                                <div class="form-group">
+                                    @if (Model.Size != null)
+                                    {
+                                        @for (int i = 0; i < Model.Size.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <label>@Model.Size[i].SizeType</label>
+                                                    <input type="hidden" asp-for="@Model.Size[i].SizeType" />
+                                                    <input type="hidden" asp-for="@Model.Size[i]" />
+                                                    <input type="checkbox" asp-for="@Model.Size[i].IsSelected" />
+                                                    <input type="hidden" asp-for="@Model.Size[i].Id" />
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </div>
+
+                                <a asp-controller="Product" asp-action="Index" class="btn btn-light">Cancel</a>
+                                <button type="submit" class="mybutton mr-2">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+}

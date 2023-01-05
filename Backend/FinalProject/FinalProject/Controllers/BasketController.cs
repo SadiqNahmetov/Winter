@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 namespace FinalProject.Controllers
 {
     [Authorize]
-
     public class BasketController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -23,10 +22,40 @@ namespace FinalProject.Controllers
             _userManager = userManager;
             _context = context;
         }
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null) return Unauthorized();
+            var basket = await _context.Baskets
+                .Include(b => b.BasketProducts)
+                .ThenInclude(bp => bp.Product)
+                .FirstOrDefaultAsync(m => m.AppUserId == user.Id);
+
+            if (basket == null) return NotFound();
+
+
+            var model = new BasketIndexVM();
+            foreach (var dbBasketProduct in basket.BasketProducts)
+            {
+                var basketProduct = new BasketProductVM
+                { 
+                    Id = dbBasketProduct.Id,
+                    Name = dbBasketProduct.Product.Name,
+                    Image = dbBasketProduct.Product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image,
+                    Quantity =dbBasketProduct.Quantity,
+                    Price = dbBasketProduct.Product.Price
+                };
+                model.BasketProducts.Add(basketProduct);
+
+            }
+
+            return View(model);
         }
+
+
+
 
 
         [HttpPost]
@@ -50,17 +79,27 @@ namespace FinalProject.Controllers
                  await _context.Baskets.AddAsync(basket);
 
                  await _context.SaveChangesAsync();
-
             }
 
-            var basketProduct = new BasketProduct
-            {
-                BasketId = basket.Id,
-                ProductId = product.Id,
-                Quantity = 1
-            };
+            var basketProduct = await _context.BasketProducts
+                .FirstOrDefaultAsync(bp => bp.ProductId == product.Id);
 
-            await _context.BasketProducts.AddAsync(basketProduct);
+            if(basketProduct != null)
+            {
+                basketProduct.Quantity++;
+            }
+            else
+            {
+                 basketProduct = new BasketProduct
+                {
+                    BasketId = basket.Id,
+                    ProductId = product.Id,
+                    Quantity = 1
+                };
+                await _context.BasketProducts.AddAsync(basketProduct);
+               
+            }
+
             await _context.SaveChangesAsync();
             return Ok();
         }

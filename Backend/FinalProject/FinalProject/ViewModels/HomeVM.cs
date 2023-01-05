@@ -13,7 +13,7 @@ namespace FinalProject.ViewModels
         public IEnumerable<InstagramPhoto> InstagramPhotos { get; set; }
         public IEnumerable<Brand> Brands { get; set; }
         public IEnumerable<Feature> Features { get; set; }
-        public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<Models.Product> Products { get; set; }
 
 
 

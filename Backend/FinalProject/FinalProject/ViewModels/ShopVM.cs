@@ -8,7 +8,7 @@ namespace FinalProject.ViewModels
 {
     public class ShopVM
     {
-        public List<Product> Product { get; set; }
+        public List<Models.Product> Product { get; set; }
         public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Brand> Brands { get; set; }
         public IEnumerable<Size> Sizes { get; set; }
