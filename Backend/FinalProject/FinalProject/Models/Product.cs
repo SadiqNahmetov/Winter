@@ -33,5 +33,7 @@ namespace FinalProject.Models
 
         public ICollection<BasketProduct> BasketProducts { get; set; }
 
+        public ICollection<Comment> Comments { get; set; }
+
     }
 }

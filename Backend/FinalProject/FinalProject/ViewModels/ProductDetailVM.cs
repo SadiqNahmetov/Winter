@@ -9,5 +9,6 @@ namespace FinalProject.ViewModels
     public class ProductDetailVM
     {
         public Models.Product Product { get; set; }
+        public Comment Comment { get; set; }
     }
 }

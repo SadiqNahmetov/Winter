@@ -152,33 +152,33 @@
                     <div id="User_reviews" class="review_container tab_type" style="display:none">
                         <div class="user_star_ratings">
                             <ul>
-                                <li>
-                                    <b>Seid Nuraliyev</b>
+                                @foreach (var comment in Model.Product.Comments)
+                                {
+                                    <div style="width: 450px;  background-color: white;" class="coment-main">
+                                    <li style="margin-left:10px !important">
+                                        <b>@comment.AppUser.UserName</b>
 
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
-                                </li>
-                                <li>
-                                    <b>Ramil Binnetov</b>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
-                                </li>
+                                        <p>
+                                            @comment.Content
+                                        </p>
+                                    </li>
+                                    <button style="margin-left: 82% !important; margin-top:-35px !important" type="submit" class="btn btn-danger">Delete</button>
+                                    </div>
+                                  }
+                                </ul>
 
-                            </ul>
-
-                        </div>
-                        <div class="enter_user_comment">
-                            <h1 class="title">ADD YOUR REVIEW</h1>
-                            <textarea placeholder="Write a review" name="userreview" required></textarea>
-                            <div class="input-group mb-3">
-                                <input type="text" class="comment-fullname" placeholder="Fullname" aria-label="Fullname">
                             </div>
-                            <button class="btn2">SUBMIT</button>
-                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="enter_user_comment">
+                                <h1 class="title">ADD YOUR REVIEW</h1>
+                                <form asp-controller="ProductDetail" asp-action="CreateComment" method="post">
+                                    <textarea asp-for="@Model.Comment.Content" placeholder="Write a review" required></textarea>
+                                    <input asp-for="@Model.Comment.ProductId" type="hidden" class="product-id" value="@Model.Product.Id" />
+                                    <button type="submit" class="btn2">SUBMIT</button>
+                                </form>
+                            </div>
+                        }
 
                     </div>
                 </div>

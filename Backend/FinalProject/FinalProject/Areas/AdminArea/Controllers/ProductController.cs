@@ -39,6 +39,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 .Include(m => m.Brand)
                 .Skip((page * take) - take)
                 .Take(take)
+                .OrderByDescending(m => m.Id)
                 .ToListAsync();
 
             ViewBag.take = take;

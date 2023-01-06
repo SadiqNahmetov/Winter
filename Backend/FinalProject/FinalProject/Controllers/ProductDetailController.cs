@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,6 +20,7 @@ namespace FinalProject.Controllers
             _context = context;
             _userManager = userManager;
         }
+
         public async Task<IActionResult> Index(int? id)
         {
 
@@ -30,24 +30,45 @@ namespace FinalProject.Controllers
                 .Include(m => m.Category)
                 .Include(m => m.Brand)
                 .Include(m => m.ProductSizes)
+                .Include(m => m.Comments)
+                .ThenInclude(m => m.AppUser)
                 .FirstOrDefaultAsync();
 
             ProductDetailVM productDetailVM = new ProductDetailVM
             {
                 Product = product,
-               
+                Comment = new Comment()
             };
             return View(productDetailVM);
         }
 
-        //public async Task<IActionResult> Create(Comment comment)
-        //{
-        //    AppUser user = await _userManager.GetUserAsync(User);
+        [HttpPost]
+        public async Task<IActionResult> CreateComment(Comment comment)
+        {
 
-        //    comment.AppUser = user;
-        //    comment.AppUserId = user.Id;
-        //    comment.CreateDate = DateTime.Now;
 
-        //}
+            AppUser user = await _userManager.GetUserAsync(User);
+            Product product = await _context.Products.FirstOrDefaultAsync(m => m.Id == comment.ProductId);
+
+
+            comment.AppUser = user;
+            comment.AppUserId = user.Id;
+            comment.CreateDate = DateTime.Now;
+            comment.Product = product;
+
+            await _context.Comments.AddAsync(comment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> DeleteComment(int id)
+        {
+           
+            Comment comment = await _context.Comments.FirstOrDefaultAsync(n => n.Id == id);
+
+            _context.Comments.Remove(comment);
+            await _context.SaveChangesAsync();
+            return View();
+        }
     }
 }

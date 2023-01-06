@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20230106154225_AddedComment.cs" />
+    <Compile Remove="Migrations\20230106154225_AddedComment.Designer.cs" />
     <Compile Remove="Migrations\20230106154758_UpdatedCommentTable.cs" />
     <Compile Remove="Migrations\20230106154758_UpdatedCommentTable.Designer.cs" />
   </ItemGroup>
