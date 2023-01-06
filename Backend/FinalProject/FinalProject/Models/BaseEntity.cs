@@ -9,6 +9,5 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         public bool IsDeleted { get; set; }
-
     }
 }

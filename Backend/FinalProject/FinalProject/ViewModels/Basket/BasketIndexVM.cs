@@ -13,5 +13,6 @@ namespace FinalProject.ViewModels.Basket
         }
 
         public List<BasketProductVM> BasketProducts { get; set; }
+    
     }
 }

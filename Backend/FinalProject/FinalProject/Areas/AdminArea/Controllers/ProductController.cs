@@ -121,15 +121,12 @@ namespace FinalProject.Areas.AdminArea.Controllers
             images.FirstOrDefault().IsMain = true;
 
             decimal convertedPrice = decimal.Parse(product.Price.Replace(".", ","));
-            decimal convertedDiscount = decimal.Parse(product.DiscountPrice.Replace(".", ","));
-
 
             Product newProduct = new Product
             {
                 Name = product.Name,
                 Description = product.Description,
                 Price = (int)convertedPrice,
-                DiscountPrice = (int)convertedDiscount,
                 CreateDate = DateTime.Now,
                 CategoryId = product.CategoryId,
                 ProductImages = images,
@@ -144,12 +141,12 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
             foreach (var item in product.Size.Where(m => m.IsSelected))
             {
-                ProductSize product_Size = new ProductSize
+                ProductSize productSize = new ProductSize
                 {
                     ProductId = newProduct.Id,
                     SizeId = item.Id,
                 };
-                await _context.ProductSizes.AddAsync(product_Size);
+                await _context.ProductSizes.AddAsync(productSize);
             }
 
             _context.ProductImages.UpdateRange(images);
@@ -228,13 +225,15 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 Id = product.Id,
                 Title = product.Name,
                 Price = product.Price,
-                DiscountPrice = product.DiscountPrice,
                 Description = product.Description,
                 ProductImages = product.ProductImages,
                 CategoryName = product.Category.Name,
                 BrandName = product.Brand.Name,
                 Sizes = sizes,
             };
+
+
+
 
             return View(productDetail);
         }
@@ -257,7 +256,6 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 Title = dbProduct.Name,
                 Description = dbProduct.Description,
                 Price = dbProduct.Price.ToString("0.#####").Replace(",", "."),
-                DiscountPrice = dbProduct.DiscountPrice.ToString("0.#####").Replace(",", "."),
                 CategoryId = dbProduct.CategoryId,
                 Images = dbProduct.ProductImages,
                 BrandId = dbProduct.BrandId,
@@ -332,14 +330,12 @@ namespace FinalProject.Areas.AdminArea.Controllers
             }
 
             decimal convertedPrice = StringToDecimal(updatedProduct.Price);
-            decimal ConvertedDiscount = StringToDecimal(updatedProduct.DiscountPrice);
 
 
 
             dbProduct.Name = updatedProduct.Title;
             dbProduct.Description = updatedProduct.Description;
             dbProduct.Price = (int)convertedPrice;
-            dbProduct.DiscountPrice = (int)convertedPrice;
             dbProduct.CategoryId = updatedProduct.CategoryId;
             dbProduct.BrandId = updatedProduct.BrandId;
 
@@ -405,6 +401,5 @@ namespace FinalProject.Areas.AdminArea.Controllers
             return (int)Math.Ceiling((decimal)productCount / take);
         }
         #endregion
-
     }
 }

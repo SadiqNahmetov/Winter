@@ -25,26 +25,32 @@ namespace FinalProject.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var user = await _userManager.GetUserAsync(User);
+            AppUser user = await _userManager.GetUserAsync(User);
 
             if (user == null) return Unauthorized();
             var basket = await _context.Baskets
-                .Include(b => b.BasketProducts)
-                .ThenInclude(bp => bp.Product)
+               .Include(m => m.BasketProducts)
+               .ThenInclude(m => m.Product)
+               .ThenInclude(m => m.Brand)
+               .Include(m => m.BasketProducts)
+               .ThenInclude(m => m.Product)
+               .ThenInclude(m => m.ProductImages)
                 .FirstOrDefaultAsync(m => m.AppUserId == user.Id);
+           
+              BasketIndexVM model = new BasketIndexVM();
+         
+              if (basket == null) return View(model);
 
-            if (basket == null) return NotFound();
-
-
-            var model = new BasketIndexVM();
             foreach (var dbBasketProduct in basket.BasketProducts)
             {
-                var basketProduct = new BasketProductVM
-                { 
+                BasketProductVM basketProduct = new BasketProductVM
+                {
                     Id = dbBasketProduct.Id,
                     Name = dbBasketProduct.Product.Name,
                     Image = dbBasketProduct.Product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image,
-                    Quantity =dbBasketProduct.Quantity,
+                    Brand = dbBasketProduct.Product.Brand,
+                    Quantity = dbBasketProduct.Quantity,
+                    DiscountPrice = dbBasketProduct.Product.DiscountPrice,
                     Price = dbBasketProduct.Product.Price
                 };
                 model.BasketProducts.Add(basketProduct);
@@ -70,38 +76,60 @@ namespace FinalProject.Controllers
             if (product == null) return NotFound();
 
             var basket = await _context.Baskets.FirstOrDefaultAsync(m => m.AppUserId == user.Id);
-            if(basket == null)
+            if (basket == null)
             {
                 basket = new Basket
                 {
                     AppUserId = user.Id
                 };
-                 await _context.Baskets.AddAsync(basket);
+                await _context.Baskets.AddAsync(basket);
 
-                 await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
             }
 
             var basketProduct = await _context.BasketProducts
-                .FirstOrDefaultAsync(bp => bp.ProductId == product.Id);
+                .FirstOrDefaultAsync(bp => bp.ProductId == product.Id && bp.BasketId == basket.Id);
 
-            if(basketProduct != null)
+            if (basketProduct != null)
             {
                 basketProduct.Quantity++;
             }
             else
             {
-                 basketProduct = new BasketProduct
+                basketProduct = new BasketProduct
                 {
                     BasketId = basket.Id,
                     ProductId = product.Id,
                     Quantity = 1
                 };
                 await _context.BasketProducts.AddAsync(basketProduct);
-               
+
             }
 
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return Unauthorized();
+
+            var basketProduct = await _context.BasketProducts
+                .FirstOrDefaultAsync(bp => bp.Id == id
+                && bp.Basket.AppUserId == user.Id);
+
+            if (basketProduct == null) return NotFound();
+
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketProduct.ProductId);
+            if (product == null) return NotFound();
+
+            _context.BasketProducts.Remove(basketProduct);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+
     }
 }

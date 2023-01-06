@@ -11,8 +11,7 @@ namespace FinalProject.Models
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 
-        public ICollection<BasketProduct> BasketProducts { get; set; }
-   
+        public ICollection<BasketProduct> BasketProducts { get; set; }  
     
     
     

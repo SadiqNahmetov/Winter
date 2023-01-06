@@ -98,6 +98,7 @@
                         {
                             <div class="swiper-slide">
                                 <div class="card-pr" cart-id="@product.Id">
+                                    <input type="hidden" class="product-id" value="@product.Id" />
                                     <div class="imagesBx">
 
                                         <img src="~/assets/img/product/@product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image" alt="images">
@@ -108,7 +109,7 @@
                                                 <span>Add to WishList</span>
                                             </li>
                                             <li>
-                                                <i class="fa-sharp fa-solid fa-bag-shopping"></i>
+                                                <a cart-id="@product.Id" id="addToCart"><i class="fa-sharp fa-solid fa-bag-shopping"></i></a>
                                                 <span>Add to Cart</span>
 
                                             </li>

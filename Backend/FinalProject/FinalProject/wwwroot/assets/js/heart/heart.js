@@ -59,7 +59,7 @@ function deleteProducts(btn) {
 function addDatasToTable(products) {
   for (const product of products) {
     tableBody.innerHTML += `<tr>
-              <td heart-id="${product.id}"><img src="${product.image}" style="width:170px; height:170px" alt=""></td>
+              <td heart-id="${product.id}"><img src="${product.image}" style="width:170px; height:170px" alt="image"></td>
               <td>${product.name}</td>
               <td>${product.brand}</td>
               <td>${product.discountprice}</td>

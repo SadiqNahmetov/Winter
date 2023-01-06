@@ -13,6 +13,8 @@ namespace FinalProject.Models
         public Basket Basket { get; set; }
         public int ProductId { get; set; }
         public Product Product { get; set; }
+      
+
 
 
 

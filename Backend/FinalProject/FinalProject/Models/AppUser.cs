@@ -11,6 +11,6 @@ namespace FinalProject.Models
         public string Fullname { get; set; }
 
         public Basket Basket { get; set; }
-
+        public List<Comment> Comments { get; set; }
     }
 }

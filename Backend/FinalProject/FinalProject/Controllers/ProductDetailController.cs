@@ -1,6 +1,7 @@
 ﻿using FinalProject.Data;
 using FinalProject.Models;
 using FinalProject.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,11 +13,13 @@ namespace FinalProject.Controllers
 {
     public class ProductDetailController : Controller
     {
+        private readonly UserManager<AppUser> _userManager;
         private readonly AppDbContext _context;
 
-        public ProductDetailController(AppDbContext context)
+        public ProductDetailController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public async Task<IActionResult> Index(int? id)
         {
@@ -36,5 +39,15 @@ namespace FinalProject.Controllers
             };
             return View(productDetailVM);
         }
+
+        //public async Task<IActionResult> Create(Comment comment)
+        //{
+        //    AppUser user = await _userManager.GetUserAsync(User);
+
+        //    comment.AppUser = user;
+        //    comment.AppUserId = user.Id;
+        //    comment.CreateDate = DateTime.Now;
+
+        //}
     }
 }
