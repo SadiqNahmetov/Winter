@@ -65,7 +65,7 @@ function addDatasToTable(products) {
               <td>${product.discountprice}</td>
               <td>${product.price}</td>
              
-              <td class="basket-delete"><i class="fa-solid fa-cart-plus basket-heart"></i>
+              <td class="basket-delete">
               <i class="fa-solid fa-trash delete-icon"></i>
               </td>
               </tr>

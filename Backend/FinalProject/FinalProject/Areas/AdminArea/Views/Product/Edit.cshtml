@@ -1,0 +1,75 @@
+﻿
+
+@model ProductEditVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container">
+    <h3>Product</h3>
+    <div class="card my-2">
+        <div class="d-flex">
+            @foreach (var item in Model.Images)
+            {
+
+                <div class="blog-post-item " style="margin-right:10px">
+                    <div class="blog-thumb " style="width:150px !important; height:150px !important">
+                        <img style="width:150px !important; height:150px !important" src="~/assets/img/product/@item.Image">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Title">Title</label>
+            <textarea class="form-control rounded-0" asp-for="Title" id="Name-area" rows="10"></textarea>
+            <span asp-validation-for="Title" class="text-danger my-1"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Description</label>
+            <textarea class="form-control rounded-0" asp-for="Description" id="Description-area" rows="10"></textarea>
+            <span asp-validation-for="Description" class="text-danger my-1"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price">Price</label>
+            <input type="number" class="form-control" asp-for="Price">
+            <span asp-validation-for="Price" class="text-danger my-1"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CategoryId">Categories</label>
+            <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.categories"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="BrandId">Brand</label>
+            <select class="form-control" asp-for="BrandId" asp-items="@ViewBag.brands"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Photos" class="drop-container">Photos</label>
+            <input class="form-control mybutton" asp-for="Photos">
+            <span class="text-danger" asp-validation-for="Photos"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Edit</button>
+        <a class="btn btn-danger" asp-controller="Product" asp-action="Index">Back</a>
+    </form>
+   
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+    <script src="~/ckeditor/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace("Name-area")
+        CKEDITOR.replace("Description-area")</script>
+}
+
+
+
+
+
+

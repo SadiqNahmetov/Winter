@@ -16,7 +16,7 @@ namespace FinalProject.ViewModels.Product
         public string Description { get; set; }
         public int CategoryId { get; set; }
         public int BrandId { get; set; }
-        public int Stock_Count { get; set; }
+     
         public ICollection<ProductImage> Images { get; set; }
         public List<IFormFile> Photos { get; set; }
     }

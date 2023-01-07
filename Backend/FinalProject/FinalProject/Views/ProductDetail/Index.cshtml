@@ -3,10 +3,10 @@
     ViewData["Title"] = "Index";
 }
 
-@{ 
+@{
 
     int count = 0;
-  }
+}
 
 @section Css{
     <link rel="shortcut icon" href="https://img.icons8.com/office/512/online-store.png" type="image/x-icon">
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="product-content">
-                            <h2 class="product-title">@Model.Product.Name</h2>
+                            <h2 class="product-title">@Html.Raw(Model.Product.Name)</h2>
 
                             <div class="product-price">
                                 <span><del style="font-size: 14px;">@Model.Product.Price.ToString("##.00") ₼</del></span>
@@ -78,7 +78,7 @@
 
                             <div class="about-product">
                                 <p>
-                                    @Model.Product.Description.Substring(0, 200)
+                                    @Html.Raw(Model.Product.Description.Substring(0, 150))
                                 </p>
 
                                 <ul>
@@ -95,13 +95,16 @@
                                         <label for="sizes">Choose size:</label>
                                         <select name="sizes" class="size">
                                             <option value="size">Select Size</option>
+                                            @foreach (var sizes in Model.Product.ProductSizes)
+                                            {
+                                                if (sizes.ProductId == Model.Product.Id)
+                                                {
+                                                    <option value="size">@sizes.Size.SizeType</option>
+                                                }
 
-                                            <option value="size">XS</option>
-                                            <option value="size">XXS</option>
-                                            <option value="size">S</option>
-                                            <option value="size">M</option>
-                                            <option value="size">L</option>
-                                            <option value="size">XL</option>
+                                            }
+
+
 
                                         </select>
                                     </form>
@@ -145,15 +148,16 @@
                     <div id="Description" class="review_container tab_type">
                         <h2>Description</h2>
                         <p>
-                            @Model.Product.Description
+                            @Html.Raw(Model.Product.Description)
                         </p>
 
                     </div>
                     <div id="User_reviews" class="review_container tab_type" style="display:none">
                         <div class="user_star_ratings">
-                            <ul>
-                                @foreach (var comment in Model.Product.Comments)
-                                {
+
+                            @foreach (var comment in Model.DbComments)
+                            {
+                                <ul class="product-comment" id="@comment.Id">
                                     <div style="width: 450px;  background-color: white;" class="coment-main">
                                     <li style="margin-left:10px !important">
                                         <b>@comment.AppUser.UserName</b>
@@ -162,12 +166,15 @@
                                             @comment.Content
                                         </p>
                                     </li>
-                                    <button style="margin-left: 82% !important; margin-top:-35px !important" type="submit" class="btn btn-danger">Delete</button>
-                                    </div>
-                                  }
-                                </ul>
+                                    <form asp-controller="ProductDetail" asp-action="DeleteComment" asp-route-id="@comment.Id" method="post">
+                                        <button id="deleteBtn"  style="margin-left: 82% !important; margin-top:-35px !important" type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                  </div>
+                            </ul>
+                        }
 
-                            </div>
+
+                        
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div class="enter_user_comment">
@@ -183,36 +190,38 @@
                     </div>
                 </div>
             </div>
-    </section>
+        </section>
 
-</main>
-
-
-
-@section Scripts{
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://kit.fontawesome.com/0622708fc2.js" crossorigin="anonymous"></script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-            integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
+    </main>
 
 
 
+    @section Scripts{
 
-    <script src="~/assets/js/product-detail/product-detail.js"></script>
-}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.30/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+                integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="https://kit.fontawesome.com/0622708fc2.js" crossorigin="anonymous"></script>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+                integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>
+
+
+
+
+        <script src="~/assets/js/product-detail/product-detail.js"></script>
+    }

@@ -9,30 +9,34 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
-                <span class="text-danger">@ViewBag.Message</span>
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h1>Product</h1>
                             <form asp-controller="Product" asp-action="Create" enctype="multipart/form-data" class="forms-sample" method="post">
                                 <div class="form-group">
+                                    <div class="form-group">
+                                        <label asp-for="Photos">Photos</label>
+                                        <input class="form-control" asp-for="Photos">
+                                        <span asp-validation-for="Photos" class="text-danger"></span>
+                                    </div>
                                     <label asp-for="Name">Title</label>
-                                    <input class="form-control" asp-for="Name">
+                                    <textarea class="form-control rounded-0" asp-for="Name" id="Name-area" rows="10"></textarea>
                                     <span asp-validation-for="Name" class="text-danger my-1"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Description">Description</label>
-                                    <input class="form-control" asp-for="Description">
+                                    <textarea class="form-control rounded-0" asp-for="Description" id="Description-area" rows="10"></textarea>
                                     <span asp-validation-for="Description" class="text-danger my-1"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Price">Price</label>
-                                    <input type="number" class="form-control" asp-for="Price">
+                                    <input min="0" type="number" class="form-control" asp-for="Price">
                                     <span asp-validation-for="Price" class="text-danger my-1"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="DiscountPrice">DiscountPrice</label>
-                                    <input type="number" class="form-control" asp-for="DiscountPrice">
+                                    <input min="0" type="number" class="form-control" asp-for="DiscountPrice">
                                     <span asp-validation-for="DiscountPrice" class="text-danger my-1"></span>
                                 </div>
 
@@ -44,11 +48,7 @@
                                     <label asp-for="BrandId">Brand</label>
                                     <select class="form-control" asp-for="BrandId" asp-items="@ViewBag.brands"></select>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="Photos">Photos</label>
-                                    <input class="form-control mybutton" asp-for="Photos">
-                                    <span asp-validation-for="Photos" class="text-danger my-1"></span>
-                                </div>
+                               
                                 <div class="form-group">
                                     @if (Model.Size != null)
                                     {
@@ -79,6 +79,11 @@
 </div>
 
 
+
 @section Scripts{
     <partial name="_ValidationPartial" />
+    <script src="~/ckeditor/ckeditor.js"></script>
+
+    <script>CKEDITOR.replace("Name-area")
+        CKEDITOR.replace("Description-area")</script>
 }

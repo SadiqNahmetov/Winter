@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,14 +31,19 @@ namespace FinalProject.Controllers
                 .Include(m => m.Category)
                 .Include(m => m.Brand)
                 .Include(m => m.ProductSizes)
+                .ThenInclude(m=> m.Size)
                 .Include(m => m.Comments)
                 .ThenInclude(m => m.AppUser)
                 .FirstOrDefaultAsync();
 
+            IEnumerable<Comment> comments = await _context.Comments.Where(m => !m.IsDeleted && m.ProductId == id).ToListAsync();
+
+
             ProductDetailVM productDetailVM = new ProductDetailVM
             {
                 Product = product,
-                Comment = new Comment()
+                Comment = new Comment(),
+                DbComments = comments,
             };
             return View(productDetailVM);
         }
@@ -45,10 +51,21 @@ namespace FinalProject.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateComment(Comment comment)
         {
-
+            Product product = await _context.Products
+               .Where(m => !m.IsDeleted && m.Id == comment.ProductId)
+               .Include(m => m.ProductImages)
+               .Include(m => m.Category)
+               .Include(m => m.Brand)
+               .Include(m => m.ProductSizes)
+               .ThenInclude(m => m.Size)
+               .Include(m => m.Comments)
+               .ThenInclude(m => m.AppUser)
+               .FirstOrDefaultAsync();
 
             AppUser user = await _userManager.GetUserAsync(User);
-            Product product = await _context.Products.FirstOrDefaultAsync(m => m.Id == comment.ProductId);
+            Product product1 = await _context.Products
+                 .Include(m => m.ProductImages)
+                .FirstOrDefaultAsync(m => m.Id == comment.ProductId);
 
 
             comment.AppUser = user;
@@ -58,17 +75,24 @@ namespace FinalProject.Controllers
 
             await _context.Comments.AddAsync(comment);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", new { id = product.Id });
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteComment(int id)
         {
-           
+
             Comment comment = await _context.Comments.FirstOrDefaultAsync(n => n.Id == id);
 
-            _context.Comments.Remove(comment);
+
+            comment.IsDeleted = true;
+
             await _context.SaveChangesAsync();
-            return View();
+
+            return RedirectToAction("Index", new { id = comment.ProductId});
         }
+
+        
+
     }
 }

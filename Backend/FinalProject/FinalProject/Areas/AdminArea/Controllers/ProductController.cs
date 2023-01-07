@@ -37,9 +37,9 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 .Include(m => m.ProductImages)
                 .Include(m => m.Category)
                 .Include(m => m.Brand)
+                .OrderByDescending(m => m.Id)
                 .Skip((page * take) - take)
                 .Take(take)
-                .OrderByDescending(m => m.Id)
                 .ToListAsync();
 
             ViewBag.take = take;
@@ -122,12 +122,14 @@ namespace FinalProject.Areas.AdminArea.Controllers
             images.FirstOrDefault().IsMain = true;
 
             decimal convertedPrice = decimal.Parse(product.Price.Replace(".", ","));
+            decimal convertedDiscountPrice = decimal.Parse(product.DiscountPrice.Replace(".", ","));
 
             Product newProduct = new Product
             {
                 Name = product.Name,
                 Description = product.Description,
                 Price = (int)convertedPrice,
+                DiscountPrice = (int)convertedDiscountPrice,
                 CreateDate = DateTime.Now,
                 CategoryId = product.CategoryId,
                 ProductImages = images,
@@ -226,6 +228,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 Id = product.Id,
                 Title = product.Name,
                 Price = product.Price,
+                DiscountPrice = product.DiscountPrice,
                 Description = product.Description,
                 ProductImages = product.ProductImages,
                 CategoryName = product.Category.Name,

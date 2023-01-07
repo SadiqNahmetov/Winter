@@ -10,5 +10,6 @@ namespace FinalProject.ViewModels
     {
         public Models.Product Product { get; set; }
         public Comment Comment { get; set; }
+        public IEnumerable<Comment> DbComments { get; set; }
     }
 }
