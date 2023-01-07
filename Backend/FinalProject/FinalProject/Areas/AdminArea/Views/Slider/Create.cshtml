@@ -1,0 +1,51 @@
+﻿@model Slider
+
+@{
+    ViewData["Title"] = "Create";
+
+}
+
+
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card" style=" margin-left: 10px;">
+                    <div class="card-body">
+                        <p class="card-description">Slider</p>
+                        <form asp-controller="Slider" asp-action="Create" class="forms-sample" method="post" enctype="multipart/form-data">
+
+                            <div class="form-group">
+                                <input class="form-control mybutton" asp-for="Photo">
+                                <span class="text-danger" asp-validation-for="Photo"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="my-4" for="exampleInputUsername1">Title</label>
+                                <input class="form-control rounded-0" id="title-area" rows="3" asp-for="Title"></input>
+                                <span class="text-danger my-1" asp-validation-for="Title"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="my-4" for="exampleInputUsername1">Description</label>
+                                <input class="form-control rounded-0" id="description-area" rows="3" asp-for="Descirption"></input>
+                                <span class="text-danger my-1" asp-validation-for="Descirption"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a asp-controller="Slider" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+
+}
+
+

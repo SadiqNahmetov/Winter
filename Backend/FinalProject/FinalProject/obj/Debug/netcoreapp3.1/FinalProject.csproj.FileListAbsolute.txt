@@ -187,3 +187,7 @@ C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.pdb
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.genruntimeconfig.cache
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.csproj.AssemblyReference.cache
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Index.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Create.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Detail.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Update.cshtml.g.cs

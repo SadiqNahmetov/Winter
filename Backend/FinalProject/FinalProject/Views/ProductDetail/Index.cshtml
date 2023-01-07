@@ -160,33 +160,34 @@
                                 <ul class="product-comment" id="@comment.Id">
                                     <div style="width: 450px;  background-color: white;" class="coment-main">
                                     <li style="margin-left:10px !important">
-                                        <b>@comment.AppUser.UserName</b>
+                                        <b>@comment.AppUser.Fullname</b>
 
                                         <p>
                                             @comment.Content
                                         </p>
                                     </li>
                                     <form asp-controller="ProductDetail" asp-action="DeleteComment" asp-route-id="@comment.Id" method="post">
-                                        <button id="deleteBtn"  style="margin-left: 82% !important; margin-top:-35px !important" type="submit" class="btn btn-danger">Delete</button>
+                                        <button id="deleteBtn" style="margin-left: 82% !important; margin-top:-35px !important" type="submit" class="btn btn-danger">Delete</button>
                                     </form>
-                                  </div>
+                            </div>
                             </ul>
                         }
 
 
-                        
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <div class="enter_user_comment">
-                                <h1 class="title">ADD YOUR REVIEW</h1>
-                                <form asp-controller="ProductDetail" asp-action="CreateComment" method="post">
-                                    <textarea asp-for="@Model.Comment.Content" placeholder="Write a review" required></textarea>
-                                    <input asp-for="@Model.Comment.ProductId" type="hidden" class="product-id" value="@Model.Product.Id" />
-                                    <button type="submit" class="btn2">SUBMIT</button>
-                                </form>
-                            </div>
-                        }
 
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="enter_user_comment">
+                                    <h1 class="title">Add your review</h1>
+                                    <form asp-controller="ProductDetail" asp-action="CreateComment" method="post">
+                                        <textarea asp-for="@Model.Comment.Content" placeholder="Write a review" required></textarea>
+                                        <input asp-for="@Model.Comment.ProductId" type="hidden" class="product-id" value="@Model.Product.Id" />
+                                        <button type="submit" class="btn2">SUBMIT</button>
+                                    </form>
+                                </div>
+                            }
+
+                        </div>
                     </div>
                 </div>
             </div>

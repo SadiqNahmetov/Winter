@@ -3,11 +3,13 @@
 
 $(function () {
 
-    let swiper = new Swiper(".mySwiperS", {
+    let swiper = new Swiper(".mySwiperSl", {
         loop: true,
-        speed: 1500,
+        speed: 1300,
         autoplay: true
-    });
+    })
+
+
 
     var swiper1 = new Swiper(".mySwiper1", {
         slidesPerView: 4,

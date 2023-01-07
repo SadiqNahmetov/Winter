@@ -1,7 +1,12 @@
-﻿@model ProductAdminDetailVM
+﻿@model Slider
 @{
     ViewData["Title"] = "Detail";
-    
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Detail";
+
 }
 
 @section Css{
@@ -33,53 +38,32 @@
                                 <th>
                                     Title
                                 </th>
+                                
                                 <th>
-                                    Category
+                                    Description
                                 </th>
-                                <th>
-                                    Brand
-                                </th>
-                                <th>
-                                    Price
-                                </th>
-                                <th>
-                                    DiscountPrice
-                                </th>
-                               
+
                             </tr>
                         </thead>
                         <tbody style="background-color: #EBEBEB ">
 
                             <tr>
                                 <td>
-                                    <img style="width:100px  !important; height:100px; border-radius:0px !important" src="~/assets/img/product/@Model.ProductImages.FirstOrDefault(m=> m.IsMain)?.Image" alt="image" />
+                                    <img style="width:100px  !important; height:100px; border-radius:0px !important" src="~/assets/img/slider/@Model.Image" alt="image" />
                                 </td>
                                 <td>
                                     @Html.Raw(Model.Title)
                                 </td>
 
                                 <td>
-                                    @Html.Raw(Model.CategoryName)
+                                    @Html.Raw(Model.Descirption)
                                 </td>
-                                <td>
-                                    @Html.Raw(Model.BrandName)
-                                </td>
-                                <td>
-                                    @Html.Raw(Model.Price.ToString("##.00")) ₼
-                                </td>
-                                
-                                <td>
-                                    @Html.Raw((Model.Price - ((Model.Price * Model.DiscountPrice) / 100)).ToString("##.00"))₼
-                                </td>
-
-
-
                             </tr>
 
 
                         </tbody>
                     </table>
-                    <a  asp-controller="Product" asp-action="Index" class="btn btn-primary">Back</a>
+                    <a asp-controller="Slider" asp-action="Index" class="btn btn-primary">Back</a>
                 </div>
             </div>
         </div>
@@ -100,6 +84,4 @@
         <script src="~/admin/js/settings.js"></script>
         <script src="~/admin/js/todolist.js"></script>
     }
-
-
 

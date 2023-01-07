@@ -77,6 +77,7 @@ namespace FinalProject.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", new { id = product.Id });
         }
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteComment(int id)

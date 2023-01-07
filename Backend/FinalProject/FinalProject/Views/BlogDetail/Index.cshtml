@@ -141,7 +141,9 @@
                                     @foreach (var recentpost in Model.RecentPosts)
                                     {
                                         <div class="img-name">
-                                            <img style="width:120px; height:100px;" src="~/assets/img/blog/@recentpost.Image" alt="">
+                                            <a asp-controller="Blog" asp-action="Index" asp-route-id="@recentpost.Id"> 
+                                            <img style="width:120px; height:100px;" src="~/assets/img/blog/@recentpost.Image" alt="image">
+                                            </a>
                                             <div class="name-blog">
                                                 <h6>@recentpost.Title</h6>
 

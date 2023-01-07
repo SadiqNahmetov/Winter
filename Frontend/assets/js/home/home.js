@@ -3,8 +3,6 @@ let swiper = new Swiper(".mySwiperSl", {
   loop: true,
   speed: 1500,
   autoplay: true
-
-
 })
 
 
