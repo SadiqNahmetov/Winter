@@ -181,15 +181,14 @@ $(function () {
 
     $(document).on("click", "#addToCart", function () {
 
-        //let productId = parseInt($(this).closest(".nahmetov").children(0).val());
-        //let data = { id: productId }
         let id = $(this).attr('cart-id');
-
+        let basketCount = $("#basketCount")
+        let basketCurrentCount = $("#basketCount").html()
         $.ajax({
             method: "POST",
             url: "/basket/addbasket",
             data: {
-                id : id
+                id: id
             },
             content: "application/x-www-from-urlencoded",
             success: function (res) {
@@ -197,8 +196,12 @@ $(function () {
                     icon: 'success',
                     title: 'Product added',
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
                 })
+                console.log(basketCount);
+                basketCurrentCount++;
+                basketCount.html("")
+                basketCount.append(basketCurrentCount)
             }
 
 

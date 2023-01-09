@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.15/sweetalert2.css" />
 
-    <link rel="stylesheet" href="./assets/css/basket/basket.css">
+    <link rel="stylesheet" href="~/assets/css/basket/basket.css">
 
 }
 
@@ -61,17 +61,21 @@
                                 <td>@((basketProducts.Price-((basketProducts.Price*basketProducts.DiscountPrice)/100)).ToString("##.00")) ₼</td>
                                 <td>@basketProducts.Total.ToString("##.00") ₼</td>
                                 <td class="basket-delete">
-                                    <button data-id="@basketProducts.Id" id="deleteBtn" class="btn btn-danger">Delete</button>
+                                    <button data-id="@basketProducts.Id" data-quantity="@basketProducts.Quantity"   id="deleteBtn" class="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
-
-                            endTotal = endTotal + basketProducts.Total;
+                           
+                                endTotal = endTotal + basketProducts.Total;
+                            
+                           
                         }
                     </tbody>
                 </table>
-                <div class="" style="background-color: #4D5357 !important; width:250px !important; height:80px !important;">
+                <div style="background-color: #4D5357 !important; padding:30px; width:250px !important; height:80px !important;">
                     <span style="color:white; margin-top:20px !important">Total price:</span>
-                    <span style="color:white" >@endTotal.ToString("##.00") ₼</span>
+                  
+                        <span style="color:white">@endTotal.ToString("##") ₼</span>
+                    
 
                 </div>
 
@@ -97,7 +101,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.15/sweetalert2.min.js"></script>
 
-    <script src="./assets/js/basket/basket.js"></script>
+    <script src="~/assets/js/basket/basket.js"></script>
 
 
 }
