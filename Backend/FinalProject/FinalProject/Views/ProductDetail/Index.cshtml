@@ -64,7 +64,8 @@
 
                             </div>
                         </div>
-                        <div class="product-content">
+                        <div class="product-content" cart-id="@Model.Product.Id">
+                            <input type="hidden" class="product-id" value="@Model.Product.Id" />
                             <h2 class="product-title">@Html.Raw(Model.Product.Name)</h2>
 
                             <div class="product-price">
@@ -113,7 +114,7 @@
 
                             <div class="purchase-info">
                                 <input type="number" min="0" value="1">
-                                <button type="button" class="my-btn">
+                                <button type="button" class="my-btn" cart-id="@Model.Product.Id" id="addToCart">
                                     Add to Cart <i class="fas fa-shopping-cart"></i>
                                 </button>
                             </div>
@@ -161,10 +162,12 @@
                                     <div style="width: 450px;  background-color: white;" class="coment-main">
                                     <li style="margin-left:10px !important">
                                         <b>@comment.AppUser.Fullname</b>
+                                        <span>@comment.CreateDate.ToString("MM-dd-yyyy HH:mm")</span>
 
                                         <p>
                                             @comment.Content
                                         </p>
+
                                     </li>
                                     <form asp-controller="ProductDetail" asp-action="DeleteComment" asp-route-id="@comment.Id" method="post">
                                         <button id="deleteBtn" style="margin-left: 82% !important; margin-top:-35px !important" type="submit" class="btn btn-danger">Delete</button>

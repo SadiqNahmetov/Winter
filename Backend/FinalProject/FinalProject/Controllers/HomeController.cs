@@ -38,13 +38,6 @@ namespace FinalProject.Controllers
                 .Include(m => m.Category)
                 .Include(m => m.ProductSizes)
                 .ToListAsync(); 
-               
-               
-
-
-
-
-
 
 
             HomeVM model = new HomeVM
@@ -63,8 +56,12 @@ namespace FinalProject.Controllers
             return View(model);
         }
 
-       
 
-       
+        public IActionResult Search(string search)
+        {
+            List<Product> searchName = _context.Products.Where(s => !s.IsDeleted && s.Name.Trim().Contains(search.Trim())).Include(m => m.ProductImages).ToList();
+            return PartialView("_Search", searchName);
+        }
+
     }
 }

@@ -170,7 +170,8 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
 
 
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             Slider slider = await GetByIdAsync(id);

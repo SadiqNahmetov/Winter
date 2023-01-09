@@ -6,6 +6,8 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    decimal endTotal = 0;
 }
 
 
@@ -41,8 +43,9 @@
                             <th>Name</th>
                             <th>Brand</th>
                             <th>Quantity</th>
-                            <th>DiscountPrice</th>
                             <th>Price</th>
+                            <th>DiscountPrice</th>
+                            <th>Total</th>
                             <th>Settings</th>
                         </tr>
                     </thead>
@@ -54,18 +57,27 @@
                                 <td>@Html.Raw(basketProducts.Name)</td>
                                 <td>@basketProducts.Brand.Name</td>
                                 <td>@basketProducts.Quantity</td>
-                                <td>@basketProducts.Price.ToString("##.00")</td>
-                                <td>@((basketProducts.Price-((basketProducts.Price*basketProducts.DiscountPrice)/100)).ToString("##.00"))</td>
-
+                                <td>@basketProducts.Price.ToString("##.00") ₼</td>
+                                <td>@((basketProducts.Price-((basketProducts.Price*basketProducts.DiscountPrice)/100)).ToString("##.00")) ₼</td>
+                                <td>@basketProducts.Total.ToString("##.00") ₼</td>
                                 <td class="basket-delete">
                                     <button data-id="@basketProducts.Id" id="deleteBtn" class="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
+
+                            endTotal = endTotal + basketProducts.Total;
                         }
                     </tbody>
                 </table>
+                <div class="" style="background-color: #4D5357 !important; width:250px !important; height:80px !important;">
+                    <span style="color:white; margin-top:20px !important">Total price:</span>
+                    <span style="color:white" >@endTotal.ToString("##.00") ₼</span>
+
+                </div>
 
             </div>
+
+          
         </div>
     </section>
 </main>

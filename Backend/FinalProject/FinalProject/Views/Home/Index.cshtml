@@ -67,13 +67,13 @@
                 @foreach (var feature in Model.Features)
                 {
                     <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="card">
+                        <div class="card mb-2">
                             <div class="img">
                                 <img src="~/assets/img/product/@feature.Image" alt="images">
                             </div>
 
                             <div class="text">
-                                <a href="">Buy Now</a>
+                                <a asp-controller="Shop" asp-action="Index">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
 
                                             </li>
 
-                                            <a class="detail" href="product-detail.html">
+                                            <a class="detail" asp-controller="ProductDetail" asp-action="Index"  asp-route-id="@product.Id">
                                             <li>
                                                 <i class="fa fa-eye"></i>
                                                 <span>View Details</span>

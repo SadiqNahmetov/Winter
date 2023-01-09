@@ -207,11 +207,12 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 .Include(m => m.ProductImages)
                 .Include(m => m.Category)
                 .Include(m => m.Brand)
+                .Include(m => m.ProductSizes)
                 .FirstOrDefaultAsync();
 
-            List<ProductSize> product_Sizes = await _context.ProductSizes.Where(m => m.ProductId == id).ToListAsync();
+            List<ProductSize> productSizes = await _context.ProductSizes.Where(m => m.ProductId == id).ToListAsync();
             List<Size> sizes = new List<Size>();
-            foreach (var size in product_Sizes)
+            foreach (var size in productSizes)
             {
                 Size dbSize = await _context.Sizes.Where(m => m.Id == size.SizeId).FirstOrDefaultAsync();
                 sizes.Add(dbSize);
@@ -235,8 +236,6 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 BrandName = product.Brand.Name,
                 Sizes = sizes,
             };
-
-
 
 
             return View(productDetail);

@@ -51,7 +51,10 @@ namespace FinalProject.Controllers
                     Brand = dbBasketProduct.Product.Brand,
                     Quantity = dbBasketProduct.Quantity,
                     DiscountPrice = dbBasketProduct.Product.DiscountPrice,
-                    Price = dbBasketProduct.Product.Price
+                    Price = dbBasketProduct.Product.Price,
+                    Total = (dbBasketProduct.Product.Price - ((dbBasketProduct.Product.Price / 100)
+                    * dbBasketProduct.Product.DiscountPrice)) * dbBasketProduct.Quantity
+
                 };
                 model.BasketProducts.Add(basketProduct);
 

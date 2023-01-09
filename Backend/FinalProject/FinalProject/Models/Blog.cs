@@ -21,6 +21,9 @@ namespace FinalProject.Models
 
         public ICollection<BlogTag> BlogTags { get; set; }
 
+        public ICollection<BlogComment> BlogComments { get; set; }
+
+
 
     }
 }

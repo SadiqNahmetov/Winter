@@ -12,5 +12,8 @@ namespace FinalProject.Models
 
         public Basket Basket { get; set; }
         public List<Comment> Comments { get; set; }
+        public List<BlogComment> BlogComments { get; set; }
+
+
     }
 }

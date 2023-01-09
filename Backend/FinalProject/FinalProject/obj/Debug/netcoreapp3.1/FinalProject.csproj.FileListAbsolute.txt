@@ -191,3 +191,13 @@ C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Create.cshtml.g.cs
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Detail.cshtml.g.cs
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Update.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Index.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Detail.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Create.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Update.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Feature\Index.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Feature\Detail.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Feature\Create.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Feature\Update.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Search.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\InstagramPhoto\Index.cshtml.g.cs

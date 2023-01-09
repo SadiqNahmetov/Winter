@@ -56,64 +56,62 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="blog-card">
-                        <h5>Commemt area</h5>
-
-                        <div class="comment-area">
-                            <p>
-                                Multiply sea night grass fourth day sea lesser rule open subdue female fill which
-                                them Blessed, give fill lesser bearing multiply sea night grass fourth day sea
-                                lesser
-                            </p>
-
-                            <div class="comment">
-                                <div class="name-date">
-                                    <h4><a href="">Seid Nuraliyev</a></h4>
-                                    <p>December 14, 2022</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="contact-area-main">
-                        <div class="contact-address">
-                            <div class="row">
-                                <h2>Leave a Reply</h2>
-
-                                <div class="col-md-8">
-                                    <div class="contact-address-left">
-                                        <form class="comments-form contact-form" action="">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <textarea class="form-control"
-                                                              placeholder="Write Comment"></textarea>
-                                                </div>
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="form-group">
-                                                        <input type="text" placeholder="Name"
-                                                               class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="form-group">
-                                                        <input type="email" placeholder="Email"
-                                                               class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
 
 
+                        @foreach (var blogComment in Model.BlogComments)
+                        {
+                            <h5>Commemt area</h5>
 
-                                            <a href="">Submit</a>
-                                        </form>
+
+                            <div style="border: 0.3px solid #e1d6eb " class="comment-area" id="@blogComment.Id">
+                                <p>
+                                    @blogComment.Content
+
+                                </p>
+
+                                <div class="comment">
+                                    <div class="name-date">
+                                        <h4><a href="">@blogComment.AppUser.Fullname</a></h4>
+                                        <p>@blogComment.CreateDate.ToString("MM-dd-yyyy HH:mm")</p>
                                     </div>
+                                    <form asp-controller="BlogDetail" asp-action="DeleteComment" asp-route-id="@blogComment.Id" method="post">
+                                        <button id="deleteBtn" style="margin-right: 10px !important; margin-top:-7px !important" type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
                                 </div>
+                            </div>
 
+                        }
+
+                    </div>
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="contact-area-main">
+                            <div class="contact-address">
+                                <div class="row">
+                                    <h2>Leave a Reply</h2>
+                                    <div class="col-md-8">
+                                        <div class="contact-address-left">
+                                            <form class="comments-form contact-form" asp-controller="BlogDetail" asp-action="CreateComment" method="post">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                            <textarea asp-for="@Model.BlogComment.Content" class="form-control" placeholder="Write Comment"></textarea>
+                                                            <input asp-for="@Model.BlogComment.BlogId" type="hidden" class="blog-id" value="@Model.Blog.Id" />
+                                                            <button type="submit" class="btn btn-success my-3">Submit</button>
+                                                    </div>
+
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
 
                 </div>
 
@@ -141,8 +139,8 @@
                                     @foreach (var recentpost in Model.RecentPosts)
                                     {
                                         <div class="img-name">
-                                            <a asp-controller="Blog" asp-action="Index" asp-route-id="@recentpost.Id"> 
-                                            <img style="width:120px; height:100px;" src="~/assets/img/blog/@recentpost.Image" alt="image">
+                                            <a asp-controller="Blog" asp-action="Index" asp-route-id="@recentpost.Id">
+                                                <img style="width:120px; height:100px;" src="~/assets/img/blog/@recentpost.Image" alt="image">
                                             </a>
                                             <div class="name-blog">
                                                 <h6>@recentpost.Title</h6>

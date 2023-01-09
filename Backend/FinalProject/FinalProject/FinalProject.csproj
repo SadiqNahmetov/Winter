@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\assets\css\home\home.css.map" />
+    <None Include="wwwroot\assets\css\home\home.scss" />
     <None Include="wwwroot\ckeditor\adapters\jquery.js" />
     <None Include="wwwroot\ckeditor\build-config.js" />
     <None Include="wwwroot\ckeditor\CHANGES.md" />

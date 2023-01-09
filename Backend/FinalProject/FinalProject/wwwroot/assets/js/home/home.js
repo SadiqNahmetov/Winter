@@ -78,9 +78,20 @@ $(function () {
 
     });
 
+    ///search
+    $(document).on("keyup", "#searchinp", function () {
+        let inputVal = $(this).val().trim();
+        $(".search-list-p li").slice(0).remove();
+        $.ajax({
+            method: "get",
+            url: "home/search?search=" + inputVal,
+            success: function (res) {
+                $(".search-list-p").append(res);
+            }
+        });
+    });
 
-
-
+    //end
     let scrollSection = document.getElementById("scrol-navbar-area")
 
     window.onscroll = function () { scrollFunction() };

@@ -23,7 +23,6 @@ $(function (){
 
 
 
-
 if(localStorage.getItem('products') === null) {
   localStorage.setItem('products',JSON.stringify([]))
 }

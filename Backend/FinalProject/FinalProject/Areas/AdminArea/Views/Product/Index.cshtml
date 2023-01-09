@@ -37,6 +37,9 @@
                                     Category
                                 </th>
                                 <th>
+                                    Description
+                                </th>
+                                <th>
                                     Price
                                 </th>
                                 <th style="text-align: center;">
@@ -47,27 +50,30 @@
                         <tbody style="background-color: #EBEBEB ">
                             @foreach (ProductListVM item in Model.Datas)
                             {
-                                <tr>
-                                    <td>
-                                        <img style="width:100px  !important; height:100px; border-radius:0px !important" src="~/assets/img/product/@item.MainImage" alt="Alternate Text" />
-                                    </td>
-                                    <td style="color: black">
-                                        @Html.Raw(item.Title)
-                                    </td>
-                                    <td>
-                                        @Html.Raw(item.CategoryName)
-                                    </td>
-                                    <td>
-                                        @Html.Raw(item.Price.ToString("##.00")) ₼
-                                    </td>
-                                    <td style="text-align: center;">
-                                        <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-info"><i class="fa-solid fa-info"></i></a>
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <form style="display: inline-block;" asp-action="Delete" asp-route-id="@item.Id" method="post">
-                                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    <img style="width:100px  !important; height:100px; border-radius:0px !important" src="~/assets/img/product/@item.MainImage" alt="Alternate Text" />
+                                </td>
+                                <td style="color: black">
+                                    @Html.Raw(item.Title)
+                                </td>
+                                <td>
+                                    @Html.Raw(item.CategoryName)
+                                </td>
+                                <td style="white-space: normal">
+                                    @Html.Raw(item.Description)
+                                </td>
+                                <td>
+                                    @Html.Raw(item.Price.ToString("##.00")) ₼
+                                </td>
+                                <td style="text-align: center;">
+                                    <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-info"><i class="fa-solid fa-info"></i></a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <form style="display: inline-block;" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
                                 count++;
                             }
 

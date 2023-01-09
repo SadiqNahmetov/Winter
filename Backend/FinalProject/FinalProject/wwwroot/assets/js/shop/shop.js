@@ -18,6 +18,9 @@ $(function () {
     }
 
 
+
+
+
     // product wishlist start
     let wishlistBtns = document.querySelectorAll("#product-area .card .icon-shop .wishList")
 

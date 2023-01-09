@@ -21,12 +21,12 @@
                                         <span asp-validation-for="Photos" class="text-danger"></span>
                                     </div>
                                     <label asp-for="Name">Title</label>
-                                    <textarea class="form-control rounded-0" asp-for="Name" id="Name-area" rows="10"></textarea>
+                                    <input class="form-control rounded-0" asp-for="Name"  rows="10"></input>
                                     <span asp-validation-for="Name" class="text-danger my-1"></span>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Description">Description</label>
-                                    <textarea class="form-control rounded-0" asp-for="Description" id="Description-area" rows="10"></textarea>
+                                    <textarea class="form-control rounded-0" asp-for="Description"  rows="10"></textarea>
                                     <span asp-validation-for="Description" class="text-danger my-1"></span>
                                 </div>
                                 <div class="form-group">
@@ -82,8 +82,5 @@
 
 @section Scripts{
     <partial name="_ValidationPartial" />
-    <script src="~/ckeditor/ckeditor.js"></script>
-
-    <script>CKEDITOR.replace("Name-area")
-        CKEDITOR.replace("Description-area")</script>
+ 
 }
