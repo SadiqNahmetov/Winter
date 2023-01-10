@@ -1,8 +1,9 @@
-﻿@model Brand
+﻿@model Tag
 @{
-    ViewData["Title"] = "Update";
+    ViewData["Title"] = "Create";
 
 }
+
 
 
 
@@ -13,20 +14,19 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card" style=" margin-left: 10px;">
                     <div class="card-body">
-                        <p class="card-description">Brand</p>
-                        <img style="width:200px;" src="~/assets/img/brand/@Model.Image" alt="slider" />
-                        <form asp-action="Update" class="forms-sample" method="post" enctype="multipart/form-data">
+                        <p class="card-description">Tag</p>
+                        <form asp-controller="Tag" asp-action="Create" class="forms-sample" method="post" enctype="multipart/form-data">
 
-                            <div class="form-group">
-                                <input class="form-control mybutton" asp-for="Photo">
-                                <span class="text-danger" asp-validation-for="Photo"></span>
-                            </div>
+                          
                             <div class="form-group">
                                 <input class="form-control mybutton" asp-for="Name">
                                 <span class="text-danger" asp-validation-for="Name"></span>
                             </div>
+
+
+
                             <button type="submit" class="btn btn-success">Submit</button>
-                            <a asp-controller="Brand" asp-action="Index" class="btn btn-danger">Cancel</a>
+                            <a asp-controller="Tag" asp-action="Index" class="btn btn-danger">Cancel</a>
                         </form>
                     </div>
                 </div>

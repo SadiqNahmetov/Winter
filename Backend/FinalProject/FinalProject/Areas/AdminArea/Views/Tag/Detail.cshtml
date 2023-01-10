@@ -1,4 +1,4 @@
-﻿@model Brand
+﻿@model Tag
 @{
     ViewData["Title"] = "Detail";
 
@@ -22,15 +22,13 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Brand area</h4>
+                <h4 class="card-title">Tag area</h4>
 
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered mb-2">
                         <thead style="background-color:black">
                             <tr style="color:red">
-                                <th>
-                                    Image
-                                </th>
+                              
                                 <th>
                                     Name
                                 </th>
@@ -39,9 +37,7 @@
                         <tbody style="background-color: #EBEBEB ">
 
                             <tr>
-                                <td>
-                                    <img style="width:100px  !important; height:100px; border-radius:0px !important" src="~/assets/img/brand/@Model.Image" alt="image" />
-                                </td>
+                               
                                 <td>
                                     @Model.Name
                                 </td>
@@ -50,7 +46,7 @@
 
                         </tbody>
                     </table>
-                    <a asp-controller="Brand" asp-action="Index" class="btn btn-primary ">Back</a>
+                    <a asp-controller="Tag" asp-action="Index" class="btn btn-primary ">Back</a>
                 </div>
             </div>
         </div>
