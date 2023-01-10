@@ -73,6 +73,17 @@ namespace FinalProject.Areas.AdminArea.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null) return BadRequest();
+
+            Brand brand = await _context.Brands.FindAsync(id);
+
+            if (brand == null) return NotFound();
+
+            return View(brand);
+        }
 
 
 
@@ -144,6 +155,9 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 }
 
                 await _context.SaveChangesAsync();
+                string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/brand", brandDb.Image);
+
+                Helper.DeleteFile(pathh);
 
                 return RedirectToAction(nameof(Index));
 
@@ -162,18 +176,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
 
 
-        [HttpGet]
-        public async Task<IActionResult> Detail(int? id)
-        {
-            if (id == null) return BadRequest();
-
-            Brand brand = await _context.Brands.FindAsync(id);
-
-            if (brand == null) return NotFound();
-
-            return View(brand);
-        }
-
+      
 
 
 
@@ -192,7 +195,11 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 string path = Helper.GetFilePath(_env.WebRootPath, "img", brand.Image);
                 Helper.DeleteFile(path);
                 brand.IsDeleted = true;
-            
+          
+            string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/brand", brand.Image);
+
+            Helper.DeleteFile(pathh);
+
 
             brand.IsDeleted = true;
 

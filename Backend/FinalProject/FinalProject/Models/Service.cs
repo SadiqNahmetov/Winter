@@ -17,7 +17,7 @@ namespace FinalProject.Models
         public string Description { get; set; }
 
         [NotMapped]
-        [Required(ErrorMessage = "Image can't be empty")]
+        
         public IFormFile Photo { get; set; }
 
 

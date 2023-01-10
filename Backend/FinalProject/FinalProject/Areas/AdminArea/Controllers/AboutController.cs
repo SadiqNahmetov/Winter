@@ -13,21 +13,21 @@ using System.Threading.Tasks;
 namespace FinalProject.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    public class FeatureController : Controller
+    public class AboutController : Controller
     {
-
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
 
-        public FeatureController(AppDbContext context, IWebHostEnvironment env)
+        public AboutController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;
         }
         public async Task<IActionResult> Index()
         {
-            List<Feature> feature = await _context.Features.Where(m => !m.IsDeleted).ToListAsync();
-            return View(feature);
+            IEnumerable<AboutMission> aboutMissions = await _context.AboutMissions.Where(m => !m.IsDeleted).ToListAsync();
+            return View(aboutMissions);
+         
         }
 
 
@@ -39,34 +39,34 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Feature feature)
+        public async Task<IActionResult> Create(AboutMission aboutMission)
         {
             if (!ModelState.IsValid) return View();
 
-            if (!feature.Photo.CheckFileType("image/"))
+            if (!aboutMission.Photo.CheckFileType("image/"))
             {
                 ModelState.AddModelError("Photo", "Please choose correct image type");
                 return View();
             }
 
-            if (!feature.Photo.CheckFileSize(200000))
+            if (!aboutMission.Photo.CheckFileSize(200000))
             {
                 ModelState.AddModelError("Photo", "Please choose correct image size");
                 return View();
             }
 
-            string fileName = Guid.NewGuid().ToString() + "_" + feature.Photo.FileName;
+            string fileName = Guid.NewGuid().ToString() + "_" + aboutMission.Photo.FileName;
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/product", fileName);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/about", fileName);
 
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
-                await feature.Photo.CopyToAsync(stream);
+                await aboutMission.Photo.CopyToAsync(stream);
             }
 
-            feature.Image = fileName;
+            aboutMission.Image = fileName;
 
-            await _context.Features.AddAsync(feature);
+            await _context.AboutMissions.AddAsync(aboutMission);
 
             await _context.SaveChangesAsync();
 
@@ -75,16 +75,17 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
 
 
+
         [HttpGet]
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return BadRequest();
 
-            Feature feature = await _context.Features.FindAsync(id);
+            AboutMission aboutMission = await _context.AboutMissions.FindAsync(id);
 
-            if (feature == null) return NotFound();
+            if (aboutMission == null) return NotFound();
 
-            return View(feature);
+            return View(aboutMission);
         }
 
 
@@ -96,11 +97,11 @@ namespace FinalProject.Areas.AdminArea.Controllers
             {
                 if (id is null) return BadRequest();
 
-                Feature feature = await _context.Features.FirstOrDefaultAsync(m => m.Id == id);
+                AboutMission aboutMission = await _context.AboutMissions.FirstOrDefaultAsync(m => m.Id == id);
 
-                if (feature is null) return NotFound();
+                if (aboutMission is null) return NotFound();
 
-                return View(feature);
+                return View(aboutMission);
 
             }
             catch (Exception ex)
@@ -114,50 +115,53 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, Feature feature)
+        public async Task<IActionResult> Update(int id, AboutMission aboutMission)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(feature);
+                    return View(aboutMission);
                 }
-                Feature featureDb = await _context.Features.FindAsync(id);
-              
-                if (feature.Photo != null)
+                AboutMission aboutMissionDb = await _context.AboutMissions.FindAsync(id);
+                aboutMissionDb.Image = aboutMission.Image;
+                aboutMissionDb.Title = aboutMission.Title;
+                aboutMissionDb.Description = aboutMission.Description;
+
+                if (aboutMission.Photo != null)
                 {
-                    if (!feature.Photo.CheckFileType("image/"))
+                    if (!aboutMission.Photo.CheckFileType("image/"))
                     {
                         ModelState.AddModelError("Photo", "Please choose correct image type");
                         return View();
                     }
 
-                    if (!feature.Photo.CheckFileSize(20000))
+                    if (!aboutMission.Photo.CheckFileSize(20000))
                     {
                         ModelState.AddModelError("Photo", "Please choose correct image size");
                         return View();
                     }
-                    string fileName = Guid.NewGuid().ToString() + "_" + feature.Photo.FileName;
-                    Feature dbFeature = await _context.Features.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
-                    if (dbFeature is null) return NotFound();
+                    string fileName = Guid.NewGuid().ToString() + "_" + aboutMission.Photo.FileName;
+                    AboutMission dbAboutMission = await _context.AboutMissions.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
+                    if (dbAboutMission is null) return NotFound();
 
-                    if (dbFeature.Photo == feature.Photo)
+                    if (dbAboutMission.Photo == aboutMission.Photo)
                     {
                         return RedirectToAction(nameof(Index));
                     }
 
-                    string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/product", fileName);
+                    string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/about", fileName);
                     using (FileStream stream = new FileStream(path, FileMode.Create))
                     {
-                        await feature.Photo.CopyToAsync(stream);
+                        await aboutMission.Photo.CopyToAsync(stream);
                     }
 
-                    featureDb.Image = fileName;
+                    aboutMissionDb.Image = fileName;
 
                 }
 
                 await _context.SaveChangesAsync();
-                string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/product", featureDb.Image);
+                string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/about", aboutMissionDb.Image);
 
                 Helper.DeleteFile(pathh);
 
@@ -175,40 +179,40 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
 
 
-
-
-
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            Feature feature = await _context.Features
+            AboutMission aboutMission = await _context.AboutMissions
                 .Where(m => !m.IsDeleted && m.Id == id)
                 .FirstOrDefaultAsync();
 
-            if (feature == null) return NotFound();
+            if (aboutMission == null) return NotFound();
 
-            
-            
-                string path = Helper.GetFilePath(_env.WebRootPath, "img", feature.Image);
-                Helper.DeleteFile(path);
-                feature.IsDeleted = true;
-            
 
-            feature.IsDeleted = true;
-            string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/product", feature.Image);
+            string path = Helper.GetFilePath(_env.WebRootPath, "img", aboutMission.Image);
+            Helper.DeleteFile(path);
+            aboutMission.IsDeleted = true;
+
+            string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/brand", aboutMission.Image);
 
             Helper.DeleteFile(pathh);
-            await _context.SaveChangesAsync();
 
+
+            aboutMission.IsDeleted = true;
+
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
 
         }
 
 
+
+
+        private async Task<AboutMission> GetByIdAsync(int id)
+        {
+            return await _context.AboutMissions.FindAsync(id);
+        }
     }
 }

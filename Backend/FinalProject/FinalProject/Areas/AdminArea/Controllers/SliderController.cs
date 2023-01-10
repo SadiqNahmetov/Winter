@@ -154,6 +154,9 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 }
 
                 await _context.SaveChangesAsync();
+                string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/slider", sliderDb.Image);
+
+                Helper.DeleteFile(pathh);
 
                 return RedirectToAction(nameof(Index));
 
