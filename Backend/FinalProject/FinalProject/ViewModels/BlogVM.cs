@@ -8,8 +8,8 @@ namespace FinalProject.ViewModels
 {
     public class BlogVM
     {
-        public IEnumerable<Blog> Blog { get; set; }
-        public IEnumerable<Blog> RecentPosts { get; set; }
+        public IEnumerable<Models.Blog> Blog { get; set; }
+        public IEnumerable<Models.Blog> RecentPosts { get; set; }
 
         public IEnumerable<BlogCategory> BlogCategories { get; set; }
         public IEnumerable<Tag> Tags { get; set; }

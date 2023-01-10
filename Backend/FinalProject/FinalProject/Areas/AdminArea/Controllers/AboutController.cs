@@ -194,7 +194,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
             Helper.DeleteFile(path);
             aboutMission.IsDeleted = true;
 
-            string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/brand", aboutMission.Image);
+            string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/about", aboutMission.Image);
 
             Helper.DeleteFile(pathh);
 

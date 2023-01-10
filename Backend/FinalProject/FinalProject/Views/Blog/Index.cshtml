@@ -81,14 +81,16 @@
                         <div class="col-12">
                             <div class="category">
                                 <h3>Category</h3>
-                                @foreach (var blogcategory in Model.BlogCategories)
-                                {
-                                    <li>
-                                        <a href="">@blogcategory.Name</a>
-                                    </li>
-                                }
+                               
+                                    @foreach (var blogcategory in Model.BlogCategories)
+                                    {
+                                        <li>
+                                            <a href="">@blogcategory.Name</a>
+                                        </li>
 
-                            </div>
+                                    }
+                               
+                           
                         </div>
 
                         <div class="col-12">
@@ -123,15 +125,17 @@
 
                                 <div class="tag">
 
-                                    <ul>
-                                        @foreach (var tag in Model.Tags)
-                                        {
-                                            <li>
+
+                                    @foreach (var tag in Model.Tags)
+                                    {
+                                        <ul>
+                                            <li style="margin:4px !important">
                                                 <a href="">@tag.Name</a>
                                             </li>
-                                        }
+                                        </ul>
 
-                                    </ul>
+                                    }
+
                                 </div>
                             </div>
                         </div>

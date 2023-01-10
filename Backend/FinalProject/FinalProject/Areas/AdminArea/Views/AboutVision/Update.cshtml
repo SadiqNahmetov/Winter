@@ -1,0 +1,49 @@
+﻿@model AboutVision
+@{
+    ViewData["Title"] = "Update";
+
+}
+
+
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card" style=" margin-left: 10px;">
+                    <div class="card-body">
+                        <p class="card-description">AboutVision</p>
+                        <img style="width:200px;" src="~/assets/img/about/@Model.Image" alt="image" />
+                        <form asp-action="Update" class="forms-sample" method="post" enctype="multipart/form-data">
+
+                            <div class="form-group">
+                                <input class="form-control mybutton" asp-for="Photo">
+                                <span class="text-danger" asp-validation-for="Photo"></span>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control mybutton" asp-for="Title">
+                                <span class="text-danger" asp-validation-for="Title"></span>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control mybutton" asp-for="Description">
+                                <span class="text-danger" asp-validation-for="Description"></span>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a asp-controller="AboutVision" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+
+}
+
+
+
+
