@@ -1,6 +1,7 @@
 ﻿using FinalProject.Data;
 using FinalProject.Helpers;
 using FinalProject.Models;
+using FinalProject.ViewModels;
 using FinalProject.ViewModels.Blog;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -119,25 +120,59 @@ namespace FinalProject.Areas.AdminArea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        
+
+
+
         [HttpGet]
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return BadRequest();
 
-            Blog blog = await _context.Blogs.FindAsync(id);
 
-            if (blog == null) return NotFound();
+            Blog blog = await _context.Blogs
+                .Where(m => !m.IsDeleted && m.Id == id)
+                .Include(m => m.BlogTags)
+                .Include(m => m.BlogCategory)
+                .FirstOrDefaultAsync();
 
-            return View(blog);
+            List<BlogTag> blogTags = await _context.BlogTags.Where(m => m.BlogId == id).ToListAsync();
+            List<Tag> tags = new List<Tag>();
+            foreach (var tag in blogTags)
+            {
+                Tag dbTag = await _context.Tags.Where(m => m.Id == tag.TagId).FirstOrDefaultAsync();
+                tags.Add(dbTag);
+            }
+
+            if (blog == null)
+            {
+                return NotFound();
+            }
+            var data = await GetTagAsync();
+
+            AdminBlogVM adminBlogVM = new AdminBlogVM
+            {
+                Id = blog.Id,
+                Image = blog.Image,
+                Title = blog.Title,
+                Description = blog.Description,
+                CreateDate = DateTime.Now,
+                CategoryName = blog.BlogCategory.Name,
+                Tags = tags,
+            };
+
+            return View(adminBlogVM);
         }
 
         [HttpGet]
+        
         public async Task<IActionResult> Update(int? id)
         {
             try
             {
-                ViewBag.categories = await GetCategoriesAsync();
                 if (id is null) return BadRequest();
+
+                ViewBag.blogCategories = await GetCategoriesAsync();
 
                 Blog blog = await _context.Blogs.FirstOrDefaultAsync(m => m.Id == id);
 
@@ -145,10 +180,11 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
                 return View(new BlogEditVM
                 {
+                    Id = blog.Id,
                     Title = blog.Title,
                     Description = blog.Description,
                     BlogCategoryId = blog.BlogCategoryId,
-                    Image = blog.Image,
+                    Image = blog.Image
                 });
 
             }
@@ -159,38 +195,37 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 return View();
             }
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, BlogEditVM blog)
+        public async Task<IActionResult> Update(int id, BlogEditVM updateBlog)
         {
             try
             {
-                ViewBag.categories = await GetCategoriesAsync();
+                ViewBag.blogCategories = await GetCategoriesAsync();
 
                 if (!ModelState.IsValid)
                 {
-                    return View(blog);
+                    return View(updateBlog);
                 }
-                Blog dbBlog = await GetByIdAsync(id);
-                if (blog.Photo != null)
+                Blog blog = await GetByIdAsync(id);
+                if (updateBlog.Photo != null)
                 {
-                    if (!blog.Photo.CheckFileType("image/"))
+                    if (!updateBlog.Photo.CheckFileType("image/"))
                     {
                         ModelState.AddModelError("Photo", "Please choose correct image type");
-                        return View(blog);
+                        return View(updateBlog);
                     }
 
-                    if (!blog.Photo.CheckFileSize(20000))
+                    if (!updateBlog.Photo.CheckFileSize(20000))
                     {
                         ModelState.AddModelError("Photo", "Please choose correct image size");
-                        return View(blog);
+                        return View(updateBlog);
                     }
-                    string fileName = Guid.NewGuid().ToString() + "_" + blog.Photo.FileName;
+                    string fileName = Guid.NewGuid().ToString() + "_" + updateBlog.Photo.FileName;
                     Blog blogDb = await _context.Blogs.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
                     if (blogDb is null) return NotFound();
 
-                    if (blogDb.Image == blog.Image)
+                    if (blogDb.Image == updateBlog.Image)
                     {
                         return RedirectToAction(nameof(Index));
                     }
@@ -198,16 +233,16 @@ namespace FinalProject.Areas.AdminArea.Controllers
                     string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/blog", fileName);
                     using (FileStream stream = new FileStream(path, FileMode.Create))
                     {
-                        await blog.Photo.CopyToAsync(stream);
+                        await updateBlog.Photo.CopyToAsync(stream);
                     }
 
-                    dbBlog.Image = fileName;
+                    blog.Image = fileName;
 
                 }
-               
-                dbBlog.Title = blog.Title;
-                dbBlog.Description = blog.Description;
-            
+
+                blog.Title = updateBlog.Title;
+                blog.Description = updateBlog.Description;
+                blog.BlogCategoryId = updateBlog.BlogCategoryId;
 
                 await _context.SaveChangesAsync();
 
@@ -221,6 +256,8 @@ namespace FinalProject.Areas.AdminArea.Controllers
                 return View();
             }
         }
+
+
 
         private async Task<Blog> GetByIdAsync(int id)
         {

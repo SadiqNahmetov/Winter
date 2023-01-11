@@ -1,4 +1,4 @@
-﻿@model Blog
+﻿@model AdminBlogVM
 @{
     ViewData["Title"] = "Detail";
 
@@ -38,9 +38,15 @@
                                     Description
                                 </th>
                                 <th>
+                                    BlogCategory
+                                </th>
+                                <th>
+                                    Tags
+                                </th>
+                                <th>
                                     CreateDate
                                 </th>
-                                
+
 
                             </tr>
                         </thead>
@@ -57,10 +63,19 @@
                                 <td style="white-space:normal">
                                     @Html.Raw(Model.Description)
                                 </td>
+                                <td style="white-space:normal">
+                                    @Html.Raw(Model.CategoryName)
+                                </td>
+                                <td style="white-space:normal">
+                                    @foreach (var tag in Model.Tags)
+                                    {
+                                        @Html.Raw(tag.Name)
+                                    }
+                                </td>
                                 <td>
                                     @Html.Raw(Model.CreateDate.ToString("dd MMMM yyyy"))
                                 </td>
-                              
+
                             </tr>
 
 

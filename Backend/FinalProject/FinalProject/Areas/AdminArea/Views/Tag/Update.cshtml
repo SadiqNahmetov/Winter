@@ -1,0 +1,42 @@
+﻿@model Tag
+@{
+    ViewData["Title"] = "Update";
+
+}
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card" style=" margin-left: 10px;">
+                    <div class="card-body">
+                        <p class="card-description">Tag</p>
+                        
+                        <form asp-action="Update" class="forms-sample" method="post" enctype="multipart/form-data">
+
+                          
+                            <div class="form-group">
+                                <label class="my-4" for="exampleInputUsername1">Title</label>
+                                <input class="form-control rounded-0" id="title-area" rows="3" asp-for="Name"></input>
+                                <span class="text-danger my-1" asp-validation-for="Name"></span>
+                            </div>
+
+                           
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a asp-controller="Tag" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+
+}
+
+

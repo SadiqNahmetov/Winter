@@ -40,6 +40,7 @@ $(function () {
         var id = $(this).data('id');
         var quantity = $(this).data('quantity')
         var sum = basketCurrentCount - quantity
+        
 
         $.ajax({
             method: 'POST',

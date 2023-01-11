@@ -21,6 +21,45 @@ $(function () {
 
 
 
+        /// basket start
+
+    $(document).on("click", "#addToCart", function () {
+
+        let id = $(this).attr('cart-id');
+        let basketCount = $("#basketCount")
+        let basketCurrentCount = $(".basketCount")
+        console.log(basketCurrentCount);
+        $.ajax({
+            method: "POST",
+            url: "/basket/addbasket",
+            data: {
+                id: id
+            },
+            content: "application/x-www-from-urlencoded",
+            success: function (res) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Product added',
+                    showConfirmButton: false,
+                    timer: 1500,
+                })
+
+                console.log(basketCount);
+                basketCurrentCount++;
+                basketCount.html("")
+                basketCount.append(basketCurrentCount)
+            }
+
+
+        });
+
+    });
+// basket end
+
+
+
+
+
     // product wishlist start
     let wishlistBtns = document.querySelectorAll("#product-area .card .icon-shop .wishList")
 
@@ -177,38 +216,6 @@ $(function () {
 
 // renge input end
 
-    /// basket start
-
-    $(document).on("click", "#addToCart", function () {
-
-        let id = $(this).attr('cart-id');
-        let basketCount = $("#basketCount")
-        let basketCurrentCount = $("#basketCount").html()
-        $.ajax({
-            method: "POST",
-            url: "/basket/addbasket",
-            data: {
-                id: id
-            },
-            content: "application/x-www-from-urlencoded",
-            success: function (res) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Product added',
-                    showConfirmButton: false,
-                    timer: 1500,
-                })
-                console.log(basketCount);
-                basketCurrentCount++;
-                basketCount.html("")
-                basketCount.append(basketCurrentCount)
-            }
-
-
-        });
-
-    });
-// basket end
 
 
 

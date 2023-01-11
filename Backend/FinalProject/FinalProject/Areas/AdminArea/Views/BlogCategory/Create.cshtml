@@ -1,0 +1,44 @@
+﻿@model BlogCategory
+@{
+    ViewData["Title"] = "Create";
+
+}
+
+
+
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card" style=" margin-left: 10px;">
+                    <div class="card-body">
+                        <p class="card-description">Blog Create</p>
+                        <form asp-controller="BlogCategory" asp-action="Create" class="forms-sample" method="post" enctype="multipart/form-data">
+
+                            <div class="form-group">
+                                <input class="form-control mybutton" asp-for="Name">
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+
+
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <a asp-controller="BlogCetegory" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+
+}
+
+
+
+

@@ -18,6 +18,7 @@
                         <form asp-controller="Blog" asp-action="Create" class="forms-sample" method="post" enctype="multipart/form-data">
 
                             <div class="form-group">
+                                <label class="my-4" for="exampleInputUsername1">Image</label>
                                 <input class="form-control mybutton" asp-for="Photo">
                                 <span class="text-danger" asp-validation-for="Photo"></span>
                             </div>
@@ -32,12 +33,15 @@
                                 <input class="form-control rounded-0" id="description-area" rows="3" asp-for="Description"></input>
                                 <span class="text-danger my-1" asp-validation-for="Description"></span>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label asp-for="BlogCategoryId">Categories</label>
                                 <select class="form-control" asp-for="BlogCategoryId" asp-items="@ViewBag.categories"></select>
+                                <span class="text-danger my-1" asp-validation-for="BlogCategoryId"></span>
                             </div>
+                            <label class="my-4" for="exampleInputUsername1">Tag</label>
                             <div class="form-group">
+
                                 @if (Model.Tag != null)
                                 {
                                     @for (int i = 0; i < Model.Tag.Count; i++)

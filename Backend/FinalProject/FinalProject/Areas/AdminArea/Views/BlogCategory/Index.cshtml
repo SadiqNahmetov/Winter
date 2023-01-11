@@ -1,0 +1,93 @@
+﻿@model IEnumerable<BlogCategory>
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+
+
+
+
+@section Css{
+    <link rel="stylesheet" href="~/admin/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="~/admin/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/admin/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/admin/images/favicon.png" />
+}
+
+<div class="container-fluid ">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="create-btn mb-3">
+                    <a asp-controller="BlogCategory" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+                </div>
+                <h4 class="card-title">BlogCategory area</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead style="background-color:black">
+                            <tr style="color:red">
+                                <th>
+                                    Name
+                                </th>
+
+                                <th style="text-align: center;">
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody style="background-color: #EBEBEB ">
+
+
+                            @foreach (var blogCategory in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @blogCategory.Name
+                                    </td>
+
+
+
+                                    <td style="text-align: center;">
+                                        <a asp-action="Detail" asp-route-id="@blogCategory.Id" class="btn btn-info"><i class="fa-solid fa-info"></i></a>
+                                        <a asp-action="Update" asp-route-id="@blogCategory.Id" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <form style="display: inline-block;" asp-action="Delete" asp-route-id="@blogCategory.Id" method="post">
+                                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section Scripts{
+    <script src="~/admin/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="~/admin/js/off-canvas.js"></script>
+    <script src="~/admin/js/hoverable-collapse.js"></script>
+    <script src="~/admin/js/template.js"></script>
+    <script src="~/admin/js/settings.js"></script>
+    <script src="~/admin/js/todolist.js"></script>
+}
+
+
+
+

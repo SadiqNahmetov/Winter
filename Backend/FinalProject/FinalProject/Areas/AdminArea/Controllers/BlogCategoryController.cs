@@ -12,20 +12,20 @@ using System.Threading.Tasks;
 namespace FinalProject.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    public class TagController : Controller
+    public class BlogCategoryController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
 
-        public TagController(AppDbContext context, IWebHostEnvironment env)
+        public BlogCategoryController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Tag> tag = await _context.Tags.Where(m => !m.IsDeleted).ToListAsync();
-            return View(tag);
+            IEnumerable<BlogCategory> blogCategory = await _context.BlogCategories.Where(m => !m.IsDeleted).ToListAsync();
+            return View(blogCategory);
         }
 
 
@@ -37,13 +37,12 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Tag tag)
+        public async Task<IActionResult> Create(BlogCategory blogCategory)
         {
             if (!ModelState.IsValid) return View();
 
 
-           
-            await _context.Tags.AddAsync(tag);
+            await _context.BlogCategories.AddAsync(blogCategory);
 
             await _context.SaveChangesAsync();
 
@@ -51,39 +50,33 @@ namespace FinalProject.Areas.AdminArea.Controllers
         }
 
 
-
-
-
-
-
         [HttpGet]
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return BadRequest();
 
-            Tag tag = await _context.Tags.FindAsync(id);
+            BlogCategory blogCategory = await _context.BlogCategories.FindAsync(id);
 
-            if (tag == null) return NotFound();
+            if (blogCategory == null) return NotFound();
 
-            return View(tag);
+            return View(blogCategory);
         }
 
 
 
-
         [HttpGet]
-      
+       
         public async Task<IActionResult> Update(int? id)
         {
             try
             {
                 if (id == null) return BadRequest();
 
-                Tag tag = await _context.Tags.FirstOrDefaultAsync(m => m.Id == id);
+                BlogCategory blogCategory = await _context.BlogCategories.FirstOrDefaultAsync(m => m.Id == id);
 
-                if (tag == null) return NotFound();
+                if (blogCategory == null) return NotFound();
 
-                return View(tag);
+                return View(blogCategory);
             }
             catch (Exception ex)
             {
@@ -95,7 +88,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, Tag tag)
+        public async Task<IActionResult> Update(int id, BlogCategory blogCategory)
         {
             try
             {
@@ -105,16 +98,16 @@ namespace FinalProject.Areas.AdminArea.Controllers
                     return View();
                 }
 
-                Tag dbTag = await _context.Tags.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
+                BlogCategory dbBlogCategory = await _context.BlogCategories.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
 
-                if (dbTag == null) return NotFound();
+                if (dbBlogCategory == null) return NotFound();
 
-                if (dbTag.Name.Trim().ToLower() == tag.Name.Trim().ToLower())
+                if (dbBlogCategory.Name.Trim().ToLower() == blogCategory.Name.Trim().ToLower())
                 {
                     return RedirectToAction(nameof(Index));
                 }
 
-                _context.Tags.Update(tag);
+                _context.BlogCategories.Update(blogCategory);
 
                 await _context.SaveChangesAsync();
 
@@ -129,26 +122,19 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
         }
 
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            Tag tag = await _context.Tags
+            BlogCategory blogCategory = await _context.BlogCategories
                 .Where(m => !m.IsDeleted && m.Id == id)
                 .FirstOrDefaultAsync();
 
-            if (tag == null) return NotFound();
+            if (blogCategory == null) return NotFound();
 
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "img", tag.Name);
-            Helper.DeleteFile(path);
-            tag.IsDeleted = true;
 
-
-            tag.IsDeleted = true;
+            blogCategory.IsDeleted = true;
 
             await _context.SaveChangesAsync();
 
@@ -159,9 +145,9 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
 
 
-        private async Task<Brand> GetByIdAsync(int id)
+        private async Task<BlogCategory> GetByIdAsync(int id)
         {
-            return await _context.Brands.FindAsync(id);
+            return await _context.BlogCategories.FindAsync(id);
         }
     }
 }

@@ -223,3 +223,8 @@ C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Detail.cshtml.g.cs
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Create.cshtml.g.cs
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Update.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\BlogCategory\Create.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\BlogCategory\Index.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Tag\Update.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\BlogCategory\Update.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\BlogCategory\Detail.cshtml.g.cs

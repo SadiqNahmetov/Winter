@@ -97,9 +97,12 @@ $(function () {
     window.onscroll = function () { scrollFunction() };
 
     function scrollFunction() {
-        if (document.body.scrollTop > 195 || document.documentElement.scrollTop > 195) {
+        if (document.body.scrollTop > 64 || document.documentElement.scrollTop > 64) {
             scrollSection.style.top = "0";
+
+            $("#basketCountsc").text($("#basketCount").text());
         } else {
+            
             scrollSection.style.top = "-0px";
             scrollSection.classList.remove("visibl");
         }

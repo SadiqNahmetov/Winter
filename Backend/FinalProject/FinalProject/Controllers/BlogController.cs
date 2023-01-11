@@ -24,7 +24,7 @@ namespace FinalProject.Controllers
             IEnumerable<BlogCategory> blogCategories = await _context.BlogCategories.Where(m => !m.IsDeleted).ToListAsync();
 
             IEnumerable<Blog> recentPosts = await _context.Blogs.Where(m => !m.IsDeleted).OrderByDescending(m => m.Id).ToListAsync();
-            IEnumerable<Tag> tags = await _context.Tags.Where(m => !m.IsDeleted).ToListAsync();
+            List<Tag> tags = await _context.Tags.Where(m => !m.IsDeleted).ToListAsync();
 
             BlogVM blogVM = new BlogVM
             {
