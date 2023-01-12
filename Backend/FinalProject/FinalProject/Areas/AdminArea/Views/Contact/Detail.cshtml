@@ -1,0 +1,91 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Detail";
+
+}
+
+
+
+
+
+@section Css{
+    <link rel="stylesheet" href="~/admin/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="~/admin/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/admin/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/admin/images/favicon.png" />
+}
+
+<div class="container-fluid ">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Contaxt</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered mb-2">
+                        <thead style="background-color:black">
+                            <tr style="color:red">
+
+                                <th>
+                                    Adress
+                                </th>
+
+                                <th>
+                                    Phone
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody style="background-color: #EBEBEB ">
+
+                            <tr>
+
+                                <td style="color: black">
+                                    @Html.Raw(Model.Address)
+                                </td>
+                                <td>
+                                    @Html.Raw(Model.Phone)
+                                </td>
+                                <td>
+                                    @Html.Raw(Model.Email)
+                                </td>
+                                <td style="white-space:normal">
+                                    @Model.Description
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                    <a asp-controller="Contact" asp-action="Index" class="btn btn-primary ">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @section Scripts{
+        <script src="~/admin/vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page-->
+        <!-- End plugin js for this page-->
+        <!-- inject:js -->
+        <script src="~/admin/js/off-canvas.js"></script>
+        <script src="~/admin/js/hoverable-collapse.js"></script>
+        <script src="~/admin/js/template.js"></script>
+        <script src="~/admin/js/settings.js"></script>
+        <script src="~/admin/js/todolist.js"></script>
+    }
+
+
+

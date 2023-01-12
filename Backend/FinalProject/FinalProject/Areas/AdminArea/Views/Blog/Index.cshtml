@@ -24,7 +24,15 @@
         <div class="card">
             <div class="card-body">
                 <div class="create-btn mb-3">
-                    <a asp-controller="Blog" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+                    @if (User.IsInRole("SuperAdmin"))
+                    {
+                        <a asp-controller="Blog" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+                    }
+                    else
+                    {
+                        <a  asp-controller="Blog" asp-action="Create" style="pointer-events:none; cursor:default;opacity:0.5;" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+                    }
+
                 </div>
                 <h4 class="card-title">Blog area</h4>
 
@@ -56,31 +64,31 @@
                         <tbody style="background-color: #EBEBEB ">
                             @foreach (var blog in Model.Datas)
                             {
-                            <tr>
-                                <td>
-                                    <img style="width:100px  !important; height:100px; border-radius:0px !important" src="~/assets/img/blog/@blog.Image" alt="Alternate Text" />
-                                </td>
-                                <td style="color: black">
-                                    @Html.Raw(blog.Title)
-                                </td>
-                                <td style="white-space:normal">
-                                    @Html.Raw(blog.Description)
-                                </td>
+                                <tr>
+                                    <td>
+                                        <img style="width:100px  !important; height:100px; border-radius:0px !important" src="~/assets/img/blog/@blog.Image" alt="Alternate Text" />
+                                    </td>
+                                    <td style="color: black">
+                                        @Html.Raw(blog.Title)
+                                    </td>
+                                    <td style="white-space:normal">
+                                        @Html.Raw(blog.Description)
+                                    </td>
 
-                                <td>
-                                    @Html.Raw(blog.CreateDate.ToString("dd MMMM yyyy"))
-                                </td>
-                                <td style="white-space:normal">
-                                    @Html.Raw(blog.Category)
-                                </td>
-                                <td style="text-align: center;">
-                                    <a asp-action="Detail" asp-route-id="@blog.Id" class="btn btn-info"><i class="fa-solid fa-info"></i></a>
-                                    <a asp-action="Update" asp-route-id="@blog.Id" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <form style="display: inline-block;" asp-action="Delete" asp-route-id="@blog.Id" method="post">
-                                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
+                                    <td>
+                                        @Html.Raw(blog.CreateDate.ToString("dd MMMM yyyy"))
+                                    </td>
+                                    <td style="white-space:normal">
+                                        @Html.Raw(blog.Category)
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <a asp-action="Detail" asp-route-id="@blog.Id" class="btn btn-info"><i class="fa-solid fa-info"></i></a>
+                                        <a asp-action="Update" asp-route-id="@blog.Id" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <form style="display: inline-block;" asp-action="Delete" asp-route-id="@blog.Id" method="post">
+                                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
                                 count++;
                             }
 

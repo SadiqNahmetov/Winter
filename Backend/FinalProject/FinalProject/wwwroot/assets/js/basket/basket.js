@@ -8,7 +8,7 @@ $(function () {
     window.onscroll = function () { scrollFunction() };
   
     function scrollFunction() {
-      if (document.body.scrollTop > 195 || document.documentElement.scrollTop > 195) {
+      if (document.body.scrollTop > 65 || document.documentElement.scrollTop > 65) {
         scrollSection.style.top = "0";
       } else {
         scrollSection.style.top = "-0px";
@@ -40,6 +40,7 @@ $(function () {
         var id = $(this).data('id');
         var quantity = $(this).data('quantity')
         var sum = basketCurrentCount - quantity
+       
         
 
         $.ajax({
@@ -62,6 +63,7 @@ $(function () {
                 $(`.basket-product[id=${id}]`).remove();
                 basketCount.html("")
                 basketCount.append(sum)
+
               
             }
         })

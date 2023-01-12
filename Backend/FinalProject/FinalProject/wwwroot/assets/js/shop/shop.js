@@ -2,63 +2,35 @@
 "use strict"
 
 
-$(function () {
+$(document).on("click", ".show-more .my-button", function () {
+    console.log("ok")
+    let parent = $("#parent-products");
 
-  let scrollSection = document.getElementById("scrol-navbar-area")
+    let skipCount = $("#parent-products").children().length;
 
-  window.onscroll = function () { scrollFunction() };
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 195 || document.documentElement.scrollTop > 195) {
-      scrollSection.style.top = "0";
-    } else {
-      scrollSection.style.top = "-0px";
-      scrollSection.classList.remove("visibl");
-    }
-    }
+    let productCount = $("#product-count").val();
 
 
+    $.ajax({
 
+        url: "/shop/loadmore",
+        type: "Get",
+        data: {
+            skip: skipCount
+        },
+        success: function (res) {
 
+            $(parent).append(res);
 
-        /// basket start
+            skipCount = $("#parent-products").children().length;
 
-    $(document).on("click", "#addToCart", function () {
+            if (skipCount >= productCount) {
 
-        let id = $(this).attr('cart-id');
-        let basketCount = $("#basketCount")
-        let basketCurrentCount = $(".basketCount")
-        console.log(basketCurrentCount);
-        $.ajax({
-            method: "POST",
-            url: "/basket/addbasket",
-            data: {
-                id: id
-            },
-            content: "application/x-www-from-urlencoded",
-            success: function (res) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Product added',
-                    showConfirmButton: false,
-                    timer: 1500,
-                })
-
-                console.log(basketCount);
-                basketCurrentCount++;
-                basketCount.html("")
-                basketCount.append(basketCurrentCount)
+                $(".show-more .my-button").addClass("d-none");
             }
-
-
-        });
-
-    });
-// basket end
-
-
-
-
+        }
+    })
+})
 
     // product wishlist start
     let wishlistBtns = document.querySelectorAll("#product-area .card .icon-shop .wishList")
@@ -169,6 +141,7 @@ $(function () {
             });
         })
     });
+
     //range input start
 
     const rangeInput = document.querySelectorAll(".range-input input"),
@@ -235,5 +208,4 @@ $(function () {
             $('html').animate({ scrollTop: 0 }, 800)
         })
     });
-});
 

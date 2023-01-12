@@ -85,7 +85,7 @@
                                     @foreach (var blogcategory in Model.BlogCategories)
                                     {
                                         <li>
-                                            <a href="">@blogcategory.Name</a>
+                                            <a asp-controller="Blog" asp-action="BlogCategoryFilter" asp-route-id="@blogcategory.Id">@blogcategory.Name</a>
                                         </li>
 
                                     }

@@ -228,3 +228,10 @@ C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Tag\Update.cshtml.g.cs
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\BlogCategory\Update.cshtml.g.cs
 C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\BlogCategory\Detail.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductPartial.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\BlogCategoryFilter.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\SendMessage\Index.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\SendMessage\Detail.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Contact\Index.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Contact\Detail.cshtml.g.cs
+C:\Users\Sadiq\Desktop\Final-Project\Backend\FinalProject\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Contact\Update.cshtml.g.cs

@@ -112,16 +112,34 @@
                                 </div>
                             </div>
 
-                            <div class="purchase-info">
-                                <input type="number" min="0" value="1">
-                                <button type="button" class="my-btn" cart-id="@Model.Product.Id" id="addToCart">
-                                    Add to Cart <i class="fas fa-shopping-cart"></i>
-                                </button>
-                            </div>
 
 
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="purchase-info">
+                                    <button type="button" class="my-btn" cart-id="@Model.Product.Id" id="addToCart">
+                                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="purchase-info">
+                                    <a style="text-decoration:none;" asp-controller="Account" asp-action="Login">
+                                        <button  type="button" class="my-btn" cart-id="@Model.Product.Id" id="addToCart">
+                                            Add to Cart <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </a>
+                                </div>
+
+                            }
 
                         </div>
+
+
+
+                            </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Product>
+
+
+
+@foreach (var product in Model)
+{
+    <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card" data-id="@product.CategoryId" cart-id="@product.Id">
+            <input type="hidden" class="product-id" value="@product.Id" />
+            <div class="imagesBx">
+                <img src="~/assets/img/product/@product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image" alt="images">
+                <ul class="icon-shop">
+                    <li>
+                        <i class="fa fa-heart wishList" aria-hidden="true"></i>
+                        <span>Add to WishList</span>
+                    </li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a cart-id="@product.Id" id="addToCart"><i class="fa-sharp fa-solid fa-bag-shopping"></i></a>
+                            <span>Add to Cart</span>
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Account" asp-action="Login" cart-id="@product.Id" id="addToCart"><i class="fa-sharp fa-solid fa-bag-shopping"></i></a>
+                            <span>Add to Cart</span>
+
+                        </li>
+                    }
+
+
+
+                    <a class="detail" asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                    <li>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span>View Details</span>
+                    </li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="productName">
+                <h4>@product.Brand.Name</h4>
+                <a> @Html.Raw(product.Name)</a>
+            </div>
+            <div class="price">
+                <span>@((product.Price-((product.Price*product.DiscountPrice)/100)).ToString("##.00"))₼</span>
+                <span><del>@product.Price.ToString("##.00")₼</del></span>
+            </div>
+        </div>
+    </div>
+
+}

@@ -211,7 +211,10 @@ $(function () {
                     showConfirmButton: false,
                     timer: 1500,
                 })
-                console.log(basketCount);
+                let scrollBasket = $('#basketCountsc');
+                let scrollBasketCount = $(scrollBasket).text();
+                scrollBasketCount++;
+                $(scrollBasket).text(scrollBasketCount);
                 basketCurrentCount++;
                 basketCount.html("")
                 basketCount.append(basketCurrentCount)

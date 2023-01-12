@@ -141,34 +141,6 @@ $(document).ready(function () {
 
 
 
-/// basket start
 
-$(document).on("click", "#addToCart", function () {
-
-    //let productId = parseInt($(this).closest(".nahmetov").children(0).val());
-    //let data = { id: productId }
-    let id = $(this).attr('cart-id');
-
-    $.ajax({
-        method: "POST",
-        url: "/basket/addbasket",
-        data: {
-            id: id
-        },
-        content: "application/x-www-from-urlencoded",
-        success: function (res) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Product added',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }
-
-
-    });
-
-});
-// basket end
 
 

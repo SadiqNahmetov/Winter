@@ -1,0 +1,134 @@
+﻿@model BlogVM
+
+@{
+    ViewData["Title"] = "BlogCategoryFilter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+@section Css
+{
+    <link rel="shortcut icon" href="https://img.icons8.com/office/512/online-store.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/assets/css/blog/blog.css">
+
+
+}
+
+<main>
+    <a href="" class="angleUp">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
+    <section id="blog-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="title">
+                        <h2>Blog</h2>
+
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+
+                    @foreach (var blog in Model.Blog)
+                    {
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <a asp-controller="BlogDetail" asp-action="Index" asp-route-id="@blog.Id">
+                                    <div class="blogImage">
+                                        <img src="~/assets/img/blog/@blog.Image" alt="">
+                                    </div>
+                                </a>
+                                <div class="blog-date">
+                                    <a href="">
+                                        <h6>@blog.CreateDate.ToString("dd MMM ")</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="blog-text-main">
+                                <div class="blog-text">
+                                    <h3>@blog.Title</h3>
+                                    <p>
+                                        @blog.Description
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <div class="col-12">
+                                <div class="recent-post">
+                                    <h3>Recent Post</h3>
+
+                                    <div class="recent-card">
+                                        @foreach (var recentpost in Model.RecentPosts)
+                                        {
+                                            <div class="img-name">
+                                                <a asp-controller="BlogDetail" asp-action="Index" asp-route-id="@recentpost.Id">
+                                                    <img style="width:120px; height:100px;" src="~/assets/img/blog/@recentpost.Image" alt="">
+                                                </a>
+
+                                                <div class="name-blog">
+                                                    <h6>@recentpost.Title</h6>
+
+                                                    <p>@recentpost.CreateDate.ToString("dd MMMM yyyy")</p>
+                                                </div>
+                                            </div>
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            </div>
+    </section>
+
+</main>
+
+
+
+
+@section Scripts
+{
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://kit.fontawesome.com/0622708fc2.js" crossorigin="anonymous"></script>
+
+    <script src="~/assets/js/blog/blog.js"></script>
+
+
+
+}
+

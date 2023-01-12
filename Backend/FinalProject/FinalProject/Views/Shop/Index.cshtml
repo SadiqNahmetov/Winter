@@ -54,16 +54,10 @@
                             <form action="/action_page">
                                 @foreach (var brand in Model.Brands)
                                 {
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="#">
-                                    <label for="vehicle1">@brand.Name</label><br>
+                                    <label for="vehicle1"><a style="color:black; text-decoration:none;" asp-action="Index" asp-route-id="@brand.Id">@brand.Name</a></label><br>
                                 }
 
-                                <h5>Size</h5>
-                                @foreach (var size in Model.Sizes)
-                                {
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="#">
-                                    <label for="vehicle1">@size.SizeType</label><br>
-                                }
+                            
 
 
 
@@ -73,31 +67,7 @@
 
 
                     </div>
-                    <div class="main-range">
-                        <div class="range-text">
-                            <h3>PRICE FILTER</h3>
-                        </div>
-
-                        <div class="input-price">
-                            <div class="input-area">
-                                <span>Min</span>
-                                <input type="number" class="input-min" value="20" />
-                            </div>
-                            <div class="separator">-</div>
-                            <div class="input-area">
-                                <span>Max</span>
-                                <input type="number" class="input-max" max="800" value="770" />
-                            </div>
-                        </div>
-                        <div class="range">
-                            <div class="progress"></div>
-                        </div>
-                        <div class="range-input">
-                            <input type="range" class="range-min" min="10" max="800" value="20" step="10" />
-                            <input type="range" class="range-max" min="10" max="800" value="770" step="10" />
-                        </div>
-
-                    </div>
+            
 
                 </div>
 
@@ -116,50 +86,12 @@
                             </div>
                         </div>
 
-                        @foreach (var product in Model.Product)
-                        {
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card" data-id="@product.CategoryId" cart-id="@product.Id">
-                                    <input type="hidden" class="product-id" value="@product.Id" />
-                                    <div class="imagesBx">
-                                        <img src="~/assets/img/product/@product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image" alt="images">
-                                        <ul class="icon-shop">
-                                            <li>
-                                                <i class="fa fa-heart wishList" aria-hidden="true"></i>
-                                                <span>Add to WishList</span>
-                                            </li>
+                        <input id="product-count" type="hidden" value="@ViewBag.count" />
+                        <div class="row" id="parent-products">
+                            <partial name="_ProductPartial" model="@Model.Product" />
+                        </div>
 
-                                         
-                                                <li>
-                                                    <a cart-id="@product.Id" id="addToCart"><i class="fa-sharp fa-solid fa-bag-shopping"></i></a>
-                                                    <span>Add to Cart</span>
-
-                                                </li>
-                                            
-
-                                            <a class="detail" asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
-                                            <li>
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                <span>View Details</span>
-                                            </li>
-                                            </a>
-
-                                        </ul>
-                                    </div>
-                                    <div class="productName">
-                                        <h4>@product.Brand.Name</h4>
-                                        <a> @Html.Raw(product.Name)</a>
-                                    </div>
-                                    <div class="price">
-                                        <span>@((product.Price-((product.Price*product.DiscountPrice)/100)).ToString("##.00"))₼</span>
-                                        <span><del>@product.Price.ToString("##.00")₼</del></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        }
-
-
+                        
 
 
                         <div class="show-more">

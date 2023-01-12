@@ -7,7 +7,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    decimal endTotal = 0;
+   
 }
 
 
@@ -65,19 +65,13 @@
                                 </td>
                             </tr>
                            
-                                endTotal = endTotal + basketProducts.Total;
+                              
                             
                            
                         }
                     </tbody>
                 </table>
-                <div style="background-color: #4D5357 !important; padding:30px; width:250px !important; height:80px !important;">
-                    <span style="color:white; margin-top:20px !important">Total price:</span>
-                  
-                        <span style="color:white">@endTotal.ToString("##") ₼</span>
-                    
-
-                </div>
+              
 
             </div>
 

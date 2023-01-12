@@ -36,6 +36,19 @@ namespace FinalProject.Controllers
             return View(blogVM);
         }
 
-      
+        public async Task<IActionResult> BlogCategoryFilter(int Id)
+        {
+            
+            IEnumerable<Blog> blogs = await _context.Blogs.Where(m => !m.IsDeleted).Where(m => m.BlogCategoryId == Id).ToListAsync();
+            IEnumerable<Blog> recentPost = await _context.Blogs.Where(m => !m.IsDeleted).OrderByDescending(m => m.Id).ToListAsync();
+
+            BlogVM model = new BlogVM
+            {
+                Blog = blogs,
+                RecentPosts = recentPost,
+            };
+
+            return View(model);
+        }
     }
 }
